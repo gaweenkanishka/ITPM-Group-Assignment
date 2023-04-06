@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 
 //create user
-exports.createapplicant = async (req, res) => {
+const createapplicant = async (req, res) => {
   try {
     const { firstName, 
             lastName, 
@@ -27,7 +27,7 @@ exports.createapplicant = async (req, res) => {
 };
 
 // Get all users
-const getApplicant = async (req, res) => {
+const getApplicants = async (req, res) => {
   try {
     const applicant = await applicant.find({});
     res.status(200).json(applicant);
@@ -39,7 +39,7 @@ const getApplicant = async (req, res) => {
 };
 
 //get applicant
-exports.getApplicant = async (req, res) => {
+const getApplicant = async (req, res) => {
   try {
     const applicant = await applicant.find();
     res.json(applicant);
@@ -50,7 +50,7 @@ exports.getApplicant = async (req, res) => {
 };
 
 //update
-exports.updateApplicant = async (req, res) => {
+const updateApplicant = async (req, res) => {
   try {
     const { firstName,
              lastName, 
@@ -75,6 +75,26 @@ exports.updateApplicant = async (req, res) => {
   }
 };
 
+// // Search for applicants
+// const searchApplicant =  async (req, res) {
+//   const { query } = req.query;
+
+//   const { query } = req.query;
+
+//   try {
+//     const applicant = await applicant.find({
+//       $text: {
+//         $search: query,
+//       },
+//     });
+//     res.status(200).json(applicant);
+//   } catch (error) {
+//     res.status(500).json({
+//       error: error.message,
+//     });
+//   }
+// };
+
 // Delete a user
 const deleteApplicant = async (req, res) => {
   const { id } = req.params;
@@ -86,7 +106,7 @@ const deleteApplicant = async (req, res) => {
   }
 
   try {
-    const user = await applicant.findByIdAndDelete(id);
+    const applicant = await applicant.findByIdAndDelete(id);
     if (!user) {
       return res.status(404).json({
         error: "User not found",
@@ -98,20 +118,13 @@ const deleteApplicant = async (req, res) => {
       error: error.message,
     });
   }
+  module.exports = {
+    getApplicants,
+    getApplicant,
+    createapplicant,
+    deleteApplicant,
+    updateApplicant,
+   
+    
+  };
 };
-
-
-
-
-
-// exports.deleteExample = async (req, res) => {
-//   try {
-//     const example = await Example.findById(req.params.id);
-//     if (!example) return res.status(404).json({ error: 'Example not found' });
-//     await example.remove();
-//     res.json({ message: 'Example deleted' });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// };

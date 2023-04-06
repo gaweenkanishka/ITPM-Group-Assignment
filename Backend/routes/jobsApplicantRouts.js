@@ -1,38 +1,28 @@
-const express= require('express')
+const express = require("express");
+const router = express.Router();
 
+const {
+  getApplicants,
+  getApplicant,
+  createApplicant,
+  deleteApplicant,
+  updateApplicant,
+  searchApplicants,
+} = require("../controllers/jobApplicantController");
 
-const router= express.Router()
+// Get all applicants
+router.get("/", getApplicants);
 
-//all workouts
-router.get('/',(req, res) =>{
-    res.json({msg:'Get all workouts'})
-})
+// Get a single applicant
+router.get("/:id", getApplicant);
 
-//get 
-router.get('/:id',(req, res)=>{
-    res.json({msg: 'get a single workout'})
-})
+// Create an applicant
+router.post("/", createApplicant);
 
-//post 
-router.post('/', async (req, res) => {
-    const {title, load, reps} = req.body
-    
-    try {
-      const workout = await Workout.create({title, load, reps})
-      res.status(200).json(workout)
-    } catch (error) {
-      res.status(400).json({error: error.message})
-    }
-  })
+// Delete an applicant
+router.delete("/:id", deleteApplicant);
 
-//delete
-router.delete('/:id',(req,res)=>{
-    res.json({msg:'delete a single workout'})
-})
+// Update an applicant
+router.put("/:id", updateApplicant);
 
-//update
-router.patch('/:id',(req,res)=>{
-    res.json({msg:'update a single workout'})
-})
-
-module.exports = router
+module.exports = router;
