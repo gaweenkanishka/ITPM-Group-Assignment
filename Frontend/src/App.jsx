@@ -1,9 +1,16 @@
 import "./App.css";
+import New1 from "./components/new1";
+import headdingImg from "./assets/hedding.png";
 
 function App() {
   return (
-    <div className="App p-4">
-      <h1 className="text-3xl font-bold underline bg-cyan-400 p-4">Hello world!</h1>
+    <div className="App p-10">
+      <h1 className="text-3xl" bolt>
+        Manusathkama
+      </h1>
+      <br />
+      <img src={headdingImg} alt="Heading" />
+      <New1 />
     </div>
   );
 }
