@@ -1,0 +1,24 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+
+const advertiestmentSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  closing_date: {
+    type: Date,
+    required: false,
+  },
+  contact_number: {
+    type: Number,
+    required: true,
+  },
+});
+
+module.exports = mongoose.model("advertiestment", advertiestmentSchema);
