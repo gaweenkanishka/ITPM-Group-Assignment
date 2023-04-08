@@ -5,24 +5,21 @@ import "./App.css";
 import JobsForm from "./components/jobsForm";
 // import JobsHome from "./components/jobsHome";
 // import JobVacancy from "./components/JobVacancy";
+// import Banner from "./components/Banner";
+// import Hedtext from "./components/Hedtext";
+// import Mission from "./components/Mission";
+// import Menu from "./components/Menu";
+// import Text2 from "./components/Text2";
 
-
+//import Text3 from "./components/Text3";
 
 function App() {
   return (
     <div className="App p-10">
-      <h1 className="text-3xl"style={{fontSize:"40px", fontWeight:"bold"}}>
-        Manusathkama
-      </h1>
-      <br />
-      {/* <img src={HeaddingImg} alt="Heading" /> */}
-      {/* <New1 /> */}
-      {/* <JobsHome/> */}
+      <div className="flex justify-center">
+        <img src={headdingImg} alt="Heading" />
+      </div>
       <JobsForm/>
-      {/* <JobVacancy /> */}
-     
-     
-      
     </div>
   );
 }
