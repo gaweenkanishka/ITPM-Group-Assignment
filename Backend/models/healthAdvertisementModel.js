@@ -18,7 +18,7 @@ const healthAdvertisementSchema = new Schema({
         required: false,
       },
 
-    tittle: {
+    title: {
         type: String,
         required: true,
         },
@@ -30,7 +30,7 @@ const healthAdvertisementSchema = new Schema({
 
     photos: {
         type: String,
-        required: true,
+        required: false,
         },
 
     name: {
@@ -51,4 +51,4 @@ const healthAdvertisementSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("User", healthAdvertisementSchema);
+module.exports = mongoose.model("HealthAdvertisement", healthAdvertisementSchema);

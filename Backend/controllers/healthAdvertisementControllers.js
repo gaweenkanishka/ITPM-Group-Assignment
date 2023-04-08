@@ -1,96 +1,69 @@
 const HealthAdvertisement = require('../models/healthAdvertisementModel');
 const mongoose = require('mongoose');
 
-// Get all healthAdvertisements
+//get all Advertiestments
 const getHealthAdvertisements = async (req, res) => {
-    try {
-        const healthAdvertisements = await HealthAdvertisement.find({});
-        res.status(200).json(healthAdvertisements);
-    } catch (error) {
-        res.status(500).json({
-        error: error.message,
-        });
-    }
-    }
+    const healthAdvertisements = await HealthAdvertisement.find({}).sort({ createdAt: -1 });
+  
+    res.status(200).json(healthAdvertisements);
+  };
 
-// Get one healthAdvertisement
+//get a single Advertiestment
 const getHealthAdvertisement = async (req, res) => {
     const { id } = req.params;
-
+  
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({
-        error: "No such Advertisement",
-        });
+      return res.status(404).json({ error: "No such advertiestment" });
     }
+  
+    const healthAdvertisement = await HealthAdvertisement.findById(id);
+  
+    if (!healthAdvertisement) {
+      return res.status(404).json({ error: "No such advertiestment" });
+    }
+  
+    res.status(200).json(healthAdvertisement);
+  };
 
-    try {
-        const healthAdvertisement = await HealthAdvertisement.findById(id);
-        if (!healthAdvertisement) {
-        return res.status(404).json({
-            error: "Advertisement not found",
-        });
-        }
-        res.status(200).json(healthAdvertisement);
-    } catch (error) {
-        res.status(500).json({
-        error: error.message,
-        });
-    }
-    }
-
-// Create one healthAdvertisement
+//create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const {
+    const { type, location, condition, title, description, photos, name, email, phone } = req.body;
+  
+    //add doc to db
+    try {
+      const healthAdvertiestment = await HealthAdvertisement.create({
         type,
         location,
         condition,
-        tittle,
+        title,
         description,
         photos,
         name,
         email,
         phone,
-    } = req.body;
-
-    if (!type || !location || !tittle || !description || !photos || !name || !email || !phone) {
-        return res.status(400).json({
-        error: "Missing required fields",
-        });
-    }
-    try {
-        const healthAdvertisement = await HealthAdvertisement.create(req.body);
-        res.status(201).json(healthAdvertisement);
+      });
+      res.status(200).json(healthAdvertiestment);
     } catch (error) {
-        res.status(500).json({
-        error: error.message,
-        });
+      res.status(400).json({ error: error.message });
     }
-    }
+  };
 
-// Delete one healthAdvertisement
+  //delete a Advertiestment
 const deleteHealthAdvertisement = async (req, res) => {
     const { id } = req.params;
-
+  
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({
-        error: "Invalid Advertisement ID",
-        });
+      return res.status(404).json({ error: "No such advertiestment" });
     }
-
-    try {
-        const healthAdvertisement = await HealthAdvertisement.findByIdAndDelete(id);
-        if (!healthAdvertisement) {
-        return res.status(404).json({
-            error: "Advertisement not found",
-        });
-        }
-        res.status(200).json(healthAdvertisement);
-    } catch (error) {
-        res.status(500).json({
-        error: error.message,
-        });
+  
+    const healthAdvertisement = await HealthAdvertisement.findOneAndDelete({ _id: id });
+  
+    if (!healthAdvertisement) {
+      return res.status(404).json({ error: "No such advertiestment" });
     }
-    }
+  
+    res.status(200).json(healthAdvertisement);
+  };
 
 // Search for healthAdvertisements
 const searchHealthAdvertisements = async (req, res) => {
@@ -110,33 +83,27 @@ const searchHealthAdvertisements = async (req, res) => {
     }
     }
 
-//update healthAdvertisement
+//update a Advertiestment
 const updateHealthAdvertisement = async (req, res) => {
     const { id } = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({
-      error: "No such Advertisement",
-    });
-  }
-
-  const healthAdvertisement = await HealthAdvertisement.findOneAndUpdate(
-    {
-      _id: id,
-    },
-    {
-      ...req.body,
+  
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: "No such advertiestment" });
     }
-  );
-
-  if (!healthAdvertisement) {
-    return res.status(400).json({
-      error: "No such Advertisement",
-    });
-  }
-
-  res.status(200).json(healthAdvertisement);
-};
+  
+    const healthAdvertisement = await HealthAdvertisement.findOneAndUpdate(
+      { _id: id },
+      {
+        ...req.body,
+      }
+    );
+  
+    if (!healthAdvertisement) {
+      return res.status(404).json({ error: "No such advertiestment" });
+    }
+  
+    res.status(200).json(healthAdvertisement);
+  };
 
 module.exports = {
     getHealthAdvertisements,
