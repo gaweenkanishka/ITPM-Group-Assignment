@@ -27,7 +27,7 @@ const getHealthAdvertisement = async (req, res) => {
 
 //create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const { type, location, condition, title, description, photos, name, email, phone } = req.body;
+    const { type, location, condition, title, description, photos, name, phone } = req.body;
   
     //add doc to db
     try {
@@ -39,7 +39,6 @@ const createHealthAdvertisement = async (req, res) => {
         description,
         photos,
         name,
-        email,
         phone,
       });
       res.status(200).json(healthAdvertiestment);
