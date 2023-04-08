@@ -1,14 +1,12 @@
-* {
-    box-sizing: border-box;
-  }
 
 .form-container {
-    background-color: rgb(236, 230, 220);
-    width: 80%;
-    margin: auto;
-    background-size: cover;
+    margin-top: 20px;
+    background-color: rgb(79, 77, 82);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2rem;
-    opacity: 0.8;
+    opacity: 0.7;
     border-radius: 10px;
   }
   
@@ -26,7 +24,7 @@
     margin-left: 10px;
     display: block;
     margin-bottom: 2rem;
-    color: rgb(0, 0, 0);
+    color: rgb(239, 234, 234);
   }
   
   input, select, textarea {
@@ -45,7 +43,7 @@
   
   .rounded-input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #30c48a;
+    box-shadow: 0 0 0 2px #067a4ccb;
   }
   
   .submit-button {
@@ -55,6 +53,8 @@
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    position: relative;
+    margin-left: 270px;
   }
   
   .submit-button:hover {
