@@ -19,7 +19,11 @@ function App() {
       <div className="flex justify-center">
         <img src={headdingImg} alt="Heading" />
       </div>
-      <JobsForm/>
+      <Mission />
+      <Text2 />
+      {/* <Text3 /> */}
+      <Menu />
+      {/* // <SignIn /> */}
     </div>
   );
 }
