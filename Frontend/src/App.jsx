@@ -22,8 +22,8 @@ function App() {
       <Mission />
       <Text2 />
       {/* <Text3 /> */}
-       <Menu /> 
-     {/* // <SignIn /> */}
+      <Menu />
+      {/* // <SignIn /> */}
     </div>
   );
 }
