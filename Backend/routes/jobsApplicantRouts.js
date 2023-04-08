@@ -8,7 +8,7 @@ const {
   deleteApplicant,
   updateApplicant,
   searchApplicants,
-} = require("../controllers/jobApplicantController");
+} = require("../controllers/jobsApplicantController");
 
 // Get all applicants
 router.get("/", getApplicants);

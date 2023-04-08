@@ -1,29 +1,33 @@
 import React from "react";
 import "./App.css";
-import headdingImg from "./assets/hedding.png";
-import Banner from "./components/Banner";
-import Hedtext from "./components/Hedtext";
-import Mission from "./components/Mission";
-import Menu from "./components/Menu";
-import Text2 from "./components/Text2";
-
+// import headdingImg from "./assets/hedding.png";
+// import Banner from "./components/Banner";
+// import Hedtext from "./components/Hedtext";
+// import Mission from "./components/Mission";
+// import Menu from "./components/Menu";
+// import Text2 from "./components/Text2";
 //import Text3 from "./components/Text3";
+import JobsForm from "./components/jobsForm";
+import JobsHome from "./components/jobsHome";
 
 function App() {
   return (
     <div className="App p-10">
-      <Hedtext />
-      <Banner />
+      {/* <Hedtext /> */}
+      {/* <Banner /> */}
 
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <img src={headdingImg} alt="Heading" />
-      </div>
+      </div> */}
 
-      <Mission />
-      <Text2 />
+      {/* <Mission /> */}
+      {/* <Text2 /> */}
       {/* <Text3 /> */}
-      <Menu />
+      {/* <Menu /> */}
       {/* // <SignIn /> */}
+
+      <JobsHome />
+      <JobsForm />
     </div>
   );
 }
