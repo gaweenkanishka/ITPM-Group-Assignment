@@ -3,12 +3,12 @@ import "./App.css";
 // import headdingImg from "./assets/hedding.png";
 // import Banner from "./components/Banner";
 // import Hedtext from "./components/Hedtext";
-// import Mission from "./components/Mission";
-// import Menu from "./components/Menu";
-// import Text2 from "./components/Text2";
-//import Text3 from "./components/Text3";
-import JobsForm from "./components/jobsForm";
-import JobsHome from "./components/jobsHome";
+ import Mission from "./components/Mission";
+  // import Menu from "./components/Menu";
+import Text2 from "./components/Text2";
+import Text3 from "./components/Text3";
+ import JobsForm from "./components/jobsForm";
+ import JobsHome from "./components/jobsHome";
 
 function App() {
   return (
@@ -20,14 +20,14 @@ function App() {
         <img src={headdingImg} alt="Heading" />
       </div> */}
 
-      {/* <Mission /> */}
-      {/* <Text2 /> */}
-      {/* <Text3 /> */}
-      {/* <Menu /> */}
-      {/* // <SignIn /> */}
+      <Mission /> 
+      <Text2 />
+     <Text3 /> 
+        {/* <Menu /> 
+      <SignIn /> */}
 
       <JobsHome />
-      <JobsForm />
+      <JobsForm /> 
     </div>
   );
 }
