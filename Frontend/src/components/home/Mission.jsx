@@ -19,16 +19,17 @@ export function mission() {
             develop strong policies, skills, partnerships and institutions so
             they can sustain their progress. With this project we are trying to
             end poverty by providing a platform for the people who are in need
-            of help and the people who are willing to help them. also we are
-            trying to satisfy main human needs like etc. if you are willing to
-            have those things in your life then you can join with us and help
-            the people who are in need of help.
+            of help, who can't satisfy basic human needs and the people who are
+            willing to help them. also we are trying to satisfy main human needs
+            food education Health care etc. if you are willing to have those
+            things in your life then you can join with us and help the people
+            who are in need of help.
           </p>
           <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
           <h2 className="text-black font-medium title-font tracking-wider text-sm">
             Kanishka
           </h2>
-          <p className="text-gray-500">Senior Product Designer</p>
+          <p className="text-gray-500">Director of Operations</p>
         </div>
       </div>
     </section>
