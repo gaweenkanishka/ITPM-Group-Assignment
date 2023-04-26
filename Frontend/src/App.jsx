@@ -8,6 +8,7 @@ import Menu from "./components/home/Menu";
 import Text2 from "./components/home/Text2";
 import Proceed2 from "./components/home/proceed2";
 import Footer from "./components/home/Footer";
+import SignIn from "./components/sign/Signin";
 
 function App() {
   return (
@@ -17,11 +18,13 @@ function App() {
       <div className="flex justify-center">
         <img src={headdingImg} alt="Heading" />
       </div>
+
       <Mission />
       <Text2 />
       <Proceed2 />
       <Menu />
       <Footer />
+      <SignIn />
     </div>
   );
 }
