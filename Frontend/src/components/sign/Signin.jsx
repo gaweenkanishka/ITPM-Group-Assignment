@@ -2,7 +2,7 @@ import React from "react";
 
 function SignIn() {
   return (
-    <section className=" sign bg-gray-50 dark:bg-gray-100">
+    <section className=" sign bg-gray-50 dark:bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {/* <a
           href="#"
@@ -78,7 +78,7 @@ function SignIn() {
                   href="#"
                   className="text-sm font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                 >
-                  htmlForgot password?
+                  Forgot password?
                 </a>
               </div>
               <button
