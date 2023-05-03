@@ -2,7 +2,7 @@ import React from "react";
 
 function SignIn() {
   return (
-    <section className=" sign bg-gray-50 dark:bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
+    <section className=" sign bg-gray-50 dark:bg-[url('https://images.pexels.com/photos/12322444/pexels-photo-12322444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover  w-auto">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {/* <a
           href="#"
@@ -15,7 +15,7 @@ function SignIn() {
           ></img>
           Project Manusathkama
         </a> */}
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-100 dark:border-gray-300">
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-100  opacity-80 dark:border-gray-300">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black">
               Sign in to your account
@@ -90,7 +90,7 @@ function SignIn() {
               <div className="text-sm font-light text-gray-500 dark:text-gray-700">
                 Don’t have an account yet?{" "}
                 <a
-                  href="#"
+                  href="/signUp"
                   className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                 >
                   Sign up

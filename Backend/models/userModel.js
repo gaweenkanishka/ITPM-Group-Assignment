@@ -100,6 +100,14 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
+  bloodGroup: {
+    type: String,
+    required: false,
+  },
+  note: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -17,3 +17,11 @@ export {
   EducationOne,
   EducationUpdate,
 };
+
+//sign
+import SignUp from "./sign_up";
+import SignIn from "./sign_in"
+
+export {
+  SignUp,
+  SignIn,};
