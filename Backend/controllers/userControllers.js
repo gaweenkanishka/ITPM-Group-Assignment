@@ -60,14 +60,18 @@ const createUser = async (req, res) => {
     dependents,
     immigrationStatus,
     disabilityStatus,
+    bloodGroup,
+    note,
   } = req.body;
 
   if (
     !first_name ||
+    !last_name ||
     !dob ||
     !phone ||
     !address ||
     !nationality ||
+    !maritalStatus ||
     !maritalStatus
   ) {
     return res.status(400).json({
@@ -75,7 +79,17 @@ const createUser = async (req, res) => {
     });
   }
 
+  // try {
   try {
+    // Check if the user with the same email or phone number already exists
+    const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
+
+    // If the user exists, return an error message
+    if (existingUser) {
+      return res.status(400).json({
+        error: "A user with this email or phone number already exists",
+      });
+    }
     const user = await User.create({
       first_name,
       last_name,
@@ -96,6 +110,8 @@ const createUser = async (req, res) => {
       dependents,
       immigrationStatus,
       disabilityStatus,
+      bloodGroup,
+      note,
     });
     res.status(201).json(user);
   } catch (error) {

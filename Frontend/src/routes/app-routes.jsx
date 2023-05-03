@@ -7,6 +7,8 @@ import {
   EducationAdd,
   EducationOne,
   EducationUpdate,
+  SignUp,
+  SignIn,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -41,6 +43,19 @@ const AppRoutes = () => {
 
           <Route exact path="/healthHome" element={<HealthHome />} />
           <Route exact path="/donateAds" element={<DonateAdvertisement />} />
+
+
+
+          {/*--------------------Sign pages-----------------------------------------*/}
+          <Route exact path="/signUp" element={<SignUp />} />
+          <Route exact path="/signIn" element={<SignIn />} />
+
+
+
+
+
+
+
         </Routes>
       </Router>
     </>
