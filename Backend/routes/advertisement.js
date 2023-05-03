@@ -10,10 +10,10 @@ const {
 const router = express.Router();
 
 //Get all advertiestments
-router.get("/", getAdvertiestments);
+router.get("/", getAdvertiestments); // this is the last part on the endpoind & final URL is localhost:8000/api/advertisement/
 
 //Get a single advertiestment
-router.get("/:id", getAdvertiestment);
+router.get("/:id", getAdvertiestment); // this :id is a dynamic value .it will cpature the id send by the user.so  we can access using id variable.
 
 //Post a new advertiestment
 router.post("/", createAdvertiestment);
