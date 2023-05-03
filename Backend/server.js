@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/users");
 const advertisementRoutes = require("./routes/advertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
+const jobsApplicantRouts = require("./routes/jobsApplicantRouts");
 
 // express app
 const app = express();
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use("/api/users", userRoutes);
 app.use("/api/advertisement", advertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  advertisementRoutes. 
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
+app.use("/api/jobsApplicant", jobsApplicantRouts);
 
 // connect to db
 mongoose
