@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/users", userRoutes);
-app.use("/api/advertisement", advertisementRoutes);
+app.use("/api/advertisement", advertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  advertisementRoutes. 
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
 
 // connect to db

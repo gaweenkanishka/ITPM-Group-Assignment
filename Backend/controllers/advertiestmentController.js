@@ -3,13 +3,15 @@ const mongoose = require("mongoose");
 
 //get all Advertiestments
 const getAdvertiestments = async (req, res) => {
-  const advertiestments = await Advertiestment.find({}).sort({ createdAt: -1 });
-
+  const advertiestments = await Advertiestment.find({}).sort({ createdAt: -1 }); // this varialble will store the data geting from the DB
+ 
+  // this will send  the data to client.
   res.status(200).json(advertiestments);
 };
 
 //get a single Advertiestment
 const getAdvertiestment = async (req, res) => {
+  // this is the id send from client.
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
