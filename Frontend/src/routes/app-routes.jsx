@@ -1,22 +1,50 @@
-import react from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import {
-    HealthHome,
-    DonateAdvertisement, 
-} from '../pages';
+  HealthHome,
+  DonateAdvertisement,
+  EducationList,
+  EducationAdd,
+  EducationOne,
+  EducationUpdate,
+} from "../pages";
 
 const AppRoutes = () => {
-    return (
-        <>
-            <Router>
-                <Routes>
-                    <Route exact path="/healthHome" element={<HealthHome />} />
-                    <Route exact path="/donateAds" element={<DonateAdvertisement />} />
-                </Routes>
-            </Router>
-        </>
-    );
+  return (
+    <>
+      <Router>
+        <Routes>
+          {/* <Route exact path="/" element={<Home />} /> */}
+
+          {/* Education Routes ------------------------------------ */}
+          <Route
+            exact
+            path="/education-advertisements"
+            element={<EducationList />}
+          />
+          <Route
+            exact
+            path="/education-advertisements/add"
+            element={<EducationAdd />}
+          />
+          <Route
+            exact
+            path="/education-advertisements/update/:id"
+            element={<EducationUpdate />}
+          />
+          <Route
+            exact
+            path="/education-advertisements/:id"
+            element={<EducationOne />}
+          />
+          {/* ----------------------------------------------------- */}
+
+          <Route exact path="/healthHome" element={<HealthHome />} />
+          <Route exact path="/donateAds" element={<DonateAdvertisement />} />
+        </Routes>
+      </Router>
+    </>
+  );
 };
 
 export default AppRoutes;
