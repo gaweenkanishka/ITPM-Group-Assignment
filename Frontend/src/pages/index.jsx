@@ -27,3 +27,11 @@ export { SignUp, SignIn };
 //home
 import Home from "./home";
 export { Home };
+
+//food center
+import FoodCenters from "./foodCenters"
+export { FoodCenters };
+
+//food center details
+import FoodCenterDetails from "./foodCenterDetails"
+export { FoodCenterDetails };
