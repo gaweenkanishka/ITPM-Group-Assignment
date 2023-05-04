@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const userRoutes = require("./routes/users");
 const advertisementRoutes = require("./routes/advertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
@@ -13,13 +14,8 @@ const app = express();
 // middleware
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  console.log(req.path, req.method);
-  next();
-});
+// cors
+app.use(cors());
 
 // routes
 app.use("/api/users", userRoutes);
