@@ -10,6 +10,7 @@ import {
   EducationUpdate,
   SignUp,
   SignIn,
+  Home,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -17,8 +18,7 @@ const AppRoutes = () => {
     <>
       <Router>
         <Routes>
-          {/* <Route exact path="/" element={<Home />} /> */}
-
+          
           {/* Education Routes ------------------------------------ */}
           <Route
             exact
@@ -41,7 +41,6 @@ const AppRoutes = () => {
             element={<EducationOne />}
           />
           {/* ----------------------------------------------------- */}
-
           <Route exact path="/healthHome" element={<HealthHome />} />
           <Route exact path="/donateAds" element={<DonateAdvertisement />} />
           <Route exact path="/viewAd" element={<ViewHealthAdvertisement />} />
@@ -52,13 +51,9 @@ const AppRoutes = () => {
           <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/signIn" element={<SignIn />} />
 
-
-
-
-
-
-
-
+          {/*--------------------Home pages-----------------------------------------*/}
+          <Route exact path="" element={<Home />} />
+          
         </Routes>
       </Router>
     </>

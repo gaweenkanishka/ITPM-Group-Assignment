@@ -12,6 +12,9 @@ import EducationUpdate from "./education-update";
 import SignUp from "./sign_up";
 import SignIn from "./sign_in";
 
+//home
+import Home from "./home";
+
 export {
 
   // Education Pages
@@ -28,6 +31,7 @@ export {
   //sign
   SignUp,
   SignIn,
+
+  //home
+  Home,
 };
-
-
