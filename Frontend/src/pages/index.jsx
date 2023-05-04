@@ -20,8 +20,10 @@ export {
 
 //sign
 import SignUp from "./sign_up";
-import SignIn from "./sign_in"
+import SignIn from "./sign_in";
 
-export {
-  SignUp,
-  SignIn,};
+export { SignUp, SignIn };
+
+//home
+import Home from "./home";
+export { Home };
