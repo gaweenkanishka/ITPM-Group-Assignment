@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   HealthHome,
   DonateAdvertisement,
-    ViewAdvertisement,
+  ViewHealthAdvertisement,
   EducationList,
   EducationAdd,
   EducationOne,
@@ -44,6 +44,7 @@ const AppRoutes = () => {
 
           <Route exact path="/healthHome" element={<HealthHome />} />
           <Route exact path="/donateAds" element={<DonateAdvertisement />} />
+          <Route exact path="/viewAd" element={<ViewHealthAdvertisement />} />
 
 
 
@@ -57,7 +58,7 @@ const AppRoutes = () => {
 
 
 
-                    <Route exact path="/viewAd" element={<ViewAdvertisement />} />
+
         </Routes>
       </Router>
     </>

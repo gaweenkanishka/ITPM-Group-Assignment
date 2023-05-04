@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ViewAdvertisement =()  => {
+const ViewHealthAdvertisement =()  => {
 
 
 return(
@@ -119,4 +119,4 @@ return(
 );
 }
 
-export default ViewAdvertisement;
+export default ViewHealthAdvertisement;
