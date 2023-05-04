@@ -42,7 +42,11 @@ const healthAdvertisementSchema = new Schema({
         type: String,
         required: true,
         },
-    
+
+    date: {
+        type: Date,
+        required: true,
+        },
 
 });
 

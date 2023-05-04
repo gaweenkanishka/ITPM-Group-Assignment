@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   HealthHome,
   DonateAdvertisement,
+    ViewAdvertisement,
   EducationList,
   EducationAdd,
   EducationOne,
@@ -56,6 +57,7 @@ const AppRoutes = () => {
 
 
 
+                    <Route exact path="/viewAd" element={<ViewAdvertisement />} />
         </Routes>
       </Router>
     </>
