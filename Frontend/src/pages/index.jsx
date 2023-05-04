@@ -1,5 +1,5 @@
 import HealthHome from "./health/healthHome";
-import DonateAdvertisement from "./health/donateAdvertisement";
+import DonateAdvertisementList from "./health/donateAdvertisementList";
 import ViewHealthAdvertisement from "./health/viewHealthAdvertisement";
 
 // Education Pages
@@ -25,7 +25,7 @@ export {
 
   // Health Pages
   HealthHome,
-  DonateAdvertisement,
+  DonateAdvertisementList,
   ViewHealthAdvertisement,
 
   //sign

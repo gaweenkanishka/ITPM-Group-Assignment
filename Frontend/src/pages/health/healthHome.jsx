@@ -67,7 +67,7 @@ const HealthHome =()  => {
                     </p>
                 </div>
                 <div className="mt-4">
-                    <a href="#" className="inline-block py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-lg shadow-md hover:shadow-none">
+                    <a href="/donate-Advertisements" className="inline-block py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-lg shadow-md hover:shadow-none">
                         Donation
                     </a>
                 </div>

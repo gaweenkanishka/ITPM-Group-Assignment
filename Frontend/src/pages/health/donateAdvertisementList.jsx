@@ -13,7 +13,7 @@ import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
 // }
 
 
-const DonateAdvertisement =()  => {
+const DonateAdvertisementList =()  => {
 
     const [advertisements, setAdvertisements] = useState([]);
     
@@ -155,4 +155,4 @@ const DonateAdvertisement =()  => {
     );
 }
 
-export default DonateAdvertisement; 
+export default DonateAdvertisementList; 
