@@ -10,6 +10,8 @@ import {
   SignUp,
   SignIn,
   Home,
+  FoodCenters,
+  FoodCenterDetails,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -45,7 +47,9 @@ const AppRoutes = () => {
           {/*--------------------Sign pages-----------------------------------------*/}
           <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/signIn" element={<SignIn />} />
-          {/*--------------------Home pages-----------------------------------------*/}
+          {/*--------------------food center-----------------------------------------*/}
+          <Route exact path="/FoodCenters" element={<FoodCenters />} />
+          <Route path="/center/:id" element={<FoodCenterDetails />} />
         </Routes>
       </Router>
     </>
