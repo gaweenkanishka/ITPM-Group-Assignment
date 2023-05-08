@@ -1,6 +1,7 @@
 import HealthHome from "./health/healthHome";
 import DonateAdvertisementList from "./health/donateAdvertisementList";
 import ViewHealthAdvertisement from "./health/viewHealthAdvertisement";
+import EventAdvertisementList from "./health-event/eventAdvertisementList";
 
 // Education Pages
 import EducationList from "./education-list";
@@ -16,8 +17,8 @@ import SignIn from "./sign_in";
 import Home from "./home";
 
 //food center
-import FoodCenters from "./foodCenters"
-import FoodCenterDetails from "./foodCenterDetails"
+import FoodCenters from "./foodCenters";
+import FoodCenterDetails from "./foodCenterDetails";
 
 export {
 
@@ -31,6 +32,9 @@ export {
   HealthHome,
   DonateAdvertisementList,
   ViewHealthAdvertisement,
+  EventAdvertisementList,
+
+
 
   //sign
   SignUp,

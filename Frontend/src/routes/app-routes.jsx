@@ -4,6 +4,7 @@ import {
   HealthHome,
   DonateAdvertisementList,
   ViewHealthAdvertisement,
+  EventAdvertisementList,
   EducationList,
   EducationAdd,
   EducationOne,
@@ -46,6 +47,7 @@ const AppRoutes = () => {
           <Route exact path="/healthHome" element={<HealthHome />} />
           <Route exact path="/donate-Advertisements" element={<DonateAdvertisementList />} />
           <Route exact path="/viewAd" element={<ViewHealthAdvertisement />} />
+          <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
 
 
 

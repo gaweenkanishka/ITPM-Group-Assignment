@@ -3,22 +3,22 @@ import { useState, useEffect } from "react";
 
 
 
-import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
+import EventAdvertisementAPI from "../../api/EventAdvertisementAPI";
 
 // //Get all the advertisements
 // const getAllAdvertisements = async () => {
-//     const response = await DonateAdvertisementAPI.getAllDonateAdvertisements();
+//     const response = await EventAdvertisementAPI.getAllEventAdvertisements();
 //     const data = await response.data;
 //     return data;
 // }
 
 
-const DonateAdvertisementList =()  => {
+const EventAdvertisementList =()  => {
 
     const [advertisements, setAdvertisements] = useState([]);
     
     useEffect(() => {
-        DonateAdvertisementAPI.getAllDonateAdvertisements().then((response) => {
+        EventAdvertisementAPI.getAllEventAdvertisements().then((response) => {
             setAdvertisements(response.data);
         });
     }, []);
@@ -39,7 +39,7 @@ const DonateAdvertisementList =()  => {
             <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
             <div>
                 <h1 className="text-gray-800 text-3xl font-semibold">
-                    DONATIONS
+                    EVENTS
                 </h1>
             </div>
 
@@ -64,7 +64,7 @@ const DonateAdvertisementList =()  => {
                                     <div className="flex flex-row relative sm:flex">
                                         <div className="flex-shrink-0">
                                             <img
-                                                src={advertisement.photos}
+                                                src="https://www.crucial.com.au/blog/wp-content/uploads/2014/12/events_medium.jpg"
                                                     alt=""
                                                     className="rectagle-full w-32 h-32 rounded-md"
                                             />
@@ -95,7 +95,7 @@ const DonateAdvertisementList =()  => {
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                                                 </svg>
-                                                {advertisement.date.slice(0, 10)}
+                                                {advertisement.date.slice(0,10)}
                                             </span>
                                         </div>
                                     </div>
@@ -113,4 +113,4 @@ const DonateAdvertisementList =()  => {
     );
 }
 
-export default DonateAdvertisementList; 
+export default EventAdvertisementList; 
