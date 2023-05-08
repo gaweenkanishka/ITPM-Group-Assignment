@@ -46,7 +46,7 @@ const AppRoutes = () => {
             element={<EducationOne />}
           />
           {/* ----------------------------------------------------- */}
-          <Route exact path="/healthHome" element={<HealthHome />} />
+          <Route exact path="/health-home" element={<HealthHome />} />
           <Route exact path="/donate-Advertisements" element={<DonateAdvertisementList />} />
           <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
 

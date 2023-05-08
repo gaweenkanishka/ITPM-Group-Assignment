@@ -1,5 +1,5 @@
-import HealthHome from "./health/healthHome";
-import DonateAdvertisementList from "./health/donateAdvertisementList";
+import HealthHome from "./health-home/healthHome";
+import DonateAdvertisementList from "./health-donate/donateAdvertisementList";
 import EventAdvertisementList from "./health-event/eventAdvertisementList";
 
 // Education Pages
