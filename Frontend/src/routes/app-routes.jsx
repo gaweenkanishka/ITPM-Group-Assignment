@@ -20,6 +20,10 @@ const AppRoutes = () => {
     <>
       <Router>
         <Routes>
+
+          {/*--------------------Home pages-----------------------------------------*/}
+          <Route exact path="/" element={<Home />} />
+
           
           {/* Education Routes ------------------------------------ */}
           <Route
@@ -52,9 +56,6 @@ const AppRoutes = () => {
           {/*--------------------Sign pages-----------------------------------------*/}
           <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/signIn" element={<SignIn />} />
-
-          {/*--------------------Home pages-----------------------------------------*/}
-          <Route exact path="/" element={<Home />} />
 
           {/*--------------------food center-----------------------------------------*/}
           <Route exact path="/FoodCenters" element={<FoodCenters />} />
