@@ -24,6 +24,7 @@ import JobHome from "./jobHome";
 import JobApplication from "./jobApplication";
 import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
+import JobSeeker from "./jobSeeker"
 
 
 export {
@@ -56,6 +57,7 @@ export {
   JobHome,
   JobApplication,
   JobList,
-  JobUpdate
+  JobUpdate,
+  JobSeeker
 };
 
