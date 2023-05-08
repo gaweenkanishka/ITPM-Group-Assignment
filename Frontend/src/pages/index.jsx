@@ -15,6 +15,10 @@ import SignIn from "./sign_in";
 //home
 import Home from "./home";
 
+//food center
+import FoodCenters from "./foodCenters"
+import FoodCenterDetails from "./foodCenterDetails"
+
 export {
 
   // Education Pages
@@ -34,4 +38,9 @@ export {
 
   //home
   Home,
+
+  //food center
+  FoodCenters,
+  FoodCenterDetails
 };
+
