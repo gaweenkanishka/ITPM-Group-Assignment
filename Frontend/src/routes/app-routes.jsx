@@ -23,7 +23,6 @@ const AppRoutes = () => {
 
           {/*--------------------Home pages-----------------------------------------*/}
           <Route exact path="/" element={<Home />} />
-
           
           {/* Education Routes ------------------------------------ */}
           <Route
