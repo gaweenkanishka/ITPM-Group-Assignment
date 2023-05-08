@@ -54,7 +54,7 @@ const AppRoutes = () => {
           <Route exact path="/signIn" element={<SignIn />} />
 
           {/*--------------------Home pages-----------------------------------------*/}
-          <Route exact path="" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
 
           {/*--------------------food center-----------------------------------------*/}
           <Route exact path="/FoodCenters" element={<FoodCenters />} />
