@@ -13,6 +13,10 @@ import {
   Home,
   FoodCenters,
   FoodCenterDetails,
+  JobHome,
+  JobApplication,
+  JobList,
+  JobUpdate,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -59,6 +63,12 @@ const AppRoutes = () => {
           {/*--------------------food center-----------------------------------------*/}
           <Route exact path="/FoodCenters" element={<FoodCenters />} />
           <Route path="/center/:id" element={<FoodCenterDetails />} />
+
+          {/* -------------------------Jobs------------------- */}
+          <Route exact path="/jobHome" element={<JobHome />} />
+          <Route exact path="/jobApplication"element={<JobApplication/>} />
+          <Route exact path="/jobList" element={<JobList/>}></Route>
+          <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
         </Routes>
       </Router>
     </>
