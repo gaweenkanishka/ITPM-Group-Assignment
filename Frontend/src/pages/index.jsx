@@ -1,5 +1,6 @@
 import HealthHome from "./health/healthHome";
-import DonateAdvertisement from "./health/donateAdvertisement";
+import DonateAdvertisementList from "./health/donateAdvertisementList";
+import EventAdvertisementList from "./health-event/eventAdvertisementList";
 
 // Education Pages
 import EducationList from "./education-list";
@@ -7,31 +8,41 @@ import EducationAdd from "./education-add";
 import EducationOne from "./education-one";
 import EducationUpdate from "./education-update";
 
+//sign
+import SignUp from "./sign_up";
+import SignIn from "./sign_in";
+
+//home
+import Home from "./home";
+
+//food center
+import FoodCenters from "./foodCenters";
+import FoodCenterDetails from "./foodCenterDetails";
+
 export {
-  HealthHome,
-  DonateAdvertisement,
 
   // Education Pages
   EducationList,
   EducationAdd,
   EducationOne,
   EducationUpdate,
+
+  // Health Pages
+  HealthHome,
+  DonateAdvertisementList,
+  EventAdvertisementList,
+
+
+
+  //sign
+  SignUp,
+  SignIn,
+
+  //home
+  Home,
+
+  //food center
+  FoodCenters,
+  FoodCenterDetails
 };
 
-//sign
-import SignUp from "./sign_up";
-import SignIn from "./sign_in";
-
-export { SignUp, SignIn };
-
-//home
-import Home from "./home";
-export { Home };
-
-//food center
-import FoodCenters from "./foodCenters"
-export { FoodCenters };
-
-//food center details
-import FoodCenterDetails from "./foodCenterDetails"
-export { FoodCenterDetails };

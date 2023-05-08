@@ -19,7 +19,7 @@ export function menu() {
             />
 
             <div className="carousel-item__details">
-              <a href="/signUp">
+              <a href="/healthHome">
                 <div className="controls">
                   <span className="fas fa-play-circle"></span>
                   <span className="fas fa-plus-circle"></span>
