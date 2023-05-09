@@ -19,6 +19,14 @@ import Home from "./home";
 import FoodCenters from "./foodCenters";
 import FoodCenterDetails from "./foodCenterDetails";
 
+//Jobs
+import JobHome from "./jobHome";
+import JobApplication from "./jobApplication";
+import JobList from "./jobList";
+import JobUpdate from "./JobUpdate";
+import JobSeeker from "./jobSeeker"
+
+
 export {
 
   // Education Pages
@@ -43,6 +51,13 @@ export {
 
   //food center
   FoodCenters,
-  FoodCenterDetails
+  FoodCenterDetails,
+
+  //Job
+  JobHome,
+  JobApplication,
+  JobList,
+  JobUpdate,
+  JobSeeker
 };
 
