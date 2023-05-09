@@ -20,6 +20,7 @@ import {
   JobList,
   JobUpdate,
   JobSeeker,
+  OrgLogin,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -27,10 +28,12 @@ const AppRoutes = () => {
     <>
       <Router>
         <Routes>
-
           {/*--------------------Home pages-----------------------------------------*/}
           <Route exact path="/" element={<Home />} />
-          
+
+          {/* Organization Routes ------------------------------------ */}
+          <Route exact path="/org-login" element={<OrgLogin />} />
+
           {/* Education Routes ------------------------------------ */}
           <Route
             exact
@@ -54,13 +57,26 @@ const AppRoutes = () => {
           />
           {/* ----------------------------------------------------- */}
           <Route exact path="/health-home" element={<HealthHome />} />
-          <Route exact path="/donate-Advertisements" element={<DonateAdvertisementList />} />
-          <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
-          <Route exact path="/view-health-advertisement/:id" element={<ViewHealthAdvertisement />} />
-          <Route exact path="/view-event-advertisement/:id" element={<ViewEventAdvertisement />} />
-
-
-
+          <Route
+            exact
+            path="/donate-Advertisements"
+            element={<DonateAdvertisementList />}
+          />
+          <Route
+            exact
+            path="/event-Advertisements"
+            element={<EventAdvertisementList />}
+          />
+          <Route
+            exact
+            path="/view-health-advertisement/:id"
+            element={<ViewHealthAdvertisement />}
+          />
+          <Route
+            exact
+            path="/view-event-advertisement/:id"
+            element={<ViewEventAdvertisement />}
+          />
 
           {/*--------------------Sign pages-----------------------------------------*/}
           <Route exact path="/signUp" element={<SignUp />} />
@@ -72,10 +88,10 @@ const AppRoutes = () => {
 
           {/* -------------------------Jobs------------------- */}
           <Route exact path="/jobHome" element={<JobHome />} />
-          <Route exact path="/jobApplication"element={<JobApplication/>} />
-          <Route exact path="/jobList" element={<JobList/>}></Route>
-          <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
-          <Route exact path="jobSeeker" element={<JobSeeker/>}></Route>
+          <Route exact path="/jobApplication" element={<JobApplication />} />
+          <Route exact path="/jobList" element={<JobList />}></Route>
+          <Route exact path="/jobUpdate" element={<JobUpdate />}></Route>
+          <Route exact path="jobSeeker" element={<JobSeeker />}></Route>
         </Routes>
       </Router>
     </>
