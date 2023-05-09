@@ -12,9 +12,10 @@ class DonateAdvertisementAPI{
     }
     
     // Get a single donate advertisement
-    static getDonateAdvertisement(id){
+    static getDonateAdvertisementById(id){
         return axios.get(`${Base_URL}healthAdvertisements/${id}`, requestConfig);
     }
+
 }
 
 export default DonateAdvertisementAPI;
