@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 
 //get all EduAdvertiestments
 const getEduAdvertiestments = async (req, res) => {
-  const eduAdvertiestments = await EduAdvertiestment.find({}).sort({
+  const eduAdvertiestments = await EduAdvertiestment.find({})
+    .populate("organization", "name email")
+    .sort({
     createdAt: -1,
   }); // this varialble will store the data geting from the DB
 

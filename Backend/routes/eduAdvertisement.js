@@ -6,6 +6,7 @@ const {
   deleteEduAdvertiestment,
   updateEduAdvertiestment,
 } = require("../controllers/eduAdvertiestmentController");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
@@ -16,12 +17,12 @@ router.get("/", getEduAdvertiestments); // this is the last part on the endpoind
 router.get("/:id", getEduAdvertiestment); // this :id is a dynamic value .it will cpature the id send by the user.so  we can access using id variable.
 
 //Post a new eduAdvertiestment
-router.post("/", createEduAdvertiestment);
+router.post("/", authMiddleware, createEduAdvertiestment);
 
 //Delete a eduAdvertiestment
-router.delete("/:id", deleteEduAdvertiestment);
+router.delete("/:id", authMiddleware, deleteEduAdvertiestment);
 
 //Update a eduAdvertiestment
-router.patch("/:id", updateEduAdvertiestment);
+router.patch("/:id", authMiddleware, updateEduAdvertiestment);
 
 module.exports = router;
