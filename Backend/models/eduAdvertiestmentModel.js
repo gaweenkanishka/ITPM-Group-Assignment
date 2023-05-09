@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eduAdvertiestmentSchema = new Schema({
+  org_id: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -11,9 +15,15 @@ const eduAdvertiestmentSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
   closing_date: {
     type: Date,
-    required: false,
   },
   contact_number: {
     type: Number,

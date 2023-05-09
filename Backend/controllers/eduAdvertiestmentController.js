@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 
 //get all EduAdvertiestments
 const getEduAdvertiestments = async (req, res) => {
-  const eduAdvertiestments = await EduAdvertiestment.find({}).sort({ createdAt: -1 }); // this varialble will store the data geting from the DB
- 
+  const eduAdvertiestments = await EduAdvertiestment.find({}).sort({
+    createdAt: -1,
+  }); // this varialble will store the data geting from the DB
+
   // this will send  the data to client.
   res.status(200).json(eduAdvertiestments);
 };
@@ -29,15 +31,9 @@ const getEduAdvertiestment = async (req, res) => {
 
 //create new EduAdvertiestment
 const createEduAdvertiestment = async (req, res) => {
-  const { title, description, contact_number } = req.body;
-
   //add doc to db
   try {
-    const eduAdvertiestment = await EduAdvertiestment.create({
-      title,
-      description,
-      contact_number,
-    });
+    const eduAdvertiestment = await EduAdvertiestment.create(req.body);
     res.status(200).json(eduAdvertiestment);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -52,7 +48,9 @@ const deleteEduAdvertiestment = async (req, res) => {
     return res.status(404).json({ error: "No such eduAdvertiestment" });
   }
 
-  const eduAdvertiestment = await EduAdvertiestment.findOneAndDelete({ _id: id });
+  const eduAdvertiestment = await EduAdvertiestment.findOneAndDelete({
+    _id: id,
+  });
 
   if (!eduAdvertiestment) {
     return res.status(404).json({ error: "No such eduAdvertiestment" });
