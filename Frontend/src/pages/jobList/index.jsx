@@ -1,10 +1,15 @@
 import React from 'react'
+import JobListHeader from './JobListHeader';
+import JobList from './JobList'
+import JobListFooter from './JobListFooter'
 
 const index = () => {
   return (
     <div>
-      <h1>Job list</h1>
-    </div>
+    <JobListHeader/>
+    <JobList/>
+    <JobListFooter/>
+</div>
   )
 }
 
