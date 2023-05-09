@@ -1,4 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+function jobApplication(){
+  const[jobtitle,setJobTitle]=useState("");
+  const[type,setType]=useState("");
+  const[]=useState("");
+  const[]=useState("");
+  const[]=useState("");
+  const[]=useState("");
+
+}
 
 const index = () => {
  return (
