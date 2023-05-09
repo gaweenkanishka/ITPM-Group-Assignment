@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eduAdvertiestmentSchema = new Schema({
-  org_id: {
-    type: String,
+  organization: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "orgUser",
     required: true,
   },
   title: {

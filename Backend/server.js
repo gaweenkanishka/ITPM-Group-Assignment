@@ -8,6 +8,7 @@ const eduAdvertisementRoutes = require("./routes/eduAdvertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
 const jobsApplicantRouts = require("./routes/jobsApplicantRouts");
 const eventAdvertisementRoutes = require("./routes/eventAdvertisement");
+const organizationRoutes = require("./routes/organization");
 
 // express app
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors());
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/eduAdvertisement", eduAdvertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  eduAdvertisementRoutes.
+app.use("/api/organization", organizationRoutes);
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
 app.use("/api/jobsApplicant", jobsApplicantRouts);
 app.use("/api/eventAdvertisement", eventAdvertisementRoutes);
