@@ -27,14 +27,13 @@ const getHealthAdvertisement = async (req, res) => {
 
 //create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const { type, location, condition, title, description, photos, name, phone, date } = req.body;
+    const { type, location, title, description, photos, name, phone, date } = req.body;
   
     //add doc to db
     try {
       const healthAdvertiestment = await HealthAdvertisement.create({
         type,
         location,
-        condition,
         title,
         description,
         photos,
@@ -86,24 +85,36 @@ const searchHealthAdvertisements = async (req, res) => {
 //update a Advertiestment
 const updateHealthAdvertisement = async (req, res) => {
     const { id } = req.params;
-  
+
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: "No such advertiestment" });
+        return res.status(404).json({ error: "No such advertiestment" });
     }
-  
     const healthAdvertisement = await HealthAdvertisement.findOneAndUpdate(
-      { _id: id },
-      {
-        ...req.body,
-      }
+        { _id: id },
+        {
+            $set: {
+                type: req.body.type,
+                location: req.body.location,
+                title: req.body.title,
+                description: req.body.description,
+                photos: req.body.photos,
+                name: req.body.name,
+                phone: req.body.phone,
+                date: req.body.date,
+            },
+        },
+        { new: true }
     );
-  
+
     if (!healthAdvertisement) {
-      return res.status(404).json({ error: "No such advertiestment" });
+
+        return res.status(404).json({ error: "No such advertiestment" });
     }
-  
+
     res.status(200).json(healthAdvertisement);
-  };
+};
+
+
 
 module.exports = {
     getHealthAdvertisements,

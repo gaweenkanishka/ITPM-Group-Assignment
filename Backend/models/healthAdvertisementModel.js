@@ -13,11 +13,6 @@ const healthAdvertisementSchema = new Schema({
         required: true,
       },
 
-    condition: {
-        type: String,
-        required: false,
-      },
-
     title: {
         type: String,
         required: true,
