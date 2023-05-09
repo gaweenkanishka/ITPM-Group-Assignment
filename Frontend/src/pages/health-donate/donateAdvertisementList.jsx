@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 
 import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
+import ViewHealthAdvertisement from "./viewHealthAdvertisement";
 
 // //Get all the advertisements
 // const getAllAdvertisements = async () => {
@@ -59,7 +60,7 @@ const DonateAdvertisementList =()  => {
                 {
                     filteredAdvertisements.map((advertisement, idx) => (
                         <li key={idx} className="p-5 bg-white rounded-md shadow-md">
-                            <a href={"/viewAd"}>
+                            <a href={"/view-health-advertisement/"+advertisement._id }>
                                 <div>
                                     <div className="flex flex-row relative sm:flex">
                                         <div className="flex-shrink-0">

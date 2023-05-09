@@ -1,6 +1,8 @@
 import HealthHome from "./health-home/healthHome";
 import DonateAdvertisementList from "./health-donate/donateAdvertisementList";
 import EventAdvertisementList from "./health-event/eventAdvertisementList";
+import ViewHealthAdvertisement from "./health-donate/viewHealthAdvertisement";
+import ViewEventAdvertisement from "./health-event/viewEventAdvertisement";
 
 // Education Pages
 import EducationList from "./education-list";
@@ -31,6 +33,8 @@ export {
   HealthHome,
   DonateAdvertisementList,
   EventAdvertisementList,
+  ViewHealthAdvertisement,
+  ViewEventAdvertisement,
 
 
 
