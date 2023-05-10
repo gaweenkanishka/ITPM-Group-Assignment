@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import Header from "../../components/header";
 
 const EducationList = () => {
   return (
     <div>
+      <Header />
       <h1 className="text-4xl">Education List Page</h1>
 
       {/* Add New Education */}
