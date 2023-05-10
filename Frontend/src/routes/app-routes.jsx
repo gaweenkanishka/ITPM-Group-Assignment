@@ -21,6 +21,7 @@ import {
   JobUpdate,
   JobSeeker,
   OrgLogin,
+  OrgDashboard,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -33,6 +34,7 @@ const AppRoutes = () => {
 
           {/* Organization Routes ------------------------------------ */}
           <Route exact path="/org-login" element={<OrgLogin />} />
+          <Route exact path="/org" element={<OrgDashboard />} />
 
           {/* Education Routes ------------------------------------ */}
           <Route
