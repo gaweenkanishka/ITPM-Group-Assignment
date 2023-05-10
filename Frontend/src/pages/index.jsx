@@ -24,11 +24,12 @@ import JobHome from "./jobHome";
 import JobApplication from "./jobApplication";
 import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
-import JobSeeker from "./jobSeeker"
+import JobSeeker from "./jobSeeker";
 
+//Profile
+import Profile from "./userProfile";
 
 export {
-
   // Education Pages
   EducationList,
   EducationAdd,
@@ -39,8 +40,6 @@ export {
   HealthHome,
   DonateAdvertisementList,
   EventAdvertisementList,
-
-
 
   //sign
   SignUp,
@@ -58,6 +57,8 @@ export {
   JobApplication,
   JobList,
   JobUpdate,
-  JobSeeker
-};
+  JobSeeker,
 
+  //Profile
+  Profile,
+};
