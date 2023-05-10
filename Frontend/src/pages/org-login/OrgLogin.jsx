@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OrganizationAPI from "../../api/OrganizationAPI";
 import undraw_Login_re_4vu2 from "../../assets/undraw_Login_re_4vu2.png";
-import toast from "../../components/toast";
 import makeToast from "../../components/toast";
 
 const OrgLogin = () => {
@@ -22,7 +21,8 @@ const OrgLogin = () => {
       if (response.status === 200) {
         makeToast({ type: "success", message: "Login Successful" });
         localStorage.setItem("token", response.data.token);
-        navigate("/org-dashboard");
+        // navigate("/org");
+        window.location.href = "/org";
       }
     } catch (error) {
       makeToast({ type: "error", message: error.response.data.error });

@@ -1,12 +1,12 @@
 import React from "react";
-import OrgLogin from "./OrgLogin";
+import OrgDashboard from "./OrgDashboard";
 import Header from "../../components/header";
 
 const index = () => {
   return (
     <>
       <Header />
-      <OrgLogin />
+      <OrgDashboard />
     </>
   );
 };
