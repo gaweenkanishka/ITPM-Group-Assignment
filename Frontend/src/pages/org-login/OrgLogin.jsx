@@ -21,7 +21,8 @@ const OrgLogin = () => {
       if (response.status === 200) {
         makeToast({ type: "success", message: "Login Successful" });
         localStorage.setItem("token", response.data.token);
-        navigate("/org");
+        // navigate("/org");
+        window.location.href = "/org";
       }
     } catch (error) {
       makeToast({ type: "error", message: error.response.data.error });

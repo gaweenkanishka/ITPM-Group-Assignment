@@ -19,7 +19,7 @@ const authMiddleware = (req, res, next) => {
     next();
   } catch (error) {
     // The JWT token is not valid, so return an unauthorized error
-    res.status(401).send({ error: "Unauthorizedzzz" });
+    res.status(401).send({ error: "Unauthorized" });
     return;
   }
 };
