@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
 import Footer from "../home/Footer";
 
 const HealthHome =()  => {
@@ -34,13 +33,13 @@ const HealthHome =()  => {
                     </div>
                 </div>
             </div>
-            <section className=" mt-5 py-16 bg-orange-200">
+            <section className=" mt-5 py-16 ">
                 <div className="mt-12">
                     <ul className="flex flex-col items-center justify-around gap-y-10 sm:flex-row sm:flex-wrap lg:divide-x">
                         {
                             stats.map((item, idx) => (
                                 <li key={idx} className="text-center px-20 md:px-16">
-                                    <h4 className="text-4xl text-indigo-600 font-semibold">{item.data}</h4>
+                                    <h4 className=" text-5xl text-indigo-600 font-semibold">{item.data}</h4>
                                     <h5 className="mt-3 text-xl font-semibold">{item.title}</h5>
                                 </li>
                             ))
@@ -52,8 +51,10 @@ const HealthHome =()  => {
             <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
                 <div className="text-center">
                     <h1 className="text-white text-2xl font-semibold md:text-3xl">Help Us Make the world A Better Place <br></br>for the next generation</h1>
-                        <button className="mt-4 px-8 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
-                        onClick={() => {document.location.href="/donate-Advertisements"}}>Donation</button>
+                    <a href="/donate-Advertisements" className=" mt-7 inline-flex items-center justify-center w-32 h-9 text-md font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Donation
+                        <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -61,10 +62,10 @@ const HealthHome =()  => {
             <div className="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
                 <div className="text-center">
                     <h1 className="text-white text-2xl font-semibold md:text-3xl">Let's extend the hands of brotherhood </h1>
-                        <button className="mt-4 px-8 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500" 
-                        
-                        onClick={() => {document.location.href="/event-Advertisements"}}
-                        >Events</button>
+                    <a href="/event-Advertisements" className=" mt-7 inline-flex items-center justify-center w-32 h-9 text-md font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Event
+                        <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>
