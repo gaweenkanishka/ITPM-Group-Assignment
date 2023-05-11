@@ -2,7 +2,6 @@ const JobSeeker = require('../models/jobSeekerModel');
 const mongoose = require ('mongoose');
 
 //create JobSeeker
-
 const createJobSeeker = async (req, res) => {
     try {
       const { 
@@ -20,7 +19,7 @@ const createJobSeeker = async (req, res) => {
   
       const savedJobSeeker = await newJobSeeker.save();
   
-      res.status(201).json(savedJobSeeker);
+      res.status(201).send('Saved!');
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'Server error' });
@@ -42,8 +41,11 @@ const getJobSeekers = async (req, res) => {
   
   // Get jobseeker by ID
 const getJobSeeker = async (req, res) => {
+  const {id} = req.params;
+  console.log(id);
+
     try {
-      const getJobSeeker = await Applicant.findById(req.params.id);
+      const getJobSeeker = await JobSeeker.findById(id);
       if (!JobSeeker) {
         return res.status(404).json({
           error: 'JobSeeker not found',
@@ -71,16 +73,11 @@ const getJobSeeker = async (req, res) => {
         });
       }
   
-        jobSeeker.fistName= firstName;
-        jobSeeker.lastName=lastName;
-        jobSeeker.dateofBirth=dateofBirth;
-        jobSeeker.seelectanOption=selectanOption;
-        jobSeeker.email=email;
-        jobSeeker.description=description;
+      const updatedJobSeeker = { firstName, lastName, dateofBirth, selectanOption, email, description};
 
-      const savedJobSeeker = await JobSeeker.save();
+      const savedJobSeeker = await JobSeeker.findByIdAndUpdate(req.params.id, updatedJobSeeker);
   
-      res.json(savedJobSeeker);
+      res.status(200).send('Updated !');
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'Server error' });
@@ -106,7 +103,7 @@ const deleteJobSeeker = async (req, res) => {
         });
       }
   
-      res.status(200).json(deletedJobSeeker);
+      res.status(200).send('Deleted !');
     } catch (error) {
       res.status(500).json({
         error: error.message,

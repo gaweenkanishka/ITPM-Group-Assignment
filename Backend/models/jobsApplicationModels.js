@@ -2,26 +2,41 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const JobsSchema = new Schema({
-  firstName: {
+  jobId:{
+    type:String
+  },
+  
+  jobTitle: {
     type: String,
     required: true
   },
-  lastName: {
+  type: {
     type: String,
+    enum: ['FullTime', 'PartTime', 'Internship','Contract'],
     required: true
   },
-  dateOfBirth: {
+  location: {
     type: Date,
     required: true
   },
-  selectOption: {
+receive: {
     type: String,
-    enum: ['Option1', 'Option2', 'Option3'],
     required: true
   },
-  description: {
+ jobDescription: {
     type: String,
     required: true
+  },
+  openFor:{
+    type:String,
+    requuired:true
+  },
+  companyName:{
+    type:String,
+    require:true
+  },
+  Image:{
+    type:String
   }
 });
 

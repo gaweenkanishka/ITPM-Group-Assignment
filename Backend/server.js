@@ -8,6 +8,7 @@ const advertisementRoutes = require("./routes/advertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
 const jobsApplicantRouts = require("./routes/jobsApplicantRouts");
 const eventAdvertisementRoutes = require("./routes/eventAdvertisement");
+const jobSeekerRoutes=require("./routes/jobSeekerRoutes");
 
 // express app
 const app = express();
@@ -24,7 +25,7 @@ app.use("/api/advertisement", advertisementRoutes); // when user send a req to l
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
 app.use("/api/jobsApplicant", jobsApplicantRouts);
 app.use("/api/eventAdvertisement", eventAdvertisementRoutes);
-
+app.use("/api/jobSeeker",jobSeekerRoutes);
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI)

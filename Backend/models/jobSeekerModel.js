@@ -2,7 +2,7 @@ const mongoose= require ('mongoose');
 const Schema = mongoose.Schema;
 
 const jobSeekerSchema= new Schema({
-   fistName:{
+   firstName:{
         type:String,
         required:true
     },
@@ -17,7 +17,7 @@ const jobSeekerSchema= new Schema({
         required:true
     },
 
-    seelectanOption:{
+    selectanOption:{
         type:String,
         enum:['have E-mail', `Don't Have E-mail`],
         required:true

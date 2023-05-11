@@ -4,14 +4,10 @@ const mongoose = require('mongoose');
 // create applicant
 const createApplicant = async (req, res) => {
   try {
-    const { firstName, lastName, dateOfBirth, selectOption, description } = req.body;
+    const { jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
 
     const newApplicant = new Applicant({
-      firstName,
-      lastName,
-      dateOfBirth,
-      selectOption,
-      description,
+      jobTitle,type,location,receive,jobDescription,openFor,companyName,Image,
     });
 
     const savedApplicant = await newApplicant.save();

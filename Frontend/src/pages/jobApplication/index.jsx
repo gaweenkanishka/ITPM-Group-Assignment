@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 function jobApplication(){
   const[jobtitle,setJobTitle]=useState("");
   const[type,setType]=useState("");
-  const[]=useState("");
-  const[]=useState("");
-  const[]=useState("");
-  const[]=useState("");
+  const[location,setLocation]=useState("");
+  const[receive,seetReceive]=useState("");
+  const[description,setDescription]=useState("");
+  const[openfor,setOpenfor]=useState("");
+  const[companyName,setCompanyName]=useState("");
+  const[uploadFile,SetImageUrl]=useState("");
 
 }
 
@@ -17,15 +19,15 @@ const index = () => {
 //     // </div>
 //   )
 // }
-<div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+<div className="min-h-screen bg-gray-100 py-6  flex flex-col   sm:py-12">
 <h1 className="text-center text-3xl font-extrabold text-gray-900 mt-5 mb-5">
 Hire The Talent You  Need
 </h1>
-<form >
-  <div className="max-w-2xl mx-auto mt-5 shadow-md overflow-hidden rounded-md bg-white p-10">
+<form   >
+  <div className="max-w-2xl mx-auto mt-5 shadow-md overflow-hidden rounded-md  bg-white p-10 ">
     <div className="grid grid-cols-1 gap-6 ">
   
-  {/* Name */}
+  {/* Title */}
  <div className="flex flex-col justify-start items-start mx-4 my-2">
   <label htmlFor="jobtitle" className="block text-sm font-medium text-gray-700 mb-1">
     Job Title
@@ -137,7 +139,7 @@ Hire The Talent You  Need
           className="block text-sm font-medium text-gray-700 flex flex-col justify-start 
           items-start mx-4 my-2"
         >
-       How do you want to receive Application
+          Receive (How do you want to receive Application)
         </label>
         <input
           type="text"
@@ -214,10 +216,22 @@ Hire The Talent You  Need
           //onChange={(event) => handlecompanyNameChange(event)}
         />
       </div>
-
-          
-
       </div>
+
+           <div>
+             <label for="dropzone-file"
+               class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 
+                border-gray-400 bg-white mt-4 text-center">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                 <path stroke-linecap="round" stroke-linejoin="round"
+                   d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+               </svg>
+
+               <h2 class="mt-2 text-l font-medium text-black tracking-wide">Upload a file</h2>
+               <input id="dropzone-file" type="file" class="hidden" />
+             </label>
+           </div>
      
 
       {/* Submit Button */}

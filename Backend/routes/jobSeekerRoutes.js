@@ -8,8 +8,7 @@ const {
   updateJobSeeker,
   deleteJobSeeker,
   searchApplicants,
-} = require("../controllers/jobSeekerController");
-const { getJobSeeker, getJobSeekers } = require("../controllers/jobSeekerControllers");
+} = require("../controllers/jobSeekerControllers");
 
 // Get all applicants
 router.get("/", getJobSeekers);
