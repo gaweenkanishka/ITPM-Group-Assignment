@@ -10,6 +10,10 @@ import EducationAdd from "./education-add";
 import EducationOne from "./education-one";
 import EducationUpdate from "./education-update";
 
+// Organization Pages
+import OrgLogin from "./org-login";
+import OrgDashboard from "./org-dashboard";
+
 //sign
 import SignUp from "./sign_up";
 import SignIn from "./sign_in";
@@ -26,16 +30,18 @@ import JobHome from "./jobHome";
 import JobApplication from "./jobApplication";
 import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
-import JobSeeker from "./jobSeeker"
-
+import JobSeeker from "./jobSeeker";
 
 export {
-
   // Education Pages
   EducationList,
   EducationAdd,
   EducationOne,
   EducationUpdate,
+
+  // Organization Pages
+  OrgLogin,
+  OrgDashboard,
 
   // Health Pages
   HealthHome,
@@ -43,8 +49,6 @@ export {
   EventAdvertisementList,
   ViewHealthAdvertisement,
   ViewEventAdvertisement,
-
-
 
   //sign
   SignUp,
@@ -62,6 +66,5 @@ export {
   JobApplication,
   JobList,
   JobUpdate,
-  JobSeeker
+  JobSeeker,
 };
-
