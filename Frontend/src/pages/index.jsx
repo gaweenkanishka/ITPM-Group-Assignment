@@ -18,6 +18,9 @@ import OrgDashboard from "./org-dashboard";
 import SignUp from "./sign_up";
 import SignIn from "./sign_in";
 
+//login selection
+import LoginSelection from "./loginSelect";
+
 //home
 import Home from "./home";
 
@@ -53,6 +56,9 @@ export {
   //sign
   SignUp,
   SignIn,
+
+  //login selection
+  LoginSelection,
 
   //home
   Home,
