@@ -82,7 +82,7 @@ const getJobSeeker = async (req, res) => {
       console.error(err);
       res.status(500).json({ error: 'Server error' });
     }
-  };
+  }; 
 
   // Delete an aJobSeeker by ID
 const deleteJobSeeker = async (req, res) => {

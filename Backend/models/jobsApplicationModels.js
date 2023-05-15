@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const JobsSchema = new Schema({
+const jobsApplicationSchema = new Schema({
   jobId:{
     type:String
   },
@@ -40,6 +40,6 @@ receive: {
   }
 });
 
-module.exports =  mongoose.model("jobs", JobsSchema);
+module.exports =  mongoose.model("jobsApplication", jobsApplicationSchema);
 
 

@@ -6,9 +6,10 @@ const cors = require("cors");
 const userRoutes = require("./routes/users");
 const advertisementRoutes = require("./routes/advertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
-const jobsApplicantRouts = require("./routes/jobsApplicantRouts");
+const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
 const eventAdvertisementRoutes = require("./routes/eventAdvertisement");
 const jobSeekerRoutes=require("./routes/jobSeekerRoutes");
+const careerRoutes = require("./routes/careerRoutes");
 
 // express app
 const app = express();
@@ -23,9 +24,10 @@ app.use(cors());
 app.use("/api/users", userRoutes);
 app.use("/api/advertisement", advertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  advertisementRoutes.
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
-app.use("/api/jobsApplicant", jobsApplicantRouts);
+app.use("/api/jobsApplication", jobsApplicationRouts);
 app.use("/api/eventAdvertisement", eventAdvertisementRoutes);
 app.use("/api/jobSeeker",jobSeekerRoutes);
+app.use("/api/career",careerRoutes);
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI)

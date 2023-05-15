@@ -1,4 +1,4 @@
-const Applicant = require('../models/jobsApplicantModels');
+const Applicant = require('../models/jobsApplicationModels');
 const mongoose = require('mongoose');
 
 // create applicant
@@ -53,7 +53,7 @@ const getApplicant = async (req, res) => {
 // Update an applicant by ID
 const updateApplicant = async (req, res) => {
   try {
-    const { firstName, lastName, dateOfBirth, selectOption, description } = req.body;
+    const {  jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
 
     const applicant = await Applicant.findById(req.params.id);
 
@@ -63,12 +63,15 @@ const updateApplicant = async (req, res) => {
       });
     }
 
-    applicant.firstName = firstName;
-    applicant.lastName = lastName;
-    applicant.dateOfBirth = dateOfBirth;
-    applicant.selectOption = selectOption;
-    applicant.description = description;
-
+    applicant.jobTitle=jobTitle;
+    applicant.type =type;
+    applicant.location = location;
+    applicant.receive =receive;
+    applicant.jobDescription= jobDescription;
+    applicant.openFor=openFor;
+    applicant.companyName=companyName;
+    applicant.Image=Image;
+    
     const savedApplicant = await Applicant.save();
 
     res.json(savedApplicant);

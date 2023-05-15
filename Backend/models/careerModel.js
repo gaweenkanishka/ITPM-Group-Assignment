@@ -1,7 +1,7 @@
-const mongoose =require('mongoose');
+const mongoose = require ('mongoose');
 const Schema= mongoose.Schema;
 
-const careerSchema =new Schema({
+const CareerSchema =new Schema({
     name:{
         type:String,
         require:true
@@ -16,9 +16,9 @@ const careerSchema =new Schema({
         type:Number
     },
 
-    file:{
-        type:File
-    }
+    // file:{
+    //     type: File
+    // }
 });
 
-module.exports=mongoose.model('career',careerSchema);
+module.exports=mongoose.model('Career',CareerSchema);

@@ -1,4 +1,4 @@
-const expresss=require('express');
+const express = require('express');
 const router=express.Router();
 
 const{
@@ -7,8 +7,8 @@ const{
     createCareer,
     updateCareer,
     deleteCareer,
-}=require("../controllers/careereController");
-const{getCareer,getcareers}=require("../controllers/careereController");
+}=require("../controllers/careerController");
+// const{getCareer,getcareers}=require("../controllers/careerController");
 
 //get all Careers
 router.get("/",getcareers);
@@ -17,10 +17,10 @@ router.get("/",getcareers);
 router.get("/:id",getCareer);
 
 //create career
-router.create("/",createCareer);
+router.post("/",createCareer);
 
 //update career
-router.update("/:id",updateCareer);
+router.put("/:id",updateCareer);
 
 //delete career
 router.delete("/:id",deleteCareer);
