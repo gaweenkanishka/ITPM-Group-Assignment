@@ -1,18 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
-
-
 import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
-import ViewHealthAdvertisement from "./viewHealthAdvertisement";
-
-// //Get all the advertisements
-// const getAllAdvertisements = async () => {
-//     const response = await DonateAdvertisementAPI.getAllDonateAdvertisements();
-//     const data = await response.data;
-//     return data;
-// }
-
 
 const DonateAdvertisementList =()  => {
 
@@ -38,11 +26,10 @@ const DonateAdvertisementList =()  => {
     return(
         <>
             <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
-            <div>
-                <h1 className="text-gray-800 text-3xl font-semibold">
+                <h1 className="text-gray-800 text-3xl font-semibold text-center ">
                     DONATIONS
                 </h1>
-            </div>
+            
 
             <div className="max-w-2xl mx-auto mt-5">
             <input
