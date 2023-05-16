@@ -31,6 +31,9 @@ import JobApplication from "./jobApplication";
 import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
 import JobCareer from "./jobCareer";
+import JobOne from "./Job-one";
+import JobSeeker from"./jobSeeker";
+
 
 export {
   // Education Pages
@@ -67,4 +70,6 @@ export {
   JobList,
   JobUpdate,
   JobCareer,
+  JobOne,
+  JobSeeker
 };

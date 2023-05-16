@@ -20,8 +20,8 @@ import {
   JobList,
   JobUpdate,
   JobCareer,
-  OrgLogin,
-  OrgDashboard,
+  JobOne,
+  JobSeeker,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -90,10 +90,12 @@ const AppRoutes = () => {
 
           {/* -------------------------Jobs------------------- */}
           <Route exact path="/jobHome" element={<JobHome />} />
-          <Route exact path="/jobApplication" element={<JobApplication />} />
-          <Route exact path="/jobList" element={<JobList />}></Route>
-          <Route exact path="/jobUpdate" element={<JobUpdate />}></Route>
-          <Route exact path="jobCareer" element={<JobCareer />}></Route>
+          <Route exact path="/jobApplication"element={<JobApplication/>} />
+          <Route exact path="/jobList" element={<JobList/>}></Route>
+          <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
+          <Route exact path="/jobCareer" element={<JobCareer/>}></Route>
+          <Route exact path="/jobOne"element={<JobOne/>}></Route>
+          <Route exact path= "/jobSeeker" element={<JobSeeker/>}/>
         </Routes>
       </Router>
     </>
