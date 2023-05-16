@@ -11,8 +11,8 @@ import EducationOne from "./education-one";
 import EducationUpdate from "./education-update";
 
 // Organization Pages
-import OrgLogin from "./org-login";
-import OrgDashboard from "./org-dashboard";
+// import OrgLogin from "./org-login";
+// import OrgDashboard from "./org-dashboard";
 
 //sign
 import SignUp from "./sign_up";
@@ -42,9 +42,9 @@ export {
   EducationOne,
   EducationUpdate,
 
-  // Organization Pages
-  OrgLogin,
-  OrgDashboard,
+  // // Organization Pages
+  // OrgLogin,
+  // OrgDashboard,
 
   // Health Pages
   HealthHome,

@@ -24,6 +24,15 @@ const form = () => {
                         get in touch
                     </button>
 
+                    <div className='absolute bottom-8 left-4 '>
+                <button class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600  hover:bg-blue-500 
+                focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50
+                rounded-full inline-flex items-center ml-2">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/015/270/860/small/left-arrow-direction-solid-icon-in-grey-colors-interface-signs-illustration-png.png" 
+                    className='w-8 h-8 display-inline-block mr-2'/>
+                       back
+                    </button>
+                </div>
                 </div>
               
 
@@ -107,17 +116,6 @@ const form = () => {
             </div>
         </div>
         </div> */}
-
-    <header  className="h-80 bg-cover bg-center bg-no-repeat ">
-       <img src= 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
-       className='absolute inset-0 -z-10 h-80 w-full object-cover object-right md:object-center'>
-     </img>
-     <div class="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-75">
-     <div class="flex items-center justify-center">
-      <h1 class="text-white text-2xl font-bold uppercase md:text-3xl">My Component</h1>
-      </div>
-      </div>
-    </header>
 
             </div>
         </div>
