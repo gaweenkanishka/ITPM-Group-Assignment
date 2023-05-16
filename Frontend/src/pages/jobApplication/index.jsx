@@ -7,9 +7,13 @@ const index = () => {
 //     // </div>
 //   )
 // }
-<div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+<div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12 dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d8.jpg')] 
+    bg-cover  w-auto">
+{/* <img src= 'https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d8.jpg'
+ className='absolute inset-0 -z-10 min-h-screen h-full w-full object-cover object-right md:object-center'
+  ></img> */}
 <h1 className="text-center text-3xl font-extrabold text-gray-900 mt-5 mb-5">
-Hire The Talent You  Need
+Make your job Advertisement Here
 </h1>
 <form >
   <div className="max-w-2xl mx-auto mt-5 shadow-md overflow-hidden rounded-md bg-white p-10">

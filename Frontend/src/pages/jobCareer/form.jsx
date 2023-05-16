@@ -13,7 +13,7 @@ const form = () => {
         <div class="container flex flex-col flex-1 px-6 py-12 mx-auto">
             <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
                 <div class="text-white lg:w-1/2 lg:mx-6">
-                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Ultimate design solution</h1>
+                    <h1 class="text-2xl font-semibold capitalize ml-24 lg:text-3xl">JOIN WITH US</h1>
                     <p class="max-w-xl mt-6">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem quo
                         aliquid molestiae hic incidunt beatae placeat accusantium! Alias ex quisquam ab tempora. Ratione
@@ -24,7 +24,19 @@ const form = () => {
                         get in touch
                     </button>
 
+                </div> 
+
+                <div className='absolute bottom-8 left-4 '>
+                <button class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600  hover:bg-blue-500 
+                focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50
+                rounded-full inline-flex items-center ml-2">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/015/270/860/small/left-arrow-direction-solid-icon-in-grey-colors-interface-signs-illustration-png.png" 
+                    className='w-8 h-8 display-inline-block mr-2'/>
+                       back
+                    </button>
                 </div>
+
+                   
               
 
                 <div class="mt-8 lg:w-1/2 lg:mx-6">

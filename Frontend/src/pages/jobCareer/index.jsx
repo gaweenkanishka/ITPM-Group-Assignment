@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from './form'
+import JobCareerList from './jobCareerList'
 
 
 const index = () => {
@@ -8,6 +9,7 @@ const index = () => {
       <h1></h1>
 
      <Form/>
+     <JobCareerList/>
 
     
 </div>
