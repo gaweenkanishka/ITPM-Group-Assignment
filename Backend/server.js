@@ -6,8 +6,12 @@ const cors = require("cors");
 const userRoutes = require("./routes/users");
 const eduAdvertisementRoutes = require("./routes/eduAdvertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
-const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
+//const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
 const eventAdvertisementRoutes = require("./routes/eventAdvertisement");
+const organizationRoutes = require("./routes/organization");
+const jobSeekerRoutes = require("./routes/jobSeekerRoutes");
+const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
+const careerRoutes = require("./routes/careerRoutes");
 
 // express app
 const app = express();
