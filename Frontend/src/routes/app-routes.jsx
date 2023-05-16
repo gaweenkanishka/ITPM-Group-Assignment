@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import {
+  OrgLogin,
+  OrgDashboard,
   HealthHome,
   DonateAdvertisementList,
   EventAdvertisementList,
@@ -21,7 +23,7 @@ import {
   JobUpdate,
   JobCareer,
   JobOne,
-  //JobSeeker,
+  JobSeeker,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -33,8 +35,8 @@ const AppRoutes = () => {
           <Route exact path="/" element={<Home />} />
 
           {/* Organization Routes ------------------------------------ */}
-          {/* <Route exact path="/org-login" element={<OrgLogin />} />
-          <Route exact path="/org" element={<OrgDashboard />} /> */}
+          <Route exact path="/org-login" element={<OrgLogin />} />
+          <Route exact path="/org" element={<OrgDashboard />} />
 
           {/* Education Routes ------------------------------------ */}
           <Route
@@ -95,7 +97,7 @@ const AppRoutes = () => {
           <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
           <Route exact path="/jobCareer" element={<JobCareer/>}></Route>
           <Route exact path="/jobOne"element={<JobOne/>}></Route>
-          {/* <Route exact path= "/jobSeeker" element={<JobSeeker/>}/> */}
+          <Route exact path= "/jobSeeker" element={<JobSeeker/>}/>
         </Routes>
       </Router>
     </>

@@ -19,11 +19,13 @@ const index = () => {
 //     // </div>
 //   )
 // }
-<div className="min-h-screen bg-gray-100 py-6  flex flex-col   sm:py-12">
+<div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12 
+dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d8.jpg')] 
+ bg-cover w-auto">
 <h1 className="text-center text-3xl font-extrabold text-gray-900 mt-5 mb-5">
 Make your job Advertisement Here
 </h1>
-<form   >
+<form>
   <div className="max-w-2xl mx-auto mt-5 shadow-md overflow-hidden rounded-md  bg-white p-10 ">
     <div className="grid grid-cols-1 gap-6 ">
   
