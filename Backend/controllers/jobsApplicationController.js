@@ -53,14 +53,13 @@ const getApplicant = async (req, res) => {
 // Update an applicant by ID
 const updateApplicant = async (req, res) => {
   try {
+    const {id} = req.params;
     const {  jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
 
     const applicant = await Applicant.findById(req.params.id);
 
     if (!applicant) {
-      return res.status(404).json({
-        error: 'Applicant not found',
-      });
+      return res.status(404).send('Application not found !')
     }
 
     applicant.jobTitle=jobTitle;
@@ -72,9 +71,9 @@ const updateApplicant = async (req, res) => {
     applicant.companyName=companyName;
     applicant.Image=Image;
     
-    const savedApplicant = await Applicant.save();
+    const savedApplicant = await Applicant.findByIdAndUpdate(id, applicant);
 
-    res.json(savedApplicant);
+    res.status(200).send('Updated !')
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });
@@ -100,7 +99,7 @@ const deleteApplicant = async (req, res) => {
       });
     }
 
-    res.status(200).json(deletedApplicant);
+    res.status(200).send('Deleted !');
   } catch (error) {
     res.status(500).json({
       error: error.message,

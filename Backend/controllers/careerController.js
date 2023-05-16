@@ -24,7 +24,7 @@ const createCareer= async(req,res)=>{
 //Get All career
     const getcareers =async (req,res)=>{
         try{
-            const careers =await careers.find({});
+            const careers =await Career.find({});
             res.status(200).json(careers)
         }catch (error){
             res.status(500).json({
@@ -57,19 +57,19 @@ const createCareer= async(req,res)=>{
         //update career by Id
          const updateCareer =async(req,res)=>{
             try{
-                const{name,email,phoneNumber,file}=req.body;
-                const career = await career.findById(req.params.id);
+                const{name,email,phoneNumber} = req.body;
+                const career = await Career.findById(req.params.id);
 
                 if(!career){
                     return res.status(404).json({
                       error: 'Career not found',
                     });
                   }
-                  const updatedCareer = {name,email,phoneNumber,file};
+                  const updatedCareer = {name,email,phoneNumber};
 
-                  const savedCareer = await career.findByIdAndUpdate(req.params.id, updatedCareer);
+                  const savedCareer = await Career.findByIdAndUpdate(req.params.id, updatedCareer);
               
-                  res.status(200).send('Updated !');
+                  res.status(200).send('Updated !')
                 } catch (err) {
                   console.error(err);
                   res.status(500).json({ error: 'Server error' });

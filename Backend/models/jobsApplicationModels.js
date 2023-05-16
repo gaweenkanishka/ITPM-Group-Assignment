@@ -16,7 +16,7 @@ const jobsApplicationSchema = new Schema({
     required: true
   },
   location: {
-    type: Date,
+    type: String,
     required: true
   },
 receive: {
