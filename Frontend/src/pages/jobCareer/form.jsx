@@ -1,7 +1,38 @@
 import React from 'react'
+import {useState,useEffect} from 'react'
 import Footer from '../home/Footer'
 
 const form = () => {
+
+const[firstName, setFirstName]=useState("");
+const[lastName, setLastName]=useState("");
+const[phnoneNumber, setPhoneNumber]=useState("");
+const[file,setFile]=useState("");
+
+const clearForm=()=>{
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setFile("");
+}
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    const data = {
+      firstName,
+      lastName,
+      phnoneNumber,
+      file,
+  
+    };
+    console.log("Submitted");
+    clearForm();
+  }
+         
+        
+
+
   return (
     <div>
   
@@ -13,11 +44,11 @@ const form = () => {
         <div class="container flex flex-col flex-1 px-6 py-12 mx-auto">
             <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
                 <div class="text-white lg:w-1/2 lg:mx-6">
-                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Ultimate design solution</h1>
+                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">come and join with us</h1>
                     <p class="max-w-xl mt-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem quo
-                        aliquid molestiae hic incidunt beatae placeat accusantium! Alias ex quisquam ab tempora. Ratione
-                        autem doloremque ducimus numquam doloribus, error sed.
+                        we aalways here tohelp you to success your life,MANUSATHKAMA means no poverty- zero hunger theme,
+                        if you are qualified and educated one, you can join with us to success your career,<br></br> <br></br>
+                        <span className='font-bold'> click on GET IN TOUCH  and fill the form and submit your details</span>
                     </p>
 
                     <button class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
@@ -45,7 +76,8 @@ const form = () => {
                             to hear from you
                         </p>
 
-                        <form class="mt-4  ">
+                        <form onSubmit={handleSubmit}
+                            class="mt-4  ">
                             <div class="flex-1">
                                 <label class="text-l text-gray-600 dark:text-gray-700 
                                 flex flex-col justify-start items-start mx-4 my-2
@@ -61,7 +93,8 @@ const form = () => {
                             <div class="flex-1 mt-6">
                                 <label class="block mb-2 text-m text-gray-600 dark:text-gray-700
                                 flex flex-col justify-start items-start mx-4 my-2">Last Name</label>
-                                <input type="text" placeholder="Last Name" 
+                                <input type="text" 
+                                placeholder="Last Name" 
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white 
                                 border border-gray-700 rounded-md  dark:text-gray-300 
                                 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 
@@ -73,7 +106,8 @@ const form = () => {
                                 <label class="block mb-2 text-m text-gray-600 dark:text-gray-700 
                                  justify-start items-start
                                  flex flex-col justify-start items-start mx-4 my-2">Phone number</label>
-                                <input type="numbers" placeholder="014567889" 
+                                <input type="numbers"
+                                 placeholder="014567889" 
                                 class="block w-full px-5 py-3 mt-2 text-gray-400 bg-white border 
                                 border-gray-700 rounded-md  dark:text-gray-200 dark:border-gray-600 
                                 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 
