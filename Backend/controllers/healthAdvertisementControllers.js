@@ -27,7 +27,7 @@ const getHealthAdvertisement = async (req, res) => {
 
 //create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const { type, userID, location, title, description, photos, name, phone, date } = req.body;
+    const { type, userID, location, title, description, photos, name, phone } = req.body;
   
     //add doc to db
     try {
@@ -39,8 +39,7 @@ const createHealthAdvertisement = async (req, res) => {
         description,
         photos,
         name,
-        phone,
-        date,
+        phone
       });
       res.status(200).json(healthAdvertiestment);
     } catch (error) {
@@ -101,8 +100,7 @@ const updateHealthAdvertisement = async (req, res) => {
                 description: req.body.description,
                 photos: req.body.photos,
                 name: req.body.name,
-                phone: req.body.phone,
-                date: req.body.date,
+                phone: req.body.phone
             },
         },
         { new: true }
