@@ -27,12 +27,13 @@ const getHealthAdvertisement = async (req, res) => {
 
 //create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const { type, location, title, description, photos, name, phone, date } = req.body;
+    const { type, userID, location, title, description, photos, name, phone, date } = req.body;
   
     //add doc to db
     try {
       const healthAdvertiestment = await HealthAdvertisement.create({
         type,
+        userID,
         location,
         title,
         description,
@@ -94,6 +95,7 @@ const updateHealthAdvertisement = async (req, res) => {
         {
             $set: {
                 type: req.body.type,
+                userID: req.body.userID,
                 location: req.body.location,
                 title: req.body.title,
                 description: req.body.description,

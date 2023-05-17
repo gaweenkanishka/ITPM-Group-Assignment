@@ -8,6 +8,11 @@ location: {
     required: true,
   },
 
+userID: {
+    type: String,
+    required: true,
+    },
+
 venue: {
     type: String,
     required: false,

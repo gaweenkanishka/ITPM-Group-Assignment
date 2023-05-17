@@ -27,12 +27,13 @@ const getEventAdvertisement = async (req, res) => {
 
 //create new Event Advertiestment
 const createEventAdvertisement = async (req, res) => {
-    const { location, venue, title, description, email, name, phone, date, time } = req.body;
+    const { location, userID, venue, title, description, email, name, phone, date, time } = req.body;
   
     //add doc to db
     try {
       const eventAdvertiestment = await EventAdvertisement.create({
         location,
+        userID,
         venue,
         title,
         description,
