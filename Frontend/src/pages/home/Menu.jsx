@@ -61,7 +61,7 @@ export function menu() {
           </div>
           
           <div className="carousel-item">
-            <Link to="/education-advertisements">
+            <Link to="/education">
               <img
                 className="carousel-item__img"
                 src="https://images.unsplash.com/photo-1641683521844-700c456379bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=410&q=80"
