@@ -8,6 +8,7 @@ import {
   EducationAdd,
   EducationOne,
   EducationUpdate,
+  Education,
   SignUp,
   SignIn,
   Home,
@@ -37,6 +38,7 @@ const AppRoutes = () => {
           <Route exact path="/org" element={<OrgDashboard />} />
 
           {/* Education Routes ------------------------------------ */}
+          <Route exact path="/education" element={<Education />} />
           <Route
             exact
             path="/education-advertisements"
