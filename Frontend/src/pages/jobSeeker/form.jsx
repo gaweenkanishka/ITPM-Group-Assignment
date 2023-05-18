@@ -1,7 +1,38 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Form = () => {
+    const[fullName,setFullName]=useState("");
+    const[dateOfBirth,setDateOfBirth] =useState("");
+    const[email,setEmail]=useState("");
+    const[optional,setOptional]=useState("");
+    const[description,setDescription]=useState("");
+
+    clearForm=()=>{
+        setFullName("");
+        setDateOfBirth("");
+        setEmail("");
+        setOptional("");
+        setDescription("");
+
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    
+        const data = {
+          fullName,
+          dateOfBirth,
+          email,
+          optional,
+          description,
+    
+        };
+        //localhostport
+
+        }
+        
+   
 
     return (
         
@@ -33,14 +64,18 @@ const Form = () => {
                     <span className='ml-8'>and we'll go on to the next.</span>
                     </h1>
 
-                        <form className="w-full mt-6 ">
+                        <form onSubmit={handleSubmit} 
+                        className="w-full mt-6 ">
                             <div className="flex-1">
                                 <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
-                                <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-200 
+                                <input type="text" placeholder="John Doe"
+                                 className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-200 
                                 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 
                                 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
                                 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring 
-                                focus:ring-opacity-40" />
+                                focus:ring-opacity-40"
+                                value={fullName}
+                                onChange={(event) => setFullName(event.target.value)} />
                             </div>
 
                             <div className="flex-1 mt-6">
@@ -50,7 +85,9 @@ const Form = () => {
                                 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 
                                 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 
                                 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 
-                                focus:outline-none focus:ring focus:ring-opacity-40" />
+                                focus:outline-none focus:ring focus:ring-opacity-40" 
+                                value={dateOfBirth}
+                                onChange={(event) => setDateOfBirth(event.target.value)}/>
                             </div>
 
 
@@ -67,10 +104,14 @@ const Form = () => {
                                                 name="type"
                                                 value="Full Time"
                                                 className="mr-2"
+                                                checked={email==='Have E-mail'}
+                                                onChange={(event) => setEmail(event.target.value)}
                                             />
                                             <label htmlFor="full-time"
-                                                className='text-white'>Have E-mail</label>
+                                            className='text-white'>Have E-mail</label>
                                         </div>
+
+
                                         <div className='mt-2 '>
                                             <input
                                                 type="radio"
@@ -78,6 +119,8 @@ const Form = () => {
                                                 name="type"
                                                 value="Part Time"
                                                 className="mr-2 ml-4"
+                                                checked={email===`havn't E-mail`}
+                                                onChange={(event) => setEmail(event.target.value)}
                                             />
                                             <label htmlFor="part-time"
                                                 className='text-white'>Havn't E-mail</label>
@@ -86,13 +129,24 @@ const Form = () => {
                                 </div>
                             </div>
                             <div className="flex-1 mt-6">
-                                 <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">E-mail</label>
-                                     <input type="text" placeholder="optional" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                 <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">optional(if you have email)</label>
+                                     <input type="email" placeholder="optional" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900
+                                      dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
+                                      dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none
+                                       focus:ring focus:ring-opacity-40" 
+                                        value={optional}
+                                onChange={(event) => setOptional(event.target.value)}/>
                             </div>
 
                             <div className="flex-1 ">
                                 <label className="block mt-4 mb-2 text-sm text-gray-600 dark:text-gray-200">Description about you</label>
-                                <textarea className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" rows="4"></textarea>
+                                <textarea className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600
+                                 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
+                                 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none 
+                                 focus:ring focus:ring-opacity-40" rows="4"
+                                 value={description}
+                                 onChange={(event) => setDescription(event.target.value)}>
+                                 </textarea>
                             </div>
 
                             <div className="flex justify-center mt-6">

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import axios from "axios";
+import storage from "../../firebase/firebaseConfig"
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-
+const BASE_URL = import.meta.env.VITE_BACKEND_API;
 
 const index = () => {
   const [jobTitle, setJobTitle] = useState("");
@@ -10,7 +13,8 @@ const index = () => {
   const [description, setDescription] = useState("");
   const [openfor, setOpenfor] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [uploadFile, SetUploadUrl] = useState("");
+  const [file, setFile] = useState("");
+  const [percent, setPercent] = useState(0);
 
 
   const clearForm = () => {
@@ -21,7 +25,7 @@ const index = () => {
     setDescription("");
     setOpenfor("");
     setCompanyName("");
-    SetUploadUrl("");
+    setFile("");
 
   };
 
@@ -36,12 +40,60 @@ const index = () => {
       description,
       openfor,
       companyName,
-      uploadFile,
+      file,
 
     };
+
+    console.log(data);
+
+    axios
+      .jobsapplications(`${BASE_URL}/jobsapplications`, data)
+      .then((response) => {
+        console.log(response);
+        makeToast({
+          type: "success",
+          message: "job added successfully!",
+        });
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        makeToast({ type: "error", message: "Error adding !" });
+      });
+
     console.log("Submitted");
     clearForm();
   }
+
+  const handleUpload = () => {
+    if (!file) {
+      alert("Please choose a file to upload!");
+    }
+
+    const storageRef = ref(storage, `/files/${file.title}`);
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update upload progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setImage(url);
+          console.log(image);
+        });
+      }
+    );
+  };
 
 
 
@@ -72,7 +124,7 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
                 name="jobTitle"
                 id="jobTitle"
                 className="w-full py-2 px-4 rounded-lg shadow-md focus:outline-none 
-    focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300"
+                focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300"
                 value={jobTitle}
                 onChange={(event) => setJobTitle(event.target.value)}
               />
@@ -82,11 +134,11 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
             {/* Type */}
             <div className="col-span-1  items-center">
               <label htmlFor="type" className="block text-sm font-medium text-gray-700 
-  flex flex-col justify-start items-start mx-4 my-2">
+              flex flex-col justify-start items-start mx-4 my-2">
                 Type
               </label>
               <div className="ml-2 flex  block text-sm font-medium text-gray-700 mb-1 border p-4 rounded-md
-  w-full py-2 px-4 rounded-lg shadow-md focus:outline-none">
+                w-full py-2 px-4 rounded-lg shadow-md focus:outline-none">
                 <div>
                   <input
                     type="radio"
@@ -236,7 +288,7 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
                   name="openfor"
                   id="openfor"
                   className="w-auto py-2 px-4 rounded-lg shadow-md justify-start
-          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300"
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300"
                   value={openfor}
                   onChange={(event) => setOpenfor(event.target.value)}
                 />
@@ -248,7 +300,7 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
                 <label
                   htmlFor="companyName"
                   className="block text-sm font-medium text-gray-700
-          flex flex-col  my-2 "
+                flex flex-col  my-2 "
                 >
                   companyName
                 </label>
@@ -267,7 +319,8 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
 
             <div>
               <label for="dropzone-file"
-                class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 
+                class="mx-auto cursor-pointer flex w-full max-w-lg flex-col 
+                items-center rounded-xl border-2 
                 border-gray-400 bg-white mt-4 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -275,27 +328,50 @@ dark:bg-[url('https://i.pinimg.com/736x/80/bc/b5/80bcb5ae5df313e634410f22153f10d
                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
 
-                <h2 class="mt-2 text-l font-medium text-black tracking-wide"
-                >
+                <h2 class="mt-2 text-l font-medium text-black tracking-wide" >
                   Upload a file</h2>
-                <input id="dropzone-file" type="file" class="hidden" />
+                <input id="dropzone-file" type="file" class="hidden"
+                onChange={(event) => setFile(event.target.files[0])} />
               </label>
-            </div>
+
+               </div>
+
+               <button
+                  type="button"
+                  className="w-24  justify-end items-center px-1 py-1 border 
+                  border-transparent text-base font-bold rounded-md shadow-sm text-white 
+                  bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                  focus:ring-green-500 "
+                  onClick={handleUpload} 
+                >
+                Upload
+                </button>
+
+                {percent > 0 && (
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div
+                      className="bg-blue-600 h-2.5 rounded-full my-2"
+                      style={{ width: `${percent}%` }}
+                    ></div>
+                  </div>
+                )} 
+              </div>
 
 
             {/* Submit Button */}
             <div className="col-span-1">
               <button
                 type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent 
-          shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 
-          hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className=" flex justify-end inline-flex  mt-4 py-2 px-4 border border-transparent 
+               shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 
+              hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Submit
               </button>
-            </div>
+
+             </div>
           </div>
-        </div>
+      
       </form>
     </div>
   );
