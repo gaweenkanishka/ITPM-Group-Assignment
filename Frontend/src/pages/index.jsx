@@ -24,6 +24,7 @@ import Home from "./home";
 //food center
 import FoodCenters from "./foodCenters";
 import FoodCenterDetails from "./foodCenterDetails";
+import FoodHome from "./food-home"
 
 //Jobs
 import JobHome from "./jobHome";
@@ -60,6 +61,7 @@ export {
   //food center
   FoodCenters,
   FoodCenterDetails,
+  FoodHome,
 
   //Job
   JobHome,

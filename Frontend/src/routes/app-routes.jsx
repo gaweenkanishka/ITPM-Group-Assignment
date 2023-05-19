@@ -22,6 +22,7 @@ import {
   JobSeeker,
   OrgLogin,
   OrgDashboard,
+  FoodHome,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -87,6 +88,7 @@ const AppRoutes = () => {
           {/*--------------------food center-----------------------------------------*/}
           <Route exact path="/FoodCenters" element={<FoodCenters />} />
           <Route path="/center/:id" element={<FoodCenterDetails />} />
+          <Route exact path="/foodHome" element={<FoodHome />} />
 
           {/* -------------------------Jobs------------------- */}
           <Route exact path="/jobHome" element={<JobHome />} />
