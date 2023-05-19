@@ -2,23 +2,28 @@ import axios from 'axios';
 import requestConfig from './config';
 import requestConfigJason from './configJason';
 
-const Base_URL = 'http://localhost:8000/api/';
+const BASE_URL = import.meta.env.VITE_BACKEND_API;
 
 class DonateAdvertisementAPI{
 
     // Create a donate advertisement
-    static createDonateAdvertisement(data){
-        return axios.post(`${Base_URL}healthAdvertisements/`, data, requestConfigJason);
+    static createDonateAdvertisement(advertisement){
+        return axios.post(`${BASE_URL}/api/healthAdvertisements`, advertisement, requestConfigJason);
     }
 
     // Get all donate advertisements
     static getAllDonateAdvertisements(){
-        return axios.get(`${Base_URL}healthAdvertisements/`, requestConfig);
+        return axios.get(`${BASE_URL}/api/healthAdvertisements`, requestConfig);
     }
     
     // Get a single donate advertisement
     static getDonateAdvertisementById(id){
-        return axios.get(`${Base_URL}healthAdvertisements/${id}`, requestConfig);
+        return axios.get(`${BASE_URL}/api/healthAdvertisements/${id}`, requestConfig);
+    }
+
+    //delete donate advertisement
+    static deleteDonateAdvertisement(id){
+        return axios.delete(`${BASE_URL}/api/healthAdvertisements/${id}`, requestConfig);
     }
 
 }

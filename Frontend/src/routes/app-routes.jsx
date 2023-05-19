@@ -7,6 +7,7 @@ import {
   ViewHealthAdvertisement,
   ViewEventAdvertisement,
   CreateDonateAdvertisement,
+  CreateEventAdvertisement,
   EducationList,
   EducationAdd,
   EducationOne,
@@ -67,6 +68,7 @@ const AppRoutes = () => {
           <Route exact path="/view-health-advertisement/:id" element={<ViewHealthAdvertisement />} />
           <Route exact path="/view-event-advertisement/:id" element={<ViewEventAdvertisement />} />
           <Route exact path="/create-donate-advertisement" element={<CreateDonateAdvertisement />} />
+          <Route exact path="/create-event-advertisement" element={<CreateEventAdvertisement />} />
 
 
 
