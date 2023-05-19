@@ -6,7 +6,9 @@ const {
     deleteEventAdvertisement,
     searchEventAdvertisements,
     updatEventAdvertisement,
+    getEventAdvertisementsByOrganization
 } = require("../controllers/eventAdvertisementController");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
@@ -27,6 +29,9 @@ router.patch("/:id", updatEventAdvertisement);
 
 // SEARCH for healthAdvertisements
 router.get("/search", searchEventAdvertisements);
+
+// GET all healthAdvertisements by organization
+router.get("/organization", authMiddleware,getEventAdvertisementsByOrganization);
 
 module.exports = router;
 
