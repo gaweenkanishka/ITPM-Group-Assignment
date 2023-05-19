@@ -46,7 +46,7 @@ const DonateAdvertisementList =()  => {
             <ul className="mt-12 space-y-6">
                 {
                     filteredAdvertisements.map((advertisement, idx) => (
-                        <li key={idx} className="p-5 bg-white rounded-md shadow-md">
+                        <li key={idx} className="p-5 bg-slate-100 rounded-md shadow-md">
                             <a href={"/view-health-advertisement/"+advertisement._id }>
                                 <div>
                                     <div className="flex flex-row relative sm:flex">
@@ -64,12 +64,12 @@ const DonateAdvertisementList =()  => {
                                             </h3>
                                             </div>
                                             <div>
-                                            <p className="text-gray-500 text-left ml-5 pr-2">
+                                            <p className="text-gray-500 text-left ml-5 pr-2 text-base">
                                                 {advertisement.description}
                                             </p>
                                             </div>
                                             <div className=" absolute bottom-0 left-5">
-                                            <span className="flex items-center text-gray-500">
+                                            <span className="flex items-center text-gray-500 text-base">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                                 </svg>
@@ -79,11 +79,11 @@ const DonateAdvertisementList =()  => {
                                         </div>
                                         {/* <div className="mt-5 space-y-3 text-xs sm:mt-0 sm:space-y-2 "> */}
                                         <div className=" absolute right-0 bottom-0">
-                                            <span className="flex items-center text-gray-500">
+                                            <span className="flex items-center text-gray-500 text-base">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                                                 </svg>
-                                                {advertisement.date.slice(0, 10)}
+                                                {advertisement.created_at.slice(0, 10)}
                                             </span>
                                         </div>
                                     </div>
