@@ -40,7 +40,7 @@ const EventAdvertisementList =()  => {
                 </Link>
                 </div>
             </div>
-        <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
+        <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8 mb-8">
             <div>
                 <h1 className="text-gray-800 text-3xl font-semibold text-center">
                     EVENTS
