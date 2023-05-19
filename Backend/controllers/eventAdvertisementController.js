@@ -27,13 +27,15 @@ const getEventAdvertisement = async (req, res) => {
 
 //create new Event Advertiestment
 const createEventAdvertisement = async (req, res) => {
-    const { location, venue, title, description, email, name, phone, date, time } = req.body;
+    const { location, organization, venue, image, title, description, email, name, phone, date, time } = req.body;
   
     //add doc to db
     try {
       const eventAdvertiestment = await EventAdvertisement.create({
         location,
+        organization,
         venue,
+        image,
         title,
         description,
         email,
@@ -105,6 +107,21 @@ const updatEventAdvertisement = async (req, res) => {
     res.status(200).json(eventAdvertisement);
   };
 
+  // Get all event Advertiestments by organization
+const getEventAdvertisementsByOrganization = async (req, res) => {
+  const org_id = req.org_id;
+  const eventAdvertisement = await EventAdvertisement.find({
+    organization: org_id,
+  })
+    .populate("organization", "name email")
+    .sort({
+      createdAt: -1,
+    }); // this varialble will store the data geting from the DB
+
+  // this will send  the data to client.
+  res.status(200).json(eventAdvertisement);
+};
+
 module.exports = {
     getEventAdvertisements,
     getEventAdvertisement,
@@ -112,4 +129,5 @@ module.exports = {
     deleteEventAdvertisement,
     searchEventAdvertisements,
     updatEventAdvertisement,
+    getEventAdvertisementsByOrganization,
 };

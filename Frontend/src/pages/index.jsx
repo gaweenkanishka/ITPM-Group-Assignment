@@ -3,6 +3,11 @@ import DonateAdvertisementList from "./health-donate/donateAdvertisementList";
 import EventAdvertisementList from "./health-event/eventAdvertisementList";
 import ViewHealthAdvertisement from "./health-donate/viewHealthAdvertisement";
 import ViewEventAdvertisement from "./health-event/viewEventAdvertisement";
+import CreateDonateAdvertisement from "./health-create-advertisement/createDonateAdvertisement";
+import CreateEventAdvertisement from "./health-create-advertisement/createEventAdvertisement";
+import EditDonateAdvertisement from "./health-edit-advertisement/editDonateAdvertisement";
+import EditEventAdvertisement from "./health-edit-advertisement/editEventAdvertisement";
+import HealthAdmin from "./health-admin/healthAdmin";
 
 // Education Pages
 import EducationList from "./education-list";
@@ -53,6 +58,11 @@ export {
   EventAdvertisementList,
   ViewHealthAdvertisement,
   ViewEventAdvertisement,
+  CreateDonateAdvertisement,
+  CreateEventAdvertisement,
+  EditDonateAdvertisement,
+  EditEventAdvertisement,
+  HealthAdmin,
 
   //sign
   SignUp,
