@@ -12,9 +12,17 @@ const Header = () => {
     <>
       <header className="text-gray-600 body-font shadow-md">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <Link
+            to="/"
+            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
             <span className="ml-3 text-xl">Manusathkama</span>
-          </a>
+          </Link>
+          {localStorage.getItem("token") && (
+            <Link to="/org" className="ml-3 text-xl text-blue-500">
+              <span>[{localStorage.getItem("user_name")}]</span>
+            </Link>
+          )}
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             {localStorage.getItem("token") && (
               <Link to="/org" className="mr-5 hover:text-gray-900">
@@ -43,11 +51,18 @@ const Header = () => {
               </svg>
             </button>
           ) : (
-            <Link to="/org-login">
-              <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
-                Login
-              </button>
-            </Link>
+            <div className="md:ml-auto flex flex-wrap items-center text-base justify-center gap-4">
+              <Link to="/org-signup">
+                <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
+                  Sign Up
+                </button>
+              </Link>
+              <Link to="/org-login">
+                <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
+                  Login
+                </button>
+              </Link>
+            </div>
           )}
         </div>
       </header>

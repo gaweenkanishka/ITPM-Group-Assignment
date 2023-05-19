@@ -12,7 +12,17 @@ const OrgDashboard = () => {
         >
           <h1 className="text-2xl font-bold">Educational Advertisements</h1>
         </Link>
-      </div>
+        </div>
+
+        <div  className="flex flex-row justify-between mt-10">
+          <Link
+          to="/health-admin"
+          className="flex flex-col items-center justify-center w-1/4 h-32 p-4 mx-2 text-center text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600"
+        >
+          <h1 className="text-2xl font-bold">Health Advertisements</h1>
+        </Link>
+
+        </div>
     </div>
   );
 };

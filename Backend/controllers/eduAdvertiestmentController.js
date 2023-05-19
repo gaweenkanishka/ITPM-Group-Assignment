@@ -6,8 +6,23 @@ const getEduAdvertiestments = async (req, res) => {
   const eduAdvertiestments = await EduAdvertiestment.find({})
     .populate("organization", "name email")
     .sort({
-    createdAt: -1,
-  }); // this varialble will store the data geting from the DB
+      createdAt: -1,
+    }); // this varialble will store the data geting from the DB
+
+  // this will send  the data to client.
+  res.status(200).json(eduAdvertiestments);
+};
+
+// Get all EduAdvertiestments by organization
+const getEduAdvertiestmentsByOrganization = async (req, res) => {
+  const org_id = req.org_id;
+  const eduAdvertiestments = await EduAdvertiestment.find({
+    organization: org_id,
+  })
+    .populate("organization", "name email")
+    .sort({
+      createdAt: -1,
+    }); // this varialble will store the data geting from the DB
 
   // this will send  the data to client.
   res.status(200).json(eduAdvertiestments);
@@ -84,6 +99,7 @@ const updateEduAdvertiestment = async (req, res) => {
 };
 module.exports = {
   getEduAdvertiestments,
+  getEduAdvertiestmentsByOrganization,
   getEduAdvertiestment,
   createEduAdvertiestment,
   deleteEduAdvertiestment,
