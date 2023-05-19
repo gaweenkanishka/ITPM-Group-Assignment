@@ -1,17 +1,13 @@
-const Applicant = require('../models/jobsApplicantModels');
+const Applicant = require('../models/jobsApplicationModels');
 const mongoose = require('mongoose');
 
 // create applicant
 const createApplicant = async (req, res) => {
   try {
-    const { firstName, lastName, dateOfBirth, selectOption, description } = req.body;
+    const { jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
 
     const newApplicant = new Applicant({
-      firstName,
-      lastName,
-      dateOfBirth,
-      selectOption,
-      description,
+      jobTitle,type,location,receive,jobDescription,openFor,companyName,Image,
     });
 
     const savedApplicant = await newApplicant.save();
@@ -57,25 +53,27 @@ const getApplicant = async (req, res) => {
 // Update an applicant by ID
 const updateApplicant = async (req, res) => {
   try {
-    const { firstName, lastName, dateOfBirth, selectOption, description } = req.body;
+    const {id} = req.params;
+    const {  jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
 
     const applicant = await Applicant.findById(req.params.id);
 
     if (!applicant) {
-      return res.status(404).json({
-        error: 'Applicant not found',
-      });
+      return res.status(404).send('Application not found !')
     }
 
-    applicant.firstName = firstName;
-    applicant.lastName = lastName;
-    applicant.dateOfBirth = dateOfBirth;
-    applicant.selectOption = selectOption;
-    applicant.description = description;
+    applicant.jobTitle=jobTitle;
+    applicant.type =type;
+    applicant.location = location;
+    applicant.receive =receive;
+    applicant.jobDescription= jobDescription;
+    applicant.openFor=openFor;
+    applicant.companyName=companyName;
+    applicant.Image=Image;
+    
+    const savedApplicant = await Applicant.findByIdAndUpdate(id, applicant);
 
-    const savedApplicant = await Applicant.save();
-
-    res.json(savedApplicant);
+    res.status(200).send('Updated !')
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });
@@ -101,7 +99,7 @@ const deleteApplicant = async (req, res) => {
       });
     }
 
-    res.status(200).json(deletedApplicant);
+    res.status(200).send('Deleted !');
   } catch (error) {
     res.status(500).json({
       error: error.message,

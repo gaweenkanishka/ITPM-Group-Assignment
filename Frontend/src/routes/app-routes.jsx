@@ -25,6 +25,8 @@ import {
   JobApplication,
   JobList,
   JobUpdate,
+  JobCareer,
+  JobOne,
   JobSeeker,
   Profile,
   OrgLogin,
@@ -98,7 +100,9 @@ const AppRoutes = () => {
           <Route exact path="/jobApplication" element={<JobApplication/>} />
           <Route exact path="/jobList" element={<JobList/>}></Route>
           <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
-          <Route exact path="jobSeeker" element={<JobSeeker/>}></Route>
+          <Route exact path="/jobCareer" element={<JobCareer/>}></Route>
+          <Route exact path="/jobOne"element={<JobOne/>}></Route>
+          <Route exact path= "/jobSeeker" element={<JobSeeker/>}/>
 
           {/* -------------------------Profile------------------- */}
           <Route exact path="/profile" element={<Profile />} />

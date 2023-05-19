@@ -1,12 +1,14 @@
 import React from 'react'
-import Form from './form'
+import JobOneUser from './jobOneUser';
 
 const index = () => {
   return (
     <div>
-     <Form/>
+       <JobOneUser></JobOneUser>
     </div>
+     
   )
+
 }
 
 export default index
