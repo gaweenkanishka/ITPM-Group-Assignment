@@ -51,11 +51,18 @@ const Header = () => {
               </svg>
             </button>
           ) : (
-            <Link to="/org-login">
-              <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
-                Login
-              </button>
-            </Link>
+            <div className="md:ml-auto flex flex-wrap items-center text-base justify-center gap-4">
+              <Link to="/org-signup">
+                <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
+                  Sign Up
+                </button>
+              </Link>
+              <Link to="/org-login">
+                <button className="text-white inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">
+                  Login
+                </button>
+              </Link>
+            </div>
           )}
         </div>
       </header>

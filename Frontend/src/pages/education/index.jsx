@@ -42,6 +42,7 @@ const Education = () => {
         <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-wrap -m-4">
             {eduAdvertiestments
+              // Search by title filter
               .filter((eduAdvertiestment) => {
                 if (searchTerm === "") {
                   return eduAdvertiestment;

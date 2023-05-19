@@ -13,6 +13,7 @@ import Education from "./education";
 
 // Organization Pages
 import OrgLogin from "./org-login";
+import OrgSignup from "./org-signup";
 import OrgDashboard from "./org-dashboard";
 
 //sign
@@ -43,6 +44,7 @@ export {
 
   // Organization Pages
   OrgLogin,
+  OrgSignup,
   OrgDashboard,
 
   // Health Pages
