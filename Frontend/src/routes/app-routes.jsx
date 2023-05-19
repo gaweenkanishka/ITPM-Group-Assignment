@@ -4,10 +4,18 @@ import {
   HealthHome,
   DonateAdvertisementList,
   EventAdvertisementList,
+  ViewHealthAdvertisement,
+  ViewEventAdvertisement,
+  CreateDonateAdvertisement,
+  CreateEventAdvertisement,
+  EditDonateAdvertisement,
+  EditEventAdvertisement,
+  HealthAdmin,
   EducationList,
   EducationAdd,
   EducationOne,
   EducationUpdate,
+  Education,
   SignUp,
   SignIn,
   Home,
@@ -19,6 +27,9 @@ import {
   JobUpdate,
   JobSeeker,
   Profile,
+  OrgLogin,
+  OrgSignup,
+  OrgDashboard,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -26,11 +37,16 @@ const AppRoutes = () => {
     <>
       <Router>
         <Routes>
-
           {/*--------------------Home pages-----------------------------------------*/}
           <Route exact path="/" element={<Home />} />
-          
+
+          {/* Organization Routes ------------------------------------ */}
+          <Route exact path="/org-login" element={<OrgLogin />} />
+          <Route exact path="/org-signup" element={<OrgSignup />} />
+          <Route exact path="/org" element={<OrgDashboard />} />
+
           {/* Education Routes ------------------------------------ */}
+          <Route exact path="/education" element={<Education />} />
           <Route
             exact
             path="/education-advertisements"
@@ -55,6 +71,15 @@ const AppRoutes = () => {
           <Route exact path="/health-home" element={<HealthHome />} />
           <Route exact path="/donate-Advertisements" element={<DonateAdvertisementList />} />
           <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
+          <Route exact path="/donate-Advertisements/:id" element={<ViewHealthAdvertisement />} />
+          <Route exact path="/event-Advertisements/:id" element={<ViewEventAdvertisement />} />
+          <Route exact path="/donate-Advertisements/create" element={<CreateDonateAdvertisement />} />
+          <Route exact path="/event-Advertisements/create" element={<CreateEventAdvertisement />} />
+          <Route exact path="/donate-Advertisements/edit/:id" element={<EditDonateAdvertisement />} />
+          <Route exact path="/event-Advertisements/edit/:id" element={<EditEventAdvertisement />} />
+          <Route exact path="/health-admin" element={<HealthAdmin />} />
+
+
 
 
 

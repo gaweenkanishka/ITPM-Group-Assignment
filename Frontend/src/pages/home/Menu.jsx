@@ -1,6 +1,7 @@
 import React from "react";
 // import "./App.css";
 import "./menu.css";
+import { Link } from "react-router-dom";
 
 export function menu() {
   return (
@@ -58,28 +59,32 @@ export function menu() {
               </h6>
             </div>
           </div>
+          
           <div className="carousel-item">
-            <img
-              className="carousel-item__img"
-              src="https://images.unsplash.com/photo-1641683521844-700c456379bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=410&q=80"
-              alt="people"
-            />
-            <div className="carousel-item__details">
-              <div className="controls">
-                <span className="fas fa-play-circle"></span>
-                <span className="fas fa-plus-circle"></span>
-              </div>
-              <h5 className="carousel-item__details--title">
-                {" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-                  "EDUCATION"
-                </span>
-              </h5>
-              <h6 className="carousel-item__details--subtitle">
-                Get Free Service
-              </h6>
+            <Link to="/education">
+              <img
+                className="carousel-item__img"
+                src="https://images.unsplash.com/photo-1641683521844-700c456379bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=410&q=80"
+                alt="people"
+              />
+              <div className="carousel-item__details">
+                <div className="controls">
+                  <span className="fas fa-play-circle"></span>
+                  <span className="fas fa-plus-circle"></span>
+                </div>
+                <h5 className="carousel-item__details--title">
+                  {" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+                    "EDUCATION"
+                  </span>
+                </h5>
+                <h6 className="carousel-item__details--subtitle">
+                  Get Free Service
+                </h6>
             </div>
-          </div>
+            </Link>
+            </div>
+          
 
           <div className="carousel-item">
             <img
