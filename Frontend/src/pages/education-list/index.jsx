@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import makeToast from "../../components/toast";
 import { MdDeleteOutline } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
+import * as XLSX from "xlsx";
 
 const EducationList = () => {
   const [eduAdvertiestments, setEduAdvertiestments] = useState([]);
@@ -37,6 +38,29 @@ const EducationList = () => {
       });
   };
 
+  // Download report
+  const downloadExcel = (data) => {
+    console.log(data);
+    // cusromize attribute name
+    data = data.map((item) => {
+      return {
+        "ID": item._id,
+        "Title": item.title,
+        "Description": item.description,
+        "Location": item.location,
+        "Contact Number": item.contact_number,
+        "Closing Date": item.closing_date.split("T")[0],
+      };
+    });
+
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    // Get today's date
+    const today = new Date();
+    XLSX.writeFile(workbook, "Education Advertisements " + today + ".xlsx");
+  };
+
   return (
     <div className="bg-gray-100">
       <Header />
@@ -52,6 +76,16 @@ const EducationList = () => {
             Add New Education
           </button>
         </Link>
+
+        {/* Download Report */}
+        <button
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full float-left mr-10 mt-5 mb-5"
+          onClick={() => {
+            downloadExcel(eduAdvertiestments);
+          }}
+        >
+          Download Report
+        </button>
 
         {/* Search */}
         <input
