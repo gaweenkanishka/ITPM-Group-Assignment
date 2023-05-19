@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
+import Header from "../../components/header";
 
 const ViewHealthAdvertisement = () => {
 
     const navigate = useNavigate();
 
-    const userID="6464eb5c55b78fde4de6f203";
+    const userID=localStorage.getItem("user_id");
 
     const [healthAdvertisement, setHealthAdvertisement] = useState({
         type: "",
@@ -44,6 +45,8 @@ const ViewHealthAdvertisement = () => {
   var modal = document.getElementById("modal");
  
     return(
+      <>
+      <Header/>
         <section>
           <div className="relative mx-auto max-w-screen-xl px-4 py-8">
             <div>
@@ -98,9 +101,10 @@ const ViewHealthAdvertisement = () => {
                 {userID === healthAdvertisement.userID && (
                   <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mt-5 flex flex-row justify-center ">
                     <div >
+                    <Link to={"/donate-Advertisements/edit/"+ id}>
                       <button className=" w-32 h-9 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:bg-blue-700 focus:outline-none">Edit</button>
+                    </Link>
                     </div>
-
                     <div className="ml-5">
                       {/* <a href={"/delete-donate-advertisement/"+ id} className=" mt-7 inline-flex items-center justify-center w-32 h-9 text-md font-medium text-center text-white bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                           Delete
@@ -113,7 +117,6 @@ const ViewHealthAdvertisement = () => {
                   </div>
               </div>
           </div>
-          
           <div id="modal" className=" hidden fixed z-0 pt-24 left-0 top-0 w-full h-screen overflow-auto bg-gray-900 opacity-95 ">
             <div className=" bg-white m-auto p-5 border-solid border-2 w-2/4">
               <span className="float-right text-2xl font-bold cursor-pointer hover:text-black" onClick={() => modal.style.display="none"}>X</span>
@@ -129,7 +132,7 @@ const ViewHealthAdvertisement = () => {
           </div>
           
         </section>
-        
+        </>
         );
         }
         

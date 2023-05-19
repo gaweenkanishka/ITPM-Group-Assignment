@@ -1,18 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Header from "../../components/header";
 import storage from "../../utils/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import makeToast from "../../components/toast";
 import EventAdvertisementAPI from "../../api/EventAdvertisementAPI";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Header from "../../components/header";
 
 
-const CreateEventAdvertisement = () => {
+const EditEventAdvertisement = () => {
 
     const navigate = useNavigate();
-
-    const userID=localStorage.getItem("user_id");
+    const { id } = useParams();
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -34,11 +33,10 @@ const CreateEventAdvertisement = () => {
     };
 
     // Submit form
-    const handleSubmit = (event) => {
+    const handleUpdate = (event) => {
         event.preventDefault();
 
         const data = {
-            userID: userID,
             title: title,
             description: description,
             image: image,
@@ -52,11 +50,11 @@ const CreateEventAdvertisement = () => {
             
         };
 
-        EventAdvertisementAPI.createEventAdvertisement(data)
+        EventAdvertisementAPI.updateEventAdvertisement(id,data)
             .then((response) => {
                 makeToast({
                     type: "success",
-                    message: "Event Advertisement Added",
+                    message: "Event Advertisement Updated Successfully",
                 });
                 navigate("/event-Advertisements");
             })
@@ -93,17 +91,37 @@ const CreateEventAdvertisement = () => {
         );
     };
 
+    // Get Advertisement by ID
+    useEffect(() => {
+        EventAdvertisementAPI.getEventAdvertisement(id)
+            .then((res) => {
+                setTitle(res.data.title);
+                setDescription(res.data.description);
+                setImage(res.data.image);
+                setVenue(res.data.venue);
+                setPhone(res.data.phone);
+                setLocation(res.data.location);
+                setName(res.data.name);
+                setDate(res.data.date);
+                setTime(res.data.time);
+                setEmail(res.data.email);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
 
     return (
         <>
-        <Header/>
+            <Header/>
         <section className="py-10 bg-gray-100 sm:py-16 lg:py-24 ">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
                     <div className="mt-6 overflow-hidden bg-white rounded-xl">
                         <div className="px-6 py-12 sm:p-12">
                             <h3 className="text-3xl font-semibold text-center text-gray-900">Create Event Advertisement</h3>
-                            <form onSubmit={handleSubmit} className="mt-14">
+                            <form onSubmit={handleUpdate} className="mt-14">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
 
                                     <div className="sm:col-span-2">
@@ -226,10 +244,10 @@ const CreateEventAdvertisement = () => {
                 </div>
             </div>
         </section>
-    </> 
+        </>
     );
 };
 
-export default CreateEventAdvertisement;
+export default EditEventAdvertisement;
 
 

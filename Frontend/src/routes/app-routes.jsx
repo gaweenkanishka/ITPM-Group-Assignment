@@ -8,6 +8,8 @@ import {
   ViewEventAdvertisement,
   CreateDonateAdvertisement,
   CreateEventAdvertisement,
+  EditDonateAdvertisement,
+  EditEventAdvertisement,
   EducationList,
   EducationAdd,
   EducationOne,
@@ -65,10 +67,12 @@ const AppRoutes = () => {
           <Route exact path="/health-home" element={<HealthHome />} />
           <Route exact path="/donate-Advertisements" element={<DonateAdvertisementList />} />
           <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
-          <Route exact path="/view-health-advertisement/:id" element={<ViewHealthAdvertisement />} />
-          <Route exact path="/view-event-advertisement/:id" element={<ViewEventAdvertisement />} />
-          <Route exact path="/create-donate-advertisement" element={<CreateDonateAdvertisement />} />
-          <Route exact path="/create-event-advertisement" element={<CreateEventAdvertisement />} />
+          <Route exact path="/donate-Advertisements/:id" element={<ViewHealthAdvertisement />} />
+          <Route exact path="/event-Advertisements/:id" element={<ViewEventAdvertisement />} />
+          <Route exact path="/donate-Advertisements/create" element={<CreateDonateAdvertisement />} />
+          <Route exact path="/event-Advertisements/create" element={<CreateEventAdvertisement />} />
+          <Route exact path="/donate-Advertisements/edit/:id" element={<EditDonateAdvertisement />} />
+          <Route exact path="/event-Advertisements/edit/:id" element={<EditEventAdvertisement />} />
 
 
 

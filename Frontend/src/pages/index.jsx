@@ -5,6 +5,8 @@ import ViewHealthAdvertisement from "./health-donate/viewHealthAdvertisement";
 import ViewEventAdvertisement from "./health-event/viewEventAdvertisement";
 import CreateDonateAdvertisement from "./health-create-advertisement/createDonateAdvertisement";
 import CreateEventAdvertisement from "./health-create-advertisement/createEventAdvertisement";
+import EditDonateAdvertisement from "./health-edit-advertisement/editDonateAdvertisement";
+import EditEventAdvertisement from "./health-edit-advertisement/editEventAdvertisement";
 
 // Education Pages
 import EducationList from "./education-list";
@@ -55,6 +57,8 @@ export {
   ViewEventAdvertisement,
   CreateDonateAdvertisement,
   CreateEventAdvertisement,
+  EditDonateAdvertisement,
+  EditEventAdvertisement,
 
   //sign
   SignUp,

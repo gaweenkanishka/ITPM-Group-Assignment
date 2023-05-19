@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
+import Header from "../../components/header";
 
 const DonateAdvertisementList =()  => {
 
@@ -24,10 +26,22 @@ const DonateAdvertisementList =()  => {
   );
 
     return(
-        <>
-            <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
-                <h1 className="text-gray-800 text-3xl font-semibold text-center ">
-                    DONATIONS
+        <div>
+        <Header/>
+        <div className="overflow-hidden mt-5 mx-10 ">
+                <div>
+                <Link to={"/donate-Advertisements/create"}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-10 mt-5 mb-5">
+                        Add New Donation
+                    </button>
+                </Link>
+                </div>
+            </div>
+
+            <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8 mb-8">
+                
+                <h1 className="text-4xl font-medium text-center mt-8 mb-5">
+                    Donation Advertisements
                 </h1>
             
 
@@ -47,7 +61,7 @@ const DonateAdvertisementList =()  => {
                 {
                     filteredAdvertisements.map((advertisement, idx) => (
                         <li key={idx} className="p-5 bg-slate-100 rounded-md shadow-md">
-                            <a href={"/view-health-advertisement/"+advertisement._id }>
+                            <a href={"/donate-Advertisements/"+advertisement._id }>
                                 <div>
                                     <div className="flex flex-row relative sm:flex">
                                         <div className="flex-shrink-0">
@@ -95,7 +109,7 @@ const DonateAdvertisementList =()  => {
             </ul>
         )}
         </section>
-        </>
+        </div>
 
     
     );

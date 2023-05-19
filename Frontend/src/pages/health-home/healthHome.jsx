@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../home/Footer";
+import Header from "../../components/header";
 
 const HealthHome =()  => {
     const stats = [
@@ -20,8 +21,9 @@ const HealthHome =()  => {
 
     return(
         
-        <div className=" pt-6">
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-x-12 items-start justify-between lg:flex md:px-8">
+        <div>
+            <Header/>
+            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-x-12 items-start justify-between lg:flex md:px-8 mt-5">
                 <div className="sm:hidden lg:block lg:max-w-xl">
                     <img src="https://images.unsplash.com/photo-1598300188480-626f2f79ab8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" className="rounded-lg" alt="" />
                 </div>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import EventAdvertisementAPI from "../../api/EventAdvertisementAPI";
+import Header from "../../components/header";
 
 const ViewEventAdvertisement = () => {
 
-    const userID="6464eb5c55b78fde4de6f203";
+    const userID=localStorage.getItem("user_id");
 
     const [eventAdvertisement, setEventAdvertisement] = useState({
         location: "",
@@ -32,7 +33,7 @@ const ViewEventAdvertisement = () => {
       {
           const response = await EventAdvertisementAPI.deleteEventAdvertisement(id);
           setEventAdvertisement(response.data);
-          navigate("/donate-Advertisements");
+          navigate("/event-Advertisements");
       }
       catch (error)
       {
@@ -43,6 +44,9 @@ const ViewEventAdvertisement = () => {
   var modal = document.getElementById("modal");
 
     return(
+
+      <>
+      <Header/>
         <section>
           <div className="relative mx-auto max-w-screen-xl px-4 py-8">
             <div>
@@ -120,14 +124,12 @@ const ViewEventAdvertisement = () => {
                 {userID === eventAdvertisement.userID && (
                   <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mt-5 flex flex-row justify-center ">
                     <div >
+                      <Link to={"/event-Advertisements/edit/"+ id}>
                       <button className=" w-32 h-9 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:bg-blue-700 focus:outline-none">Edit</button>
+                      </Link>
                     </div>
 
                     <div className="ml-5">
-                      {/* <a href={"/delete-donate-advertisement/"+ id} className=" mt-7 inline-flex items-center justify-center w-32 h-9 text-md font-medium text-center text-white bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                          Delete
-                      </a> */}
-                      
                       <button onClick={() => modal.style.display="block"} className="w-32 h-9 text-white bg-red-500 rounded-md hover:bg-red-600 focus:bg-red-700 focus:outline-none ml-7">Delete</button>
                     </div>
                   </div>
@@ -151,7 +153,7 @@ const ViewEventAdvertisement = () => {
 
           </div>
         </section>
-        
+        </>
         );
         }
         

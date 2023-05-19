@@ -1,64 +1,55 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import Header from "../../components/header";
 import storage from "../../utils/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import makeToast from "../../components/toast";
-import EventAdvertisementAPI from "../../api/EventAdvertisementAPI";
-import { useNavigate } from "react-router-dom";
+import DonateAdvertisementAPI from "../../api/DonateAdvertisementAPI";
+import { useNavigate, useParams } from "react-router-dom";
+import Header from "../../components/header";
 
 
-const CreateEventAdvertisement = () => {
+const EditDonateAdvertisement = () => {
 
     const navigate = useNavigate();
+    const { id } = useParams();
 
-    const userID=localStorage.getItem("user_id");
-
+    const [type, setType] = useState("");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [image, setImage] = useState("");
+    const [photos, setPhotos] = useState("");
     const [phone, setPhone] = useState("");
-    const [venue, setVenue] = useState("");
     const [location, setLocation] = useState("");
     const [name, setName] = useState("");
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
-    const [email, setEmail] = useState("");
 
     const [file, setFile] = useState("");
     const [percent, setPercent] = useState(0);
 
     // To clear the form after submitting
     const clearForm = () => {
-        setImage("");
+        setPhotos("");
     };
 
     // Submit form
-    const handleSubmit = (event) => {
+    const handleUpdate = (event) => {
         event.preventDefault();
 
         const data = {
-            userID: userID,
+            type: type,
             title: title,
             description: description,
-            image: image,
-            venue: venue,
+            photos: photos,
             phone: phone,
             location: location,
             name: name,
-            date: date,
-            time: time,
-            email: email,
             
         };
 
-        EventAdvertisementAPI.createEventAdvertisement(data)
+        DonateAdvertisementAPI.updateDonateAdvertisement(id,data)
             .then((response) => {
                 makeToast({
                     type: "success",
-                    message: "Event Advertisement Added",
+                    message: "Donate Advertisement Added",
                 });
-                navigate("/event-Advertisements");
+                navigate("/donate-Advertisements");
             })
             .catch((err) => {
                 makeToast({ type: "error", message: "Error" });
@@ -87,24 +78,54 @@ const CreateEventAdvertisement = () => {
             },
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setImage(downloadURL);
+                    setPhotos(downloadURL);
                 });
             }
         );
     };
 
+    // Get Advertisement by ID
+    useEffect(() => {
+        DonateAdvertisementAPI.getDonateAdvertisementById(id)
+            .then((res) => {
+                setType(res.data.type);
+                setTitle(res.data.title);
+                setDescription(res.data.description);
+                setPhotos(res.data.photos);
+                setPhone(res.data.phone);
+                setLocation(res.data.location);
+                setName(res.data.name);
+            })
+            .catch((err) => {	
+                console.log(err);
+            });
+    }, []);
 
     return (
         <>
-        <Header/>
+            <Header />
         <section className="py-10 bg-gray-100 sm:py-16 lg:py-24 ">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
                     <div className="mt-6 overflow-hidden bg-white rounded-xl">
                         <div className="px-6 py-12 sm:p-12">
-                            <h3 className="text-3xl font-semibold text-center text-gray-900">Create Event Advertisement</h3>
-                            <form onSubmit={handleSubmit} className="mt-14">
+                            <h3 className="text-3xl font-semibold text-center text-gray-900">Edit Advertisement</h3>
+                            <form onSubmit={handleUpdate} className="mt-14">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
+
+                                    <div className="sm:col-span-2">
+                                        <label htmlFor="type" className="text-base font-medium text-gray-900"> Type </label>
+                                        <div className="mt-2.5 relative">
+                                            {/* <select required className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" placeholder="Type">
+                                                <option value={type.valueOf("wanted")} onChange={(event) => setType(event.target.value)}>Wanted</option>
+                                                <option value={type} onChange={(event) => setType(event.target.value)}>Donate</option>
+                                            </select> */}
+                                            <div className="mt-2.5 relative">
+                                            <input required type="text" name="type" id="type" placeholder="Enter Type" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            value={type} onChange={(event)=> setType(event.target.value)}/>
+                                        </div>
+                                        </div>
+                                    </div>
 
                                     <div className="sm:col-span-2">
                                         <label htmlFor="title" className="text-base font-medium text-gray-900"> Title </label>
@@ -123,9 +144,17 @@ const CreateEventAdvertisement = () => {
                                     </div>
 
                                     <div className=" sm:col-span-2">
-                                        <label htmlFor="image" className="text-base font-medium text-gray-900"> Photos </label>
+                                        <label htmlFor="location" className="text-base font-medium text-gray-900"> Location </label>
                                         <div className="mt-2.5 relative">
-                                            <input type="file" name="image" id="image" placeholder="Enter img url" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            <input required type="text" name="location" id="location" placeholder="Enter location" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            value={location} onChange={(event) => setLocation(event.target.value)}/>
+                                        </div>
+                                    </div>
+
+                                    <div className=" sm:col-span-2">
+                                        <label htmlFor="photos" className="text-base font-medium text-gray-900"> Photos </label>
+                                        <div className="mt-2.5 relative">
+                                            <input type="file" name="photos" id="photos" placeholder="Enter img url" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
                                             onChange={(event) => setFile(event.target.files[0])}/>
                                         </div>
                                         <button
@@ -144,42 +173,6 @@ const CreateEventAdvertisement = () => {
                                                 ></div>
                                             </div>
                                             )}
-                                    </div>
-
-                                    <div className="sm:col-span-2">
-                                        <hr className="my-6 border-black" />
-                                    </div>
-
-                                    <div className=" sm:col-span-2">
-                                        <label htmlFor="venue" className="text-base font-medium text-gray-900"> Venue </label>
-                                        <div className="mt-2.5 relative">
-                                            <input required type="text" name="venue" id="venue" placeholder="Enter Venue" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
-                                            value={venue} onChange={(event) => setVenue(event.target.value)}/>
-                                        </div>
-                                    </div>
-
-                                    <div className=" sm:col-span-2">
-                                        <label htmlFor="location" className="text-base font-medium text-gray-900"> Location </label>
-                                        <div className="mt-2.5 relative">
-                                            <input required type="text" name="location" id="location" placeholder="Enter location" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
-                                            value={location} onChange={(event) => setLocation(event.target.value)}/>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="date" className="text-base font-medium text-gray-900 "> Date </label>
-                                        <div className="mt-2.5 relative">
-                                            <input required type="text" name="date" id="date" placeholder="YYYY-MM-DD" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
-                                            value={date} onChange={(event) => setDate(event.target.value)}/>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="time" className="text-base font-medium text-gray-900"> Time </label>
-                                        <div className="mt-2.5 relative">
-                                            <input required type="text" name="time" id="time" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
-                                            value={time} onChange={(event) => setTime(event.target.value)}/>
-                                        </div>
                                     </div>
 
                                     <div className="sm:col-span-2">
@@ -206,17 +199,9 @@ const CreateEventAdvertisement = () => {
                                         </div>
                                     </div>
 
-                                    <div className=" sm:col-span-2">
-                                        <label htmlFor="email" className="text-base font-medium text-gray-900"> Email </label>
-                                        <div className="mt-2.5 relative">
-                                            <input required type="email" name="email" id="email" placeholder="Enter Email" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
-                                            value={email} onChange={(event) => setEmail(event.target.value)}/>
-                                        </div>
-                                    </div>
-
                                     <div className="sm:col-span-2">
                                         <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700">
-                                            Send
+                                            Update
                                         </button>
                                     </div>
                                 </div>
@@ -226,10 +211,10 @@ const CreateEventAdvertisement = () => {
                 </div>
             </div>
         </section>
-    </> 
+        </>
     );
 };
 
-export default CreateEventAdvertisement;
+export default EditDonateAdvertisement;
 
 

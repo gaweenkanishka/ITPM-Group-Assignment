@@ -1,17 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Header from "../../components/header";
+import { Link } from "react-router-dom";
 
 
 
 import EventAdvertisementAPI from "../../api/EventAdvertisementAPI";
-
-// //Get all the advertisements
-// const getAllAdvertisements = async () => {
-//     const response = await EventAdvertisementAPI.getAllEventAdvertisements();
-//     const data = await response.data;
-//     return data;
-// }
-
 
 const EventAdvertisementList =()  => {
 
@@ -35,7 +29,18 @@ const EventAdvertisementList =()  => {
   );
 
     return(
-            <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
+        <>
+        <Header/>
+        <div className="overflow-hidden mt-5 mx-10 ">
+                <div>
+                <Link to={"/event-Advertisements/create"}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-10 mt-5 mb-5">
+                        Add New Event
+                    </button>
+                </Link>
+                </div>
+            </div>
+        <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8">
             <div>
                 <h1 className="text-gray-800 text-3xl font-semibold text-center">
                     EVENTS
@@ -58,7 +63,7 @@ const EventAdvertisementList =()  => {
                 {
                     filteredAdvertisements.map((advertisement, idx) => (
                         <li key={idx} className="p-5 bg-slate-200 rounded-md shadow-2xl">
-                            <a href={"/view-event-advertisement/"+advertisement._id }>
+                            <a href={"/event-Advertisements/"+advertisement._id }>
                                 <div>
                                     <div className="flex flex-row relative sm:flex">
                                         <div className="flex-shrink-0">
@@ -106,7 +111,7 @@ const EventAdvertisementList =()  => {
             </ul>
         )}
         </section>
-
+        </>
     
     );
 }

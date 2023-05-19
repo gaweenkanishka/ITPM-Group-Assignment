@@ -26,6 +26,11 @@ class DonateAdvertisementAPI{
         return axios.delete(`${BASE_URL}/api/healthAdvertisements/${id}`, requestConfig);
     }
 
+    //update donate advertisement
+    static updateDonateAdvertisement(id, advertisement){
+        return axios.patch(`${BASE_URL}/api/healthAdvertisements/${id}`, advertisement, requestConfigJason);
+    }
+
 }
 
 export default DonateAdvertisementAPI;

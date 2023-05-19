@@ -12,9 +12,7 @@ const CreateDonateAdvertisement = () => {
 
     const navigate = useNavigate();
 
-    // const userID = localStorage.getItem("userID");
-
-    const userID = "6464eb5c55b78fde4de6f203";
+    const userID=localStorage.getItem("user_id");
 
     const [type, setType] = useState("");
     const [title, setTitle] = useState("");
@@ -90,16 +88,9 @@ const CreateDonateAdvertisement = () => {
     };
 
 
-
-// const handleChange = (event) => {
-//     setAdvertisements({
-//       ...advertisements,
-//       [event.target.name]: event.target.value
-//     });
-//   }
-
-
     return (
+        <>
+            <Header />
         <section className="py-10 bg-gray-100 sm:py-16 lg:py-24 ">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
@@ -207,7 +198,7 @@ const CreateDonateAdvertisement = () => {
                 </div>
             </div>
         </section>
-            
+           </> 
     );
 };
 

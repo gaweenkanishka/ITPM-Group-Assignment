@@ -24,6 +24,12 @@ class EventAdvertisementAPI{
     static deleteEventAdvertisement(id){
         return axios.delete(`${BASE_URL}/api/eventAdvertisement/${id}`, requestConfig);
     }
+
+    // Update a event advertisement
+    static updateEventAdvertisement(id, advertisement){
+        return axios.patch(`${BASE_URL}/api/eventAdvertisement/${id}`, advertisement, requestConfigJason);
+    }
+
 }
 
 export default EventAdvertisementAPI;
