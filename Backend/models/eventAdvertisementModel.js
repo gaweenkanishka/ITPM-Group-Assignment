@@ -15,8 +15,13 @@ userID: {
 
 venue: {
     type: String,
-    required: false,
+    required: true,
 },
+
+image: {
+    type: String,
+    required: true,
+    },
 
 title: {
     type: String,
@@ -53,6 +58,11 @@ time: {
     required: true,
     },
 
-});
+},
+    {
+        timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+    }
+    
+);
 
 module.exports = mongoose.model("EventAdvertisement", eventAdvertisementSchema);
