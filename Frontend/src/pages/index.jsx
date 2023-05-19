@@ -40,6 +40,9 @@ import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
 import JobSeeker from "./jobSeeker";
 
+//Profile
+import Profile from "./userProfile";
+
 export {
   // Education Pages
   EducationList,
@@ -83,4 +86,5 @@ export {
   JobList,
   JobUpdate,
   JobSeeker,
+  Profile,
 };
