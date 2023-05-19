@@ -9,6 +9,7 @@ import EducationList from "./education-list";
 import EducationAdd from "./education-add";
 import EducationOne from "./education-one";
 import EducationUpdate from "./education-update";
+import Education from "./education";
 
 // Organization Pages
 import OrgLogin from "./org-login";
@@ -38,6 +39,7 @@ export {
   EducationAdd,
   EducationOne,
   EducationUpdate,
+  Education,
 
   // Organization Pages
   OrgLogin,
