@@ -2,37 +2,51 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Form = () => {
-    const[fullName,setFullName]=useState("");
+    const[firstName,setFirstName]=useState("");
+    const[lastName,setLastName]=useState("");
     const[dateOfBirth,setDateOfBirth] =useState("");
+    const[selectanOption,setSelectanOption]=useState("");
     const[email,setEmail]=useState("");
-    const[optional,setOptional]=useState("");
     const[description,setDescription]=useState("");
 
-    clearForm=()=>{
-        setFullName("");
-        setDateOfBirth("");
-        setEmail("");
-        setOptional("");
-        setDescription("");
+    // clearForm=()=>{
+    //     setFirstName("");
+    //     setLastName("");
+    //     setDateOfBirth("");
+    //     setSelectanOption("");
+    //     setEmail("");
+    //     setDescription("");
 
-    };
+    // };
 
     const handleSubmit = (event) => {
         event.preventDefault();
     
         const data = {
-          fullName,
+          firstName,
+          lastName,
           dateOfBirth,
+          selectanOption,
           email,
-          optional,
           description,
     
         };
-        //localhostport
+         //localhostport
+        axios.post('http://localhost:8000/api/jobSeeker/', data).
+        then((res)=>{
+          console.log(res)
+          console.log(data)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+       
+        // clearForm();   
 
         }
-        
-   
+       
+    
+           
 
     return (
         
@@ -57,25 +71,40 @@ const Form = () => {
             
                
 
-                    <div className="mt-52  w-4/5 h-auto flex justify-end mb-80 ">
-                    <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
+                    <div className="mt-52  w-4/5 h-2/3 flex justify-end mb-80 ">
+                    <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl 
+                    dark:bg-gray-900 lg:max-w-xl 
+                    shadow-gray-300/50 dark:shadow-black/50">
                     <h1 className="text-xl font-medium text-white ml-12">
                     Enter your information below as the first step, <br></br>
                     <span className='ml-8'>and we'll go on to the next.</span>
                     </h1>
 
                         <form onSubmit={handleSubmit} 
-                        className="w-full mt-6 ">
+                            className="w-full mt-6 ">
                             <div className="flex-1">
-                                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
+                                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
                                 <input type="text" placeholder="John Doe"
                                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-200 
                                 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 
                                 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
                                 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring 
                                 focus:ring-opacity-40"
-                                value={fullName}
-                                onChange={(event) => setFullName(event.target.value)} />
+                                value={firstName}
+                                onChange={(event) => setFirstName(event.target.value)} />
+                            </div>
+
+
+                            <div className="flex-1">
+                                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last Name</label>
+                                <input type="text" placeholder="John Doe"
+                                 className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-200 
+                                bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 
+                                dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
+                                dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring 
+                                focus:ring-opacity-40"
+                                value={lastName}
+                                onChange={(event) => setLastName(event.target.value)} />
                             </div>
 
                             <div className="flex-1 mt-6">
@@ -92,7 +121,8 @@ const Form = () => {
 
 
                             <div className="flex w-auto  inline-block">
-                                <label className=" w-30 mt-8  mb-2 text-sm text-gray-600 dark:text-gray-200 border border-gray-200 px-2 py-2 rounded-md">Email address</label>
+                                <label className=" w-30 mt-8  mb-2 text-sm text-gray-600 dark:text-gray-200 border
+                                 border-gray-200 px-2 py-2 rounded-md">Select An Option</label>
                                 <div className="flex mt-6  gap-6">
 
                                     <div className=" w-auto block mt-2 flex text-sm font-medium text-gray-700  border rounded-md  rounded-lg shadow-md 
@@ -100,14 +130,15 @@ const Form = () => {
                                         <div className='mt-2 ml-2 '>
                                             <input
                                                 type="radio"
-                                                id="full-time"
-                                                name="type"
-                                                value="Full Time"
+                                                id="Have E-mail"
+                                                name="selectanOption"
+                                                value="Have E-mail"
+
                                                 className="mr-2"
-                                                checked={email==='Have E-mail'}
-                                                onChange={(event) => setEmail(event.target.value)}
+                                                checked={selectanOption==='Have E-mail'}
+                                                onChange={(event) => setSelectanOption(event.target.value)}
                                             />
-                                            <label htmlFor="full-time"
+                                            <label htmlFor="Have E-mail"
                                             className='text-white'>Have E-mail</label>
                                         </div>
 
@@ -115,27 +146,27 @@ const Form = () => {
                                         <div className='mt-2 '>
                                             <input
                                                 type="radio"
-                                                id="part-time"
-                                                name="type"
-                                                value="Part Time"
+                                                id="Not have E-mail"
+                                                name="selectanOption"
+                                                value="Not have E-mail"
                                                 className="mr-2 ml-4"
-                                                checked={email===`havn't E-mail`}
-                                                onChange={(event) => setEmail(event.target.value)}
+                                                checked={selectanOption==='Not have E-mail'}
+                                                onChange={(event) => setSelectanOption(event.target.value)}
                                             />
-                                            <label htmlFor="part-time"
+                                            <label htmlFor="Not have E-mail"
                                                 className='text-white'>Havn't E-mail</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="flex-1 mt-6">
-                                 <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">optional(if you have email)</label>
+                                 <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email(if you have email)</label>
                                      <input type="email" placeholder="optional" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900
                                       dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 
                                       dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none
                                        focus:ring focus:ring-opacity-40" 
-                                        value={optional}
-                                onChange={(event) => setOptional(event.target.value)}/>
+                                        value={email}
+                                onChange={(event) => setEmail(event.target.value)}/>
                             </div>
 
                             <div className="flex-1 ">

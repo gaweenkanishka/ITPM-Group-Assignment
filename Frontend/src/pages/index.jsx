@@ -33,6 +33,8 @@ import JobUpdate from "./JobUpdate";
 import JobCareer from "./jobCareer";
 import JobOne from "./Job-one";
 import JobSeeker from"./jobSeeker";
+import UpdateForm from "./JobUpdate/updateForm";
+import JobReport from "./jobList/jobViewReport";
 
 
 export {
@@ -71,5 +73,7 @@ export {
   JobUpdate,
   JobCareer,
   JobOne,
-  JobSeeker
+  JobSeeker,
+  UpdateForm,
+  JobReport
 };

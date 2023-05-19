@@ -13,15 +13,13 @@ const jobSeekerSchema= new Schema({
     },
    
     dateofBirth:{
-        type:Date,
-        required:true
+        type:Date,     
     },
 
     selectanOption:{
         type:String,
-        enum:['have E-mail', `Don't Have E-mail`],
-        required:true
-    },
+        enum:['Have E-mail', 'Not have E-mail'],
+     },
 
     email:{
         type:String
