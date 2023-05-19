@@ -8,10 +8,11 @@ const healthAdvertisementSchema = new Schema({
         required: true,
         },
 
-    userID: {
-        type: String,
-        required: true,
-        },
+        organization: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "orgUser",
+            required: true,
+          },
 
     location: {
         type: String,

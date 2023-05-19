@@ -7,11 +7,11 @@ const ViewHealthAdvertisement = () => {
 
     const navigate = useNavigate();
 
-    const userID=localStorage.getItem("user_id");
+    const organizer=localStorage.getItem("user_id");
 
     const [healthAdvertisement, setHealthAdvertisement] = useState({
         type: "",
-        userID: "",
+        organization: "",
         photos: "",
         title: "",
         description: "",
@@ -98,7 +98,7 @@ const ViewHealthAdvertisement = () => {
                 </div>
 
                 <div className="lg:col-span-4">
-                {userID === healthAdvertisement.userID && (
+                {organizer === healthAdvertisement.organization && (
                   <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mt-5 flex flex-row justify-center ">
                     <div >
                     <Link to={"/donate-Advertisements/edit/"+ id}>
@@ -106,10 +106,6 @@ const ViewHealthAdvertisement = () => {
                     </Link>
                     </div>
                     <div className="ml-5">
-                      {/* <a href={"/delete-donate-advertisement/"+ id} className=" mt-7 inline-flex items-center justify-center w-32 h-9 text-md font-medium text-center text-white bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                          Delete
-                      </a> */}
-                      
                       <button onClick={() => modal.style.display="block"} className="w-32 h-9 text-white bg-red-500 rounded-md hover:bg-red-600 focus:bg-red-700 focus:outline-none ml-7">Delete</button>
                     </div>
                   </div>

@@ -30,6 +30,14 @@ class EventAdvertisementAPI{
         return axios.patch(`${BASE_URL}/api/eventAdvertisement/${id}`, advertisement, requestConfigJason);
     }
 
+    // Get all EventAdvertiestments by organization
+    static getAllEventAdvertisementsByOrganization() {
+        return axios.get(
+          `${BASE_URL}/api/eventAdvertisement/organization`,
+          requestConfig
+        );
+      }
+
 }
 
 export default EventAdvertisementAPI;

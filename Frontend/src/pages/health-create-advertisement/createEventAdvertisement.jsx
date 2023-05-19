@@ -12,7 +12,7 @@ const CreateEventAdvertisement = () => {
 
     const navigate = useNavigate();
 
-    const userID=localStorage.getItem("user_id");
+    const organization=localStorage.getItem("user_id");
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -38,7 +38,7 @@ const CreateEventAdvertisement = () => {
         event.preventDefault();
 
         const data = {
-            userID: userID,
+            organization: organization,
             title: title,
             description: description,
             image: image,

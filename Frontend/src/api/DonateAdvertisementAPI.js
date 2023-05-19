@@ -31,6 +31,14 @@ class DonateAdvertisementAPI{
         return axios.patch(`${BASE_URL}/api/healthAdvertisements/${id}`, advertisement, requestConfigJason);
     }
 
+    // Get all DonateAdvertiestments by organization
+  static getAllDonateAdvertisementsByOrganization() {
+    return axios.get(
+      `${BASE_URL}/api/donateAdvertisements/organization`,
+      requestConfig
+    );
+  }
+
 }
 
 export default DonateAdvertisementAPI;

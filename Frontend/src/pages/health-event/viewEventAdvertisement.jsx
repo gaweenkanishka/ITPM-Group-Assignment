@@ -5,9 +5,10 @@ import Header from "../../components/header";
 
 const ViewEventAdvertisement = () => {
 
-    const userID=localStorage.getItem("user_id");
+    const organizer=localStorage.getItem("user_id");
 
     const [eventAdvertisement, setEventAdvertisement] = useState({
+        organizer: "",
         location: "",
         venue: "",
         title: "",
@@ -121,7 +122,7 @@ const ViewEventAdvertisement = () => {
                 </div>
                 </div>
                 <div className="lg:col-span-4">
-                {userID === eventAdvertisement.userID && (
+                {organizer === eventAdvertisement.organizer && (
                   <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mt-5 flex flex-row justify-center ">
                     <div >
                       <Link to={"/event-Advertisements/edit/"+ id}>

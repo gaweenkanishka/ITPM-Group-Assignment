@@ -12,7 +12,7 @@ const CreateDonateAdvertisement = () => {
 
     const navigate = useNavigate();
 
-    const userID=localStorage.getItem("user_id");
+    const organization=localStorage.getItem("user_id");
 
     const [type, setType] = useState("");
     const [title, setTitle] = useState("");
@@ -35,7 +35,7 @@ const CreateDonateAdvertisement = () => {
         event.preventDefault();
 
         const data = {
-            userID: userID,
+            organization: organization,
             type: type,
             title: title,
             description: description,

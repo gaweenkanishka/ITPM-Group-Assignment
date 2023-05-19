@@ -8,10 +8,11 @@ location: {
     required: true,
   },
 
-userID: {
-    type: String,
+organization: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "orgUser",
     required: true,
-    },
+  },
 
 venue: {
     type: String,
