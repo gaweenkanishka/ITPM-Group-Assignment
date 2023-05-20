@@ -6,9 +6,7 @@ const {
     deleteEventAdvertisement,
     searchEventAdvertisements,
     updatEventAdvertisement,
-    getEventAdvertisementsByOrganization
 } = require("../controllers/eventAdvertisementController");
-const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 

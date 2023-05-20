@@ -114,7 +114,7 @@ const ViewEventAdvertisement = () => {
               </div>
         
               <div className="lg:col-span-3">
-                <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
+                <div className=" mx-auto text-justify lg:text-left lg:mx-0">
                   <h3 className="text-2xl font-bold lg:text-2xl">Description</h3>
                   <p>
                     {eventAdvertisement.description}
@@ -122,7 +122,7 @@ const ViewEventAdvertisement = () => {
                 </div>
                 </div>
                 <div className="lg:col-span-4">
-                {organizer === eventAdvertisement.organizer && (
+                {organizer === eventAdvertisement.organization && (
                   <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0 mt-5 flex flex-row justify-center ">
                     <div >
                       <Link to={"/event-Advertisements/edit/"+ id}>

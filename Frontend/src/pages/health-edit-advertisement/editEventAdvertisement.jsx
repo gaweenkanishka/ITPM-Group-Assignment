@@ -102,7 +102,7 @@ const EditEventAdvertisement = () => {
                 setPhone(res.data.phone);
                 setLocation(res.data.location);
                 setName(res.data.name);
-                setDate(res.data.date);
+                setDate(res.data.date.slice(0, 10));
                 setTime(res.data.time);
                 setEmail(res.data.email);
             })
@@ -195,7 +195,7 @@ const EditEventAdvertisement = () => {
                                     <div>
                                         <label htmlFor="time" className="text-base font-medium text-gray-900"> Time </label>
                                         <div className="mt-2.5 relative">
-                                            <input required type="text" name="time" id="time" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            <input required type="text" name="time" id="time" placeholder="Enter time" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
                                             value={time} onChange={(event) => setTime(event.target.value)}/>
                                         </div>
                                     </div>
@@ -219,7 +219,7 @@ const EditEventAdvertisement = () => {
                                     <div className=" mt-3">
                                         <label htmlFor="phone" className="text-base font-medium text-gray-900"> Phone number </label>
                                         <div className="mt-2.5 relative">
-                                            <input required type="tel" name="phone" id="phone" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            <input required type="tel" name="phone" id="phone" placeholder="Enter your contact number" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
                                             value={phone} onChange={(event) => setPhone(event.target.value)}/>
                                         </div>
                                     </div>

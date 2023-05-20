@@ -14,9 +14,9 @@ const HealthAdmin = () => {
   const [eventAdvertisements, setEventAdvertisements] = useState([]);
     const [searchTerm1, setSearchTerm1] = useState("");
 
-  // Get all donate advertisements
+  //get all donate advertisements 
   useEffect(() => {
-    DonateAdvertisementAPI.getAllDonateAdvertisementsByOrganization()
+    DonateAdvertisementAPI.getAllDonateAdvertisements()
       .then((response) => {
         setDonateAdvertisements(response.data);
       })
@@ -25,9 +25,10 @@ const HealthAdmin = () => {
       });
   }, []);
 
+
     // Get all event advertisements
     useEffect(() => {
-        EventAdvertisementAPI.getAllEventAdvertisementsByOrganization()
+        EventAdvertisementAPI.getAllEventAdvertisements()
             .then((response) => {
                 setEventAdvertisements(response.data);
             })
@@ -84,16 +85,6 @@ const HealthAdmin = () => {
             Add New Donation
           </button>
         </Link>
-
-        {/* Search */}
-        <input
-          className="shadow appearance-none border rounded w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline float-right mr-10 mt-5 mb-5"
-          type="text"
-          placeholder="Enter Title"
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        />
       </div>
 
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-5 mx-10">
@@ -123,23 +114,15 @@ const HealthAdmin = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {donateAdvertisements &&
-              donateAdvertisements
-                .filter((donateAdvertisement) => {
-                  if (searchTerm === "") {
-                    return donateAdvertisement;
-                  } else if (
-                    donateAdvertisement.title
-                      .toLowerCase()
-                      .includes(searchTerm.toLowerCase())
-                  ) {
-                    return donateAdvertisement;
-                  } else {
-                    return null;
-                  }
-                })
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .map((donateAdvertisement) => (
+            {/*filter by organization and map data*/}
+            {donateAdvertisements
+              .filter((donateAdvertisement) => {
+                if (donateAdvertisement.organization === localStorage.getItem("user_id")) {
+                  return donateAdvertisement;
+                } else {
+                  return null;
+                }
+              }).map((donateAdvertisement) => (
                   <tr key={donateAdvertisement._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
@@ -153,7 +136,7 @@ const HealthAdmin = () => {
                       <div className="flex items-center">
                         <div className=" font-medium text-gray-900">
                           <Link
-                            to={`/education-advertisements/${donateAdvertisement._id}`}
+                            to={`/donate-Advertisements/${donateAdvertisement._id}`}
                             key={donateAdvertisement._id}
                             className="hover:text-blue-500 hover:underline"
                           >
@@ -164,22 +147,19 @@ const HealthAdmin = () => {
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap flex">
-                      <button
-                        className="text-red-500 hover:text-red-900 text-4xl"
-                        onClick={() =>
+                        <MdDeleteOutline className="text-4xl text-red-500 hover:text-red-900 h-7 w-7 ml-8 cursor-pointer" onClick={() =>
                           deleteDonateAdvertisement(donateAdvertisement._id)
-                        }
-                      >
-                        <MdDeleteOutline />
-                      </button>
+                        }/>
+                      {/* </button> */}
 
                       <Link
                         to={`/donate-Advertisements/edit/${donateAdvertisement._id}`}
                       >
-                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900" />
+                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900 h-7 w-7 ml-8" />
                       </Link>
-                    </td>
+                      </td>
                   </tr>
+                  
                 ))}
           </tbody>
         </table>
@@ -192,16 +172,6 @@ const HealthAdmin = () => {
             Add New Event
           </button>
         </Link>
-
-        {/* Search */}
-        <input
-          className="shadow appearance-none border rounded w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline float-right mr-10 mt-5 mb-5"
-          type="text"
-          placeholder="Enter Title"
-          onChange={(event) => {
-            setSearchTerm1(event.target.value);
-          }}
-        />
       </div>
 
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-5 mx-10">
@@ -231,23 +201,13 @@ const HealthAdmin = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {eventAdvertisements &&
-              eventAdvertisements
-                .filter((eventAdvertisement) => {
-                  if (searchTerm1 === "") {
-                    return eventAdvertisement;
-                  } else if (
-                    eventAdvertisement.title
-                      .toLowerCase()
-                      .includes(searchTerm1.toLowerCase())
-                  ) {
-                    return eventAdvertisement;
-                  } else {
-                    return null;
-                  }
-                })
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .map((eventAdvertisement) => (
+            {eventAdvertisements.filter((eventAdvertisement) => {
+                if (eventAdvertisement.organization === localStorage.getItem("user_id")) {
+                  return eventAdvertisement;
+                } else {
+                  return null;
+                }
+              }).map((eventAdvertisement) => (
                   <tr key={eventAdvertisement._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
@@ -261,7 +221,7 @@ const HealthAdmin = () => {
                       <div className="flex items-center">
                         <div className=" font-medium text-gray-900">
                           <Link
-                            to={`/education-advertisements/${eventAdvertisement._id}`}
+                            to={`/event-Advertisements/${eventAdvertisement._id}`}
                             key={eventAdvertisement._id}
                             className="hover:text-blue-500 hover:underline"
                           >
@@ -272,19 +232,13 @@ const HealthAdmin = () => {
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap flex">
-                      <button
-                        className="text-red-500 hover:text-red-900 text-4xl"
-                        onClick={() =>
-                          deleteEventAdvertisement(eventAdvertisement._id)
-                        }
-                      >
-                        <MdDeleteOutline />
-                      </button>
+                        <MdDeleteOutline className="text-4xl text-red-500 hover:text-red-900 h-7 w-7 ml-8 cursor-pointer" onClick={()=>deleteEventAdvertisement(eventAdvertisement._id)} />
+                      {/* </button> */}
 
                       <Link
                         to={`/event-Advertisements/edit/${eventAdvertisement._id}`}
                       >
-                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900" />
+                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900 h-7 w-7 ml-8" />
                       </Link>
                     </td>
                   </tr>

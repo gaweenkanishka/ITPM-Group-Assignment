@@ -6,9 +6,7 @@ const {
     deleteHealthAdvertisement,
     updateHealthAdvertisement,
     searchHealthAdvertisements,
-    getDonateAdvertisementsByOrganization
 } = require("../controllers/healthAdvertisementControllers");
-const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 

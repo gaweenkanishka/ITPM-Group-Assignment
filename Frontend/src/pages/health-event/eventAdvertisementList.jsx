@@ -31,6 +31,7 @@ const EventAdvertisementList =()  => {
     return(
         <>
         <Header/>
+        {localStorage.getItem("user_id") && (
         <div className="overflow-hidden mt-5 mx-10 ">
                 <div>
                 <Link to={"/event-Advertisements/create"}>
@@ -40,6 +41,7 @@ const EventAdvertisementList =()  => {
                 </Link>
                 </div>
             </div>
+        )}
         <section className="mt-12 max-w-screen-lg mx-auto px-4 md:px-8 mb-8">
             <div>
                 <h1 className="text-gray-800 text-3xl font-semibold text-center">
@@ -62,7 +64,7 @@ const EventAdvertisementList =()  => {
             <ul className="mt-12 space-y-6">
                 {
                     filteredAdvertisements.map((advertisement, idx) => (
-                        <li key={idx} className="p-5 bg-slate-200 rounded-md shadow-2xl">
+                        <li key={idx} className="p-6 bg-slate-200 rounded-md shadow-2xl">
                             <a href={"/event-Advertisements/"+advertisement._id }>
                                 <div>
                                     <div className="flex flex-row relative sm:flex">
@@ -81,7 +83,12 @@ const EventAdvertisementList =()  => {
                                             </div>
                                             <div>
                                             <p className="text-gray-500 text-base text-left ml-5 pr-2">
-                                                {advertisement.description}<br/> {advertisement.date.slice(0,10)}   
+                                            {advertisement.description.split("\n").slice(0,2).map((line, idx) => (
+                                                    <span key={idx}>
+                                                        {line}
+                                                        <br />
+                                                    </span>
+                                                ))} 
                                             </p>
                                             </div>
                                             <div className=" absolute bottom-0 left-5">
