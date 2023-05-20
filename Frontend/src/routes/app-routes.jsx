@@ -6,16 +6,16 @@ import {
   EventAdvertisementList,
   ViewHealthAdvertisement,
   ViewEventAdvertisement,
-  CreateDonateAdvertisement,
-  CreateEventAdvertisement,
-  EditDonateAdvertisement,
-  EditEventAdvertisement,
-  HealthAdmin,
+  // CreateDonateAdvertisement,
+ // CreateEventAdvertisement,
+ // EditDonateAdvertisement,
+ // EditEventAdvertisement,
+  //HealthAdmin,
   EducationList,
   EducationAdd,
   EducationOne,
   EducationUpdate,
-  Education,
+ // Education,
   SignUp,
   SignIn,
   Home,
@@ -28,11 +28,15 @@ import {
   JobCareer,
   JobOne,
   JobSeeker,
-  Profile,
+  UpdateForm,
+  JobReport,
+  // Profile,
   OrgLogin,
-  OrgSignup,
+  //OrgSignup,
   OrgDashboard,
 } from "../pages";
+import updateForm from "../pages/JobUpdate/updateForm";
+
 
 const AppRoutes = () => {
   return (
@@ -44,11 +48,11 @@ const AppRoutes = () => {
 
           {/* Organization Routes ------------------------------------ */}
           <Route exact path="/org-login" element={<OrgLogin />} />
-          <Route exact path="/org-signup" element={<OrgSignup />} />
+          {/* <Route exact path="/org-signup" element={<OrgSignup />} /> */}
           <Route exact path="/org" element={<OrgDashboard />} />
 
           {/* Education Routes ------------------------------------ */}
-          <Route exact path="/education" element={<Education />} />
+          {/* <Route exact path="/education" element={<Education />} /> */}
           <Route
             exact
             path="/education-advertisements"
@@ -75,11 +79,11 @@ const AppRoutes = () => {
           <Route exact path="/event-Advertisements" element={<EventAdvertisementList />} />
           <Route exact path="/donate-Advertisements/:id" element={<ViewHealthAdvertisement />} />
           <Route exact path="/event-Advertisements/:id" element={<ViewEventAdvertisement />} />
-          <Route exact path="/donate-Advertisements/create" element={<CreateDonateAdvertisement />} />
-          <Route exact path="/event-Advertisements/create" element={<CreateEventAdvertisement />} />
-          <Route exact path="/donate-Advertisements/edit/:id" element={<EditDonateAdvertisement />} />
-          <Route exact path="/event-Advertisements/edit/:id" element={<EditEventAdvertisement />} />
-          <Route exact path="/health-admin" element={<HealthAdmin />} />
+          {/* <Route exact path="/donate-Advertisements/create" element={<CreateDonateAdvertisement />} /> */}
+          {/* <Route exact path="/event-Advertisements/create" element={<CreateEventAdvertisement />} /> */}
+          {/* <Route exact path="/donate-Advertisements/edit/:id" element={<EditDonateAdvertisement />} /> */}
+          {/* <Route exact path="/event-Advertisements/edit/:id" element={<EditEventAdvertisement />} /> */}
+          {/* <Route exact path="/health-admin" element={<HealthAdmin />} /> */}
 
 
 
@@ -99,11 +103,13 @@ const AppRoutes = () => {
           <Route exact path="/jobList" element={<JobList/>}></Route>
           <Route exact path= "/jobUpdate" element={<JobUpdate/>}></Route>
           <Route exact path="/jobCareer" element={<JobCareer/>}></Route>
-          <Route exact path="/jobOne"element={<JobOne/>}></Route>
+          <Route exact path="/jobOne/:id"element={<JobOne/>}></Route>
           <Route exact path= "/jobSeeker" element={<JobSeeker/>}/>
+          <Route exact path="/updateForm/:id" element={<UpdateForm/>}/>
+          <Route exact path="/jobReport" element={<JobReport/>}></Route>
 
           {/* -------------------------Profile------------------- */}
-          <Route exact path="/profile" element={<Profile />} />
+          {/* <Route exact path="/profile" element={<Profile />} /> */}
         </Routes>
       </Router>
     </>

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Header from "../../components/header";
 import storage from "../../utils/firebaseConfig";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
-import makeToast from "../../components/toast";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
+// import makeToast from "../../components/toast";
 import { useNavigate } from "react-router-dom";
 
 const EducationAdd = () => {
