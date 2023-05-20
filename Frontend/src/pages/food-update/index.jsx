@@ -33,7 +33,7 @@ const FoodUpdate = () => {
       contact_number: contact_number,
     };
 
-    FoodAdvertiestmentAPI.updateFoodAdvertiestment(id, data)
+    FoodAdvertiestmentAPI.updateFoodAdvertisement(id, data)
       .then((response) => {
         makeToast({
           type: "success",
@@ -77,7 +77,7 @@ const FoodUpdate = () => {
   };
 
   useEffect(() => {
-    FoodAdvertiestmentAPI.getFoodAdvertiestmentById(id)
+    FoodAdvertiestmentAPI.getFoodAdvertisementById(id)
       .then((res) => {
         setTitle(res.data.title);
         setDescription(res.data.description);

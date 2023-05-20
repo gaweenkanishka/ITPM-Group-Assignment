@@ -24,7 +24,7 @@ const FoodList = () => {
 
   // Delete Food advertisement
   const deleteFoodAdvertiestment = (id) => {
-    FoodAdvertiestmentAPI.deleteFoodAdvertiestment(id)
+    FoodAdvertiestmentAPI.deleteFoodAdvertisement(id)
       .then((response) => {
         makeToast({ type: "success", message: "Advertisement deleted" });
         setFoodAdvertiestments(
@@ -63,8 +63,9 @@ const FoodList = () => {
 
   return (
     <div className="bg-gray-100">
-      <Header />
-
+      <div className="bg-yellow-400">
+        <Header />
+      </div>
       <h1 className="text-4xl font-medium text-center mt-10 mb-5">
         Food Advertisements
       </h1>
@@ -155,7 +156,7 @@ const FoodList = () => {
                       <div className="flex items-center">
                         <div className=" font-medium text-gray-900">
                           <Link
-                            to={`/foodList/${foodAdvertiestment._id}`}
+                            to={`/foodOne/${foodAdvertiestment._id}`}
                             key={foodAdvertiestment._id}
                             className="hover:text-blue-500 hover:underline"
                           >
