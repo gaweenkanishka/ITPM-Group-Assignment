@@ -19,10 +19,11 @@ function Home() {
       <div className="flex justify-center">
         <img src={headdingImg} alt="Heading" />
       </div>
+      <Menu />
       <Mission />
       <Text2 />
       <Proceed2 />
-      <Menu />
+     
       <Footer />
     </div>
   );

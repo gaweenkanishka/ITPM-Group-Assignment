@@ -20,8 +20,10 @@ const All = () => {
   }, []);
 
   const handleClick = (foodAdvertiestment) => {
-    navigate(`/foodList/${foodAdvertiestment._id}`, { state: { foodAdvertiestment } });
-  };
+    navigate(`/foodOne/${foodAdvertiestment._id}`, {
+      state: { foodAdvertiestment },
+    });
+  };
 
   return (
     <div>
@@ -78,8 +80,9 @@ const All = () => {
                         {foodAdvertiestment.description}
                       </p>
                       <div className="flex items-center flex-wrap ">
-                        <button name="submit"
-                          onClick={()=>handleClick(foodAdvertiestment)}
+                        <button
+                          name="submit"
+                          onClick={() => handleClick(foodAdvertiestment)}
                           className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                         >
                           Learn More

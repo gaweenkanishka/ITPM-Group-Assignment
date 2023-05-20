@@ -85,8 +85,9 @@ const FoodAdd = () => {
 
   return (
     <div>
-      <Header />
-
+      <div className="bg-yellow-400">
+        <Header />
+      </div>
       <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
         <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-5">
           Add Food Advertisement

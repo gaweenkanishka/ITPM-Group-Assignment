@@ -6,7 +6,9 @@ import Header from "../../components/header";
 function Food() {
   return (
     <div>
-      <Header />
+      <div className="bg-yellow-400">
+        <Header />
+      </div>
       <h1 className="text-4xl font-medium text-center mt-10">
         Food Advertisements
       </h1>
