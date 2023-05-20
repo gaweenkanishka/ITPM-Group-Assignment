@@ -28,7 +28,14 @@ const login = async (req, res) => {
   );
 
   // Send the JWT as the response
-  res.status(200).json({ token });
+  res.status(200).json({
+    token,
+    organization: {
+      _id: organization._id,
+      name: organization.name,
+      email: organization.email,
+    },
+  });
 };
 
 // Signup

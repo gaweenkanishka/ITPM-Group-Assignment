@@ -27,19 +27,19 @@ const getHealthAdvertisement = async (req, res) => {
 
 //create new Health Advertiestment
 const createHealthAdvertisement = async (req, res) => {
-    const { type, location, title, description, photos, name, phone, date } = req.body;
+    const { type, organization, location, title, description, photos, name, phone } = req.body;
   
     //add doc to db
     try {
       const healthAdvertiestment = await HealthAdvertisement.create({
         type,
+        organization,
         location,
         title,
         description,
         photos,
         name,
-        phone,
-        date,
+        phone
       });
       res.status(200).json(healthAdvertiestment);
     } catch (error) {
@@ -94,13 +94,13 @@ const updateHealthAdvertisement = async (req, res) => {
         {
             $set: {
                 type: req.body.type,
+                organization: req.body.organization,
                 location: req.body.location,
                 title: req.body.title,
                 description: req.body.description,
                 photos: req.body.photos,
                 name: req.body.name,
-                phone: req.body.phone,
-                date: req.body.date,
+                phone: req.body.phone
             },
         },
         { new: true }
@@ -113,8 +113,6 @@ const updateHealthAdvertisement = async (req, res) => {
 
     res.status(200).json(healthAdvertisement);
 };
-
-
 
 module.exports = {
     getHealthAdvertisements,
