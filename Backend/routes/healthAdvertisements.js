@@ -6,9 +6,7 @@ const {
     deleteHealthAdvertisement,
     updateHealthAdvertisement,
     searchHealthAdvertisements,
-    getDonateAdvertisementsByOrganization
 } = require("../controllers/healthAdvertisementControllers");
-const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
@@ -29,9 +27,6 @@ router.patch("/:id", updateHealthAdvertisement);
 
 // SEARCH for healthAdvertisements
 router.get("/search", searchHealthAdvertisements);
-
-// GET all healthAdvertisements by organization
-router.get("/organization", authMiddleware, getDonateAdvertisementsByOrganization);
 
 module.exports = router;
 

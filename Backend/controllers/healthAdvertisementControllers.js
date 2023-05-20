@@ -114,21 +114,6 @@ const updateHealthAdvertisement = async (req, res) => {
     res.status(200).json(healthAdvertisement);
 };
 
-// Get all Donate Advertiestments by organization
-const getDonateAdvertisementsByOrganization = async (req, res) => {
-  const org_id = req.org_id;
-  const donateAdvertisement = await HealthAdvertisement.find({
-    organization: org_id,
-  })
-    .populate("organization", "name email")
-    .sort({
-      createdAt: -1,
-    }); // this varialble will store the data geting from the DB
-
-  // this will send  the data to client.
-  res.status(200).json(donateAdvertisement);
-};
-
 module.exports = {
     getHealthAdvertisements,
     getHealthAdvertisement,
@@ -136,5 +121,4 @@ module.exports = {
     deleteHealthAdvertisement,
     searchHealthAdvertisements,
     updateHealthAdvertisement,
-    getDonateAdvertisementsByOrganization,
 };
