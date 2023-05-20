@@ -71,7 +71,7 @@ const HealthAdmin = () => {
 
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       <Header />
 
       <h1 className="text-4xl font-medium text-center mt-10 mb-5">
@@ -81,15 +81,15 @@ const HealthAdmin = () => {
       <div className="overflow-hidden mt-5 mx-10">
         {/* Add New Donate */}
         <Link to="/donate-Advertisements/create">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-left mr-10 mt-5 mb-5">
+          <button className="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md float-right mr-10 mt-5 mb-5">
             Add New Donation
           </button>
         </Link>
       </div>
 
-      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-5 mx-10">
-        <table className="min-w-full divide-y divide-gray-200 text-md">
-          <thead className="bg-gray-50">
+      <div className="shadow overflow-hidden border-b border-red-200 sm:rounded-lg mt-5 mx-10">
+        <table className="min-w-full divide-y divide-red-200 text-md">
+          <thead className="bg-red-50">
             <tr>
               <th
                 scope="col"
@@ -109,11 +109,18 @@ const HealthAdmin = () => {
                 scope="col"
                 className="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
               >
+                Type
+              </th>
+
+              <th
+                scope="col"
+                className="px-6 py-3 text-left font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-red-200">
             {/*filter by organization and map data*/}
             {donateAdvertisements
               .filter((donateAdvertisement) => {
@@ -146,16 +153,24 @@ const HealthAdmin = () => {
                       </div>
                     </td>
 
-                    <td className="px-6 py-4 whitespace-nowrap flex">
-                        <MdDeleteOutline className="text-4xl text-red-500 hover:text-red-900 h-7 w-7 ml-8 cursor-pointer" onClick={() =>
-                          deleteDonateAdvertisement(donateAdvertisement._id)
-                        }/>
-                      {/* </button> */}
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <div className=" font-medium text-gray-900">
+                          {donateAdvertisement.type}
+                        </div>
+                      </div>
+                    </td>
 
+                    <td className="px-6 py-4 whitespace-nowrap flex">
+                        <p className="text-xl text-red-500 hover:text-red-900 ml-8 cursor-pointer" onClick={() =>
+                          deleteDonateAdvertisement(donateAdvertisement._id)
+                        }>
+                          delete
+                        </p>
                       <Link
-                        to={`/donate-Advertisements/edit/${donateAdvertisement._id}`}
+                        to={`/donate-Advertisements/edit/${donateAdvertisement._id}`} className=" text-xl text-blue-500 hover:text-blue-900 ml-8 cursor-pointer"
                       >
-                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900 h-7 w-7 ml-8" />
+                        edit
                       </Link>
                       </td>
                   </tr>
@@ -168,15 +183,15 @@ const HealthAdmin = () => {
       <div className="overflow-hidden mt-5 mx-10">
         {/* Add New Event */}
         <Link to="/event-Advertisements/create">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-left mr-10 mt-5 mb-5">
+          <button className="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md float-right mr-10 mt-5 mb-5">
             Add New Event
           </button>
         </Link>
       </div>
 
-      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-5 mx-10">
-        <table className="min-w-full divide-y divide-gray-200 text-md">
-          <thead className="bg-gray-50">
+      <div className="shadow overflow-hidden border-b border-red-200 sm:rounded-lg mt-5 mx-10">
+        <table className="min-w-full divide-y divide-red-200 text-md">
+          <thead className="bg-red-50">
             <tr>
               <th
                 scope="col"
@@ -200,7 +215,7 @@ const HealthAdmin = () => {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-red-200">
             {eventAdvertisements.filter((eventAdvertisement) => {
                 if (eventAdvertisement.organization === localStorage.getItem("user_id")) {
                   return eventAdvertisement;
@@ -232,15 +247,17 @@ const HealthAdmin = () => {
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap flex">
-                        <MdDeleteOutline className="text-4xl text-red-500 hover:text-red-900 h-7 w-7 ml-8 cursor-pointer" onClick={()=>deleteEventAdvertisement(eventAdvertisement._id)} />
-                      {/* </button> */}
-
+                        <p className="text-xl text-red-500 hover:text-red-900 ml-8 cursor-pointer" onClick={() =>
+                          deleteEventAdvertisement(eventAdvertisement._id)
+                        }>
+                          delete
+                        </p>
                       <Link
-                        to={`/event-Advertisements/edit/${eventAdvertisement._id}`}
+                        to={`/event-Advertisements/edit/${eventAdvertisement._id}`} className=" text-xl text-blue-500 hover:text-blue-900 ml-8 cursor-pointer"
                       >
-                        <BiEdit className="text-4xl text-blue-500 hover:text-blue-900 h-7 w-7 ml-8" />
+                        edit
                       </Link>
-                    </td>
+                      </td>
                   </tr>
                 ))}
           </tbody>
