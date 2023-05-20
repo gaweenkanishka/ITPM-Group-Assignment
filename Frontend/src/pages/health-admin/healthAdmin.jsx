@@ -78,6 +78,8 @@ const HealthAdmin = () => {
         Health Advertisements
       </h1>
 
+      <h2 className="text-2xl font-medium text-center mt-16 mb-5">Event Advertisements</h2>
+
       <div className="overflow-hidden mt-5 mx-10">
         {/* Add New Donate */}
         <Link to="/donate-Advertisements/create">
@@ -181,6 +183,8 @@ const HealthAdmin = () => {
       </div>
 
       <div className="overflow-hidden mt-5 mx-10">
+
+      <h2 className="text-2xl font-medium text-center mt-10 mb-5">Event Advertisements</h2>
         {/* Add New Event */}
         <Link to="/event-Advertisements/create">
           <button className="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md float-right mr-10 mt-5 mb-5">
@@ -188,6 +192,8 @@ const HealthAdmin = () => {
           </button>
         </Link>
       </div>
+
+      
 
       <div className="shadow overflow-hidden border-b border-red-200 sm:rounded-lg mt-5 mx-10">
         <table className="min-w-full divide-y divide-red-200 text-md">
