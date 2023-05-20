@@ -10,6 +10,7 @@ import Text2 from "./Text2";
 //import headdingImg from "../assets/hedding.png";
 import headdingImg from "../../assets/hedding.png";
 
+
 function Home() {
   return (
     <div>
