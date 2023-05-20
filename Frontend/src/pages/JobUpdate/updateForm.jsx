@@ -119,6 +119,36 @@ const updateForm = () => {
                     </span>
                     </Link>
                     </div>
+
+                    <div
+                    style={{
+                        position: 'fixed',
+                        top: '20px',
+                        right: '10px',
+                        cursor: 'pointer',
+                    }} >
+                    <Link to="/jobReport">
+                    <img
+                        src="https://static.vecteezy.com/system/resources/previews/010/329/281/original/right-arrow-3d-illustration-png.png"
+                        alt="Back"
+                        style={{
+                        width: '50px',
+                        height: '50px',
+                        }}
+                    />
+                      <span
+                        style={{
+                
+                        fontSize: '16px',
+                        fontWeight: 'bold',
+                        color: 'white',
+                        }}
+                    >
+                       Generate report
+                    </span> 
+                 
+                    </Link>
+                    </div>
                         
        
             {/* <h1>Job application</h1>

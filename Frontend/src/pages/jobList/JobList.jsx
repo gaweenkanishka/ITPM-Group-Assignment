@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function JobList() {
   const [job, setJob] = useState([]);
+  //const [searchKey, setSearchKey] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/jobsApplication')
@@ -15,6 +16,16 @@ export default function JobList() {
         console.log(err);
       })
   }, []);
+
+  
+  // function handleSearch(e){
+  //   setSearchKey(e.target.value)
+  // }
+
+  // //filter products
+  // const filterd = job.filter((job)=>
+  //   job.title.toLowerCase().includes(searchKey.toLowerCase())
+  // );
 
   return (
     <div>
@@ -40,8 +51,10 @@ export default function JobList() {
                       21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                   </p>
                 </div>
-                <input placeholder="Search Positions " type="search" class="border block pt-2 pr-0 pb-2 pl-10 w-full py-2
-                pl-10 border border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"/>
+                <input placeholder="Search Positions "
+                 type="search" class="border block pt-2 pr-0 pb-2 pl-10 w-full py-2
+                pl-10 border border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"
+               />
               </div>
             </div>
           </div>
