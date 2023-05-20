@@ -10,6 +10,7 @@ import Text2 from "./Text2";
 //import headdingImg from "../assets/hedding.png";
 import headdingImg from "../../assets/hedding.png";
 
+
 function Home() {
   return (
     <div>
@@ -18,10 +19,11 @@ function Home() {
       <div className="flex justify-center">
         <img src={headdingImg} alt="Heading" />
       </div>
+      <Menu />
       <Mission />
       <Text2 />
       <Proceed2 />
-      <Menu />
+     
       <Footer />
     </div>
   );

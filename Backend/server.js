@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/users");
+const foodAdvertisementRoutes = require("./routes/foodAdvertisement");
 const eduAdvertisementRoutes = require("./routes/eduAdvertisement");
 const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
 const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
@@ -23,6 +24,7 @@ app.use(cors());
 
 // routes
 app.use("/api/users", userRoutes);
+app.use("/api/foodAdvertisement", foodAdvertisementRoutes);
 app.use("/api/eduAdvertisement", eduAdvertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  eduAdvertisementRoutes.
 app.use("/api/organization", organizationRoutes);
 app.use("/api/healthAdvertisements", healthAdvertisementRoutes);

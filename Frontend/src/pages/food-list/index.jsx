@@ -1,35 +1,35 @@
 import { Link } from "react-router-dom";
 import Header from "../../components/header";
-import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
+import FoodAdvertiestmentAPI from "../../api/FoodAdvertiestmentAPI";
 import { useEffect, useState } from "react";
 import makeToast from "../../components/toast";
 import { MdDeleteOutline } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import * as XLSX from "xlsx";
 
-const EducationList = () => {
-  const [eduAdvertiestments, setEduAdvertiestments] = useState([]);
+const FoodList = () => {
+  const [foodAdvertiestments, setFoodAdvertiestments] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Get all education advertisements
+  // Get all Food advertisements
   useEffect(() => {
-    EduAdvertiestmentAPI.getAllEduAdvertiestmentsByOrganization()
+    FoodAdvertiestmentAPI.getAllFoodAdvertisementsByOrganization()
       .then((response) => {
-        setEduAdvertiestments(response.data);
+        setFoodAdvertiestments(response.data);
       })
       .catch((error) => {
         makeToast({ type: "error", message: error.response.data.error });
       });
   }, []);
 
-  // Delete education advertisement
-  const deleteEduAdvertiestment = (id) => {
-    EduAdvertiestmentAPI.deleteEduAdvertiestment(id)
+  // Delete Food advertisement
+  const deleteFoodAdvertiestment = (id) => {
+    FoodAdvertiestmentAPI.deleteFoodAdvertisement(id)
       .then((response) => {
         makeToast({ type: "success", message: "Advertisement deleted" });
-        setEduAdvertiestments(
-          eduAdvertiestments.filter(
-            (eduAdvertiestment) => eduAdvertiestment._id !== id
+        setFoodAdvertiestments(
+          foodAdvertiestments.filter(
+            (foodAdvertiestment) => foodAdvertiestment._id !== id
           )
         );
       })
@@ -58,22 +58,23 @@ const EducationList = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
     // Get today's date
     const today = new Date();
-    XLSX.writeFile(workbook, "Education Advertisements " + today + ".xlsx");
+    XLSX.writeFile(workbook, "Foodcation Advertisements " + today + ".xlsx");
   };
 
   return (
     <div className="bg-gray-100">
-      <Header />
-
+      <div className="bg-yellow-400">
+        <Header />
+      </div>
       <h1 className="text-4xl font-medium text-center mt-10 mb-5">
-        Education Advertisements
+        Food Advertisements
       </h1>
 
       <div className="overflow-hidden mt-5 mx-10">
-        {/* Add New Education */}
-        <Link to="/education-advertisements/add">
+        {/* Add New Foodcation */}
+        <Link to="/foodAdd">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-left mr-10 mt-5 mb-5">
-            Add New Education
+            Add New Food
           </button>
         </Link>
 
@@ -81,7 +82,7 @@ const EducationList = () => {
         <button
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full float-left mr-10 mt-5 mb-5"
           onClick={() => {
-            downloadExcel(eduAdvertiestments);
+            downloadExcel(foodAdvertiestments);
           }}
         >
           Download Report
@@ -125,28 +126,28 @@ const EducationList = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {eduAdvertiestments &&
-              eduAdvertiestments
-                .filter((eduAdvertiestment) => {
+            {foodAdvertiestments &&
+              foodAdvertiestments
+                .filter((foodAdvertiestment) => {
                   if (searchTerm === "") {
-                    return eduAdvertiestment;
+                    return foodAdvertiestment;
                   } else if (
-                    eduAdvertiestment.title
+                    foodAdvertiestment.title
                       .toLowerCase()
                       .includes(searchTerm.toLowerCase())
                   ) {
-                    return eduAdvertiestment;
+                    return foodAdvertiestment;
                   } else {
                     return null;
                   }
                 })
                 .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .map((eduAdvertiestment) => (
-                  <tr key={eduAdvertiestment._id}>
+                .map((foodAdvertiestment) => (
+                  <tr key={foodAdvertiestment._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className=" font-medium text-gray-900">
-                          {eduAdvertiestment._id}
+                          {foodAdvertiestment._id}
                         </div>
                       </div>
                     </td>
@@ -155,11 +156,11 @@ const EducationList = () => {
                       <div className="flex items-center">
                         <div className=" font-medium text-gray-900">
                           <Link
-                            to={`/education-advertisements/${eduAdvertiestment._id}`}
-                            key={eduAdvertiestment._id}
+                            to={`/foodOne/${foodAdvertiestment._id}`}
+                            key={foodAdvertiestment._id}
                             className="hover:text-blue-500 hover:underline"
                           >
-                            {eduAdvertiestment.title}
+                            {foodAdvertiestment.title}
                           </Link>
                         </div>
                       </div>
@@ -169,15 +170,13 @@ const EducationList = () => {
                       <button
                         className="text-red-500 hover:text-red-900 text-4xl"
                         onClick={() =>
-                          deleteEduAdvertiestment(eduAdvertiestment._id)
+                          deleteFoodAdvertiestment(foodAdvertiestment._id)
                         }
                       >
                         <MdDeleteOutline />
                       </button>
 
-                      <Link
-                        to={`/education-advertisements/update/${eduAdvertiestment._id}`}
-                      >
+                      <Link to={`/foodUpdate/${foodAdvertiestment._id}`}>
                         <BiEdit className="text-4xl text-blue-500 hover:text-blue-900" />
                       </Link>
                     </td>
@@ -190,4 +189,4 @@ const EducationList = () => {
   );
 };
 
-export default EducationList;
+export default FoodList;

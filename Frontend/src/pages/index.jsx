@@ -31,6 +31,11 @@ import Home from "./home";
 //food center
 import FoodCenters from "./foodCenters";
 import FoodCenterDetails from "./foodCenterDetails";
+import Food from "./food";
+import FoodAdd from "./food-add";
+import FoodList from "./food-list";
+import FoodOne from "./food-one";
+import FoodUpdate from "./food-update";
 
 //Jobs
 import JobHome from "./jobHome";
@@ -39,7 +44,7 @@ import JobList from "./jobList";
 import JobUpdate from "./JobUpdate";
 import JobCareer from "./jobCareer";
 import JobOne from "./Job-one";
-import JobSeeker from"./jobSeeker";
+import JobSeeker from "./jobSeeker";
 
 //Profile
 import Profile from "./userProfile";
@@ -79,6 +84,11 @@ export {
   //food center
   FoodCenters,
   FoodCenterDetails,
+  Food,
+  FoodAdd,
+  FoodList,
+  FoodOne,
+  FoodUpdate,
 
   //Job
   JobHome,
