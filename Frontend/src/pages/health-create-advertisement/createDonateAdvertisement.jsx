@@ -181,7 +181,7 @@ const CreateDonateAdvertisement = () => {
                                     <div className=" mt-3">
                                         <label htmlFor="phone" className="text-base font-medium text-gray-900"> Phone number </label>
                                         <div className="mt-2.5 relative">
-                                            <input required type="tel" name="phone" id="phone" placeholder="Enter your full name" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            <input required type="tel" name="phone" id="phone" placeholder="Enter your Contact Number" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
                                             value={phone} onChange={(event) => setPhone(event.target.value)}/>
                                         </div>
                                     </div>

@@ -187,7 +187,7 @@ const EditEventAdvertisement = () => {
                                     <div>
                                         <label htmlFor="date" className="text-base font-medium text-gray-900 "> Date </label>
                                         <div className="mt-2.5 relative">
-                                            <input required type="text" name="date" id="date" placeholder="YYYY-MM-DD" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
+                                            <input required type="date" name="date" id="date" placeholder="YYYY-MM-DD" className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" 
                                             value={date} onChange={(event) => setDate(event.target.value)}/>
                                         </div>
                                     </div>
