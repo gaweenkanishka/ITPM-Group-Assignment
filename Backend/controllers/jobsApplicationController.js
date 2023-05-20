@@ -149,4 +149,3 @@ module.exports = {
   incrViews,
   getCurrViews
 };
-//naa naa list ekk

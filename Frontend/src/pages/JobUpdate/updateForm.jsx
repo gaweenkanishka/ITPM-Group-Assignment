@@ -62,7 +62,7 @@ const updateForm = () => {
                 .then((response) => {
                   //  console.log(res)
                 window.alert("Job Deleted !")
-               // navigate("/jobList");
+               
             })
                 .catch((error) => {
                 console.log(error);

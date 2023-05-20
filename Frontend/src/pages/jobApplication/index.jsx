@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import axios from "axios";
-// import storage from "../../firebase/firebaseConfig"
-// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,10 +15,9 @@ const index = () => {
   const [jobDescription, setDescription] = useState("");
   const [openFor, setOpenfor] = useState("");
   const [companyName, setCompanyName] = useState("");
-  //const [image, setImage] = useState('');
 
-  const [file, setFile] = useState("");
-  const [percent, setPercent] = useState(0);
+
+
 
 
   const clearForm = () => {
