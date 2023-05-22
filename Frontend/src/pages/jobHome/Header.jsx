@@ -48,7 +48,7 @@ const Header = () => {
         </div>
 
         <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-            <img class="object-cover w-full h-full max-w-2xl rounded-md" src="https://images.unsplash.com/photo-1555181126-cf46a03827c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            <img class="object-cover w-full h-full max-w-2xl rounded-md" src="https://www.servingafrica.org/uploads/8/2/7/3/82734934/church-planting6_orig.png"
              alt="glasses photo"></img>
         </div>
     </div>

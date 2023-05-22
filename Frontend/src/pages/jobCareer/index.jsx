@@ -1,17 +1,15 @@
 import React from 'react'
 import Form from './form'
-
+import JobCareerList from './jobCareerList'
 
 const index = () => {
-  return (
-    <div>
-      <h1></h1>
-
-     <Form/>
-
-    
-</div>
-  )
+     return (
+          <div>
+               <Form />
+               <JobCareerList />
+           
+          </div>
+     )
 }
 
 export default index

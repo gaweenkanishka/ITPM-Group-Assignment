@@ -3,22 +3,15 @@ import DonateAdvertisementList from "./health-donate/donateAdvertisementList";
 import EventAdvertisementList from "./health-event/eventAdvertisementList";
 import ViewHealthAdvertisement from "./health-donate/viewHealthAdvertisement";
 import ViewEventAdvertisement from "./health-event/viewEventAdvertisement";
-import CreateDonateAdvertisement from "./health-create-advertisement/createDonateAdvertisement";
-import CreateEventAdvertisement from "./health-create-advertisement/createEventAdvertisement";
-import EditDonateAdvertisement from "./health-edit-advertisement/editDonateAdvertisement";
-import EditEventAdvertisement from "./health-edit-advertisement/editEventAdvertisement";
-import HealthAdmin from "./health-admin/healthAdmin";
 
 // Education Pages
 import EducationList from "./education-list";
 import EducationAdd from "./education-add";
 import EducationOne from "./education-one";
 import EducationUpdate from "./education-update";
-import Education from "./education";
 
 // Organization Pages
 import OrgLogin from "./org-login";
-import OrgSignup from "./org-signup";
 import OrgDashboard from "./org-dashboard";
 
 //sign
@@ -40,9 +33,9 @@ import JobUpdate from "./JobUpdate";
 import JobCareer from "./jobCareer";
 import JobOne from "./Job-one";
 import JobSeeker from"./jobSeeker";
+import UpdateForm from "./JobUpdate/updateForm";
+import JobReport from "./jobList/jobViewReport";
 
-//Profile
-import Profile from "./userProfile";
 
 export {
   // Education Pages
@@ -50,11 +43,9 @@ export {
   EducationAdd,
   EducationOne,
   EducationUpdate,
-  Education,
 
-  // Organization Pages
+  // // Organization Pages
   OrgLogin,
-  OrgSignup,
   OrgDashboard,
 
   // Health Pages
@@ -63,11 +54,6 @@ export {
   EventAdvertisementList,
   ViewHealthAdvertisement,
   ViewEventAdvertisement,
-  CreateDonateAdvertisement,
-  CreateEventAdvertisement,
-  EditDonateAdvertisement,
-  EditEventAdvertisement,
-  HealthAdmin,
 
   //sign
   SignUp,
@@ -88,5 +74,6 @@ export {
   JobCareer,
   JobOne,
   JobSeeker,
-  Profile,
+  UpdateForm,
+  JobReport
 };

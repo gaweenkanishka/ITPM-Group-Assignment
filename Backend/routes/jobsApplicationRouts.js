@@ -8,6 +8,8 @@ const {
   deleteApplicant,
   updateApplicant,
   searchApplicants,
+  incrViews,
+  getCurrViews
 } = require("../controllers/jobsApplicationController");
 
 // Get all applicants
@@ -24,5 +26,9 @@ router.delete("/:id", deleteApplicant);
 
 // Update an applicant
 router.put("/:id", updateApplicant);
+
+router.post("/incr/:id", incrViews);
+
+router.get("/views/:id", getCurrViews);
 
 module.exports = router;

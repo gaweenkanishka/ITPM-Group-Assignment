@@ -45,6 +45,7 @@ export function menu() {
               alt="people"
             />
             <div className="carousel-item__details">
+              <a href="/jobHome">
               <div className="controls">
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
@@ -57,8 +58,9 @@ export function menu() {
               <h6 className="carousel-item__details--subtitle">
                 Get Free Service
               </h6>
+              </a>
             </div>
-          </div>
+            </div>
           
           <div className="carousel-item">
             <Link to="/education">

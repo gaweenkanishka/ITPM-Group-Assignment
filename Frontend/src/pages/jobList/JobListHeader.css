@@ -20,10 +20,10 @@
 .job-list-header-title{
     color: darkblue;
     font-size: 45px;
-    margin: 0;
+    margin-left:400px;
 }
 
-.job-list-search{
+/* .job-list-search{
     margin-right: 10%;
     border: 0px;
     border-radius: 10px;
@@ -36,4 +36,4 @@
 
 .btn-search{
     margin-left: 1400px;
-}
+} */

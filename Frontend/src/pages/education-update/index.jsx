@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/header";
 import { useEffect, useState } from "react";
-import storage from "../../utils/firebaseConfig";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
-import makeToast from "../../components/toast";
+// import storage from "../../utils/firebaseConfig";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
+// import makeToast from "../../components/toast";
 
 const EducationUpdate = () => {
   const { id } = useParams();

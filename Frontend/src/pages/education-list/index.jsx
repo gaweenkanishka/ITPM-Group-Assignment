@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../../components/header";
 import EduAdvertiestmentAPI from "../../api/EduAdvertiestmentAPI";
 import { useEffect, useState } from "react";
-import makeToast from "../../components/toast";
+// import makeToast from "../../components/toast";
 import { MdDeleteOutline } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import * as XLSX from "xlsx";

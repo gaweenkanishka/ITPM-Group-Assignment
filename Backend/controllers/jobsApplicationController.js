@@ -4,11 +4,12 @@ const mongoose = require('mongoose');
 // create applicant
 const createApplicant = async (req, res) => {
   try {
-    const { jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
+    const { jobTitle,type,location,receive,jobDescription,openFor,companyName,image } = req.body;
 
     const newApplicant = new Applicant({
-      jobTitle,type,location,receive,jobDescription,openFor,companyName,Image,
+      jobTitle,type,location,receive,jobDescription,openFor,companyName,image,
     });
+    console.log(newApplicant);
 
     const savedApplicant = await newApplicant.save();
 
@@ -22,8 +23,7 @@ const createApplicant = async (req, res) => {
 // Get all applicants
 const getApplicants = async (req, res) => {
   try {
-    const applicants = await Applicant.find({});
-
+    const applicants = await Applicant.find().sort({views: -1})
     res.status(200).json(applicants);
   } catch (error) {
     res.status(500).json({
@@ -54,7 +54,7 @@ const getApplicant = async (req, res) => {
 const updateApplicant = async (req, res) => {
   try {
     const {id} = req.params;
-    const {  jobTitle,type,location,receive,jobDescription,openFor,companyName,Image } = req.body;
+    const {  jobTitle,type,location,receive,jobDescription,openFor,companyName,image } = req.body;
 
     const applicant = await Applicant.findById(req.params.id);
 
@@ -69,7 +69,7 @@ const updateApplicant = async (req, res) => {
     applicant.jobDescription= jobDescription;
     applicant.openFor=openFor;
     applicant.companyName=companyName;
-    applicant.Image=Image;
+    applicant.image=image;
     
     const savedApplicant = await Applicant.findByIdAndUpdate(id, applicant);
 
@@ -107,10 +107,45 @@ const deleteApplicant = async (req, res) => {
   }
 };
 
+//Increment Views
+const incrViews = async (req, res) => {
+ 
+  try{
+    const {id} = req.params;
+    const job = await Applicant.findById(id);
+    const views = job.views+1;
+    const newViews = {views};
+
+    await Applicant.findByIdAndUpdate(id, newViews) 
+    res.status(200).send('Updated !');
+  }
+  catch(err){
+    console.error(err);
+    res.status(500).send('Error !')
+  }
+}
+
+
+//Get current views
+const getCurrViews = async (req, res)=> {
+  try{
+    const {id} = req.params;
+    const job = await Applicant.findById(id);
+
+    res.status(200).json(job.views);
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({ error: 'Server error' });
+  }
+}
+
 module.exports = {
   getApplicants,
   getApplicant,
   createApplicant,
   deleteApplicant,
   updateApplicant,
+  incrViews,
+  getCurrViews
 };

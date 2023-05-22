@@ -4,7 +4,7 @@ import Form from './form'
 const index = () => {
   return (
     <div>
-     <Form/>
+      <Form/>
     </div>
   )
 }

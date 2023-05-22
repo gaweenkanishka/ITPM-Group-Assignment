@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OrganizationAPI from "../../api/OrganizationAPI";
 import undraw_Login_re_4vu2 from "../../assets/undraw_Login_re_4vu2.png";
-import makeToast from "../../components/toast";
+//import makeToast from "../../components/toast";
 
 const OrgLogin = () => {
   const navigate = useNavigate();
