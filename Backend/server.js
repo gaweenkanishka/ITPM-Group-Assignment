@@ -1,10 +1,45 @@
-const express = require("express");
+require("dotenv").config();
 
-//express app
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const userRoutes = require("./routes/users");
+const eduAdvertisementRoutes = require("./routes/eduAdvertisement");
+const healthAdvertisementRoutes = require("./routes/healthAdvertisements");
+const jobsApplicationRouts = require("./routes/jobsApplicationRouts");
+const eventAdvertisementRoutes = require("./routes/eventAdvertisement");
+const jobSeekerRoutes=require("./routes/jobSeekerRoutes");
+const careerRoutes = require("./routes/careerRoutes");
+const organizationRoutes = require("./routes/organization");
+
+// express app
 const app = express();
 
-//listen for requests
-app.listen(4000),
-  () => {
-    console.log("listening for requests on port 4000");
-  };
+// middleware
+app.use(express.json());
+
+// cors
+app.use(cors());
+
+// routes
+app.use("/api/users", userRoutes);
+app.use("/api/eduAdvertisement", eduAdvertisementRoutes); // when user send a req to localhost:8000/api/advertisement this will pass it to  eduAdvertisementRoutes.
+app.use("/api/organization", organizationRoutes);
+app.use("/api/healthAdvertisements", healthAdvertisementRoutes);
+app.use("/api/jobsApplication", jobsApplicationRouts);
+app.use("/api/eventAdvertisement", eventAdvertisementRoutes);
+app.use("/api/jobSeeker",jobSeekerRoutes);
+app.use("/api/career",careerRoutes);
+// connect to db
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("connected to database");
+    // listen to port
+    app.listen(process.env.PORT, () => {
+      console.log("listening for requests on port", process.env.PORT);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
